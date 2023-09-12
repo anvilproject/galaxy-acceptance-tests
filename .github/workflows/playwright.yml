@@ -12,7 +12,10 @@ on:
 env:
   TERRA_URL: test
   TERRA_WORKSPACE: integration
-  USER_JSON: "${{ secrets.USER_JSON }}"
+  USER_JSON: ${{ secrets.USER_JSON }}
+  TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
+  TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
+  
 jobs:
   test:
     timeout-minutes: 60

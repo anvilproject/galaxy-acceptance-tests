@@ -1,0 +1,43 @@
+/**
+ *  Copyright 2023 The Galaxy Project (https://galaxyproject.org)
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+import { test, expect } from '@playwright/test';
+import { Terra } from './terra';
+import { Galaxy } from './galaxy';
+
+require('dotenv').config({ path: __dirname+'/.env.local' })
+
+test.describe('create a new history and change its name', () => {
+  let terra: Terra;
+
+  test.beforeEach(async ({ page }) => {
+    terra = new Terra(page);
+    await terra.login();
+  })
+
+  test('history', async () => {
+    const page = await terra.openGalaxy()
+    const galaxy = new Galaxy(page)
+    
+    const historyName = 'My new history'
+    await galaxy.newHistory(historyName)
+    await expect(page.getByRole('heading', { name: historyName })).toHaveCount(1)
+    await galaxy.deleteHistory()
+
+    // We should always end up back at the default, empty, history.
+    await expect(page.getByText('This history is empty.')).toHaveCount(1)
+  });
+});
+

@@ -4,7 +4,7 @@ on:
     inputs:
       workspace: 
         description: 'the workspace to use when running the tests'
-        default: 'integration_tests'
+        default: test
   # push:
   #   branches: [ main, master ]
   # pull_request:
@@ -15,7 +15,7 @@ env:
   USER_JSON: ${{ secrets.USER_JSON }}
   TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
   TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
-  
+
 jobs:
   test:
     timeout-minutes: 60
@@ -34,7 +34,7 @@ jobs:
         mkdir .auth
         echo $USER_JSON > .auth/user.json
     - name: Run Playwright tests
-      run: npx playwright test login
+      run: npx playwright test fastp
     - uses: actions/upload-artifact@v3
       if: always()
       with:

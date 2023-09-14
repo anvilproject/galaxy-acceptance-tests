@@ -1,7 +1,7 @@
-# AnVIL Acceptance Tests
-Playwright acceptance tests on the AnVIL production server.
+# Galaxy Acceptance Tests
+Playwright tests to confirm Galaxy is functioning as expected after deployment.
 
-The `tests` directory contains a number of Playwright test scripts will eventually (likely) be combined into a single, end-to-end, test that:
+The `tests` directory contains a number of Playwright test scripts that will eventually (likely) be combined into a single, end-to-end, test that:
 
 1. Launches a new Galaxy instance on the [Terra production server](https://app.terra.bio).
 1. Performs several simple tests to confirm Galaxy is operational:
@@ -13,11 +13,11 @@ The `tests` directory contains a number of Playwright test scripts will eventual
 1. Launches a new Galaxy instance and ensure previous data is still present.
 1. Shuts down the Galaxy instance and deleting the existing disks.
 
-The test files can be grouped into two categories: tests that target the Terra UI itself (e.g. laumch Galaxy), and tests that target Galaxy (e.g. running tools).
+The test files can be grouped into two categories: tests that target the Terra UI (e.g. launch Galaxy), and tests that target Galaxy (e.g. running tools).
 
 ## Terra tests
 
-The test files that target Terra functionality include:
+The test files that target Terra functionality are:
 
 - `login.spec.ts`<br/>performs the login flow to authenticate with a Google account.
 - `launch.spec.ts`<br/>launches a Galaxy instance with the default configuration.

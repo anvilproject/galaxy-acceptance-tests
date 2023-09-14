@@ -90,9 +90,8 @@ export class Terra {
   }
 
   async shutdown(deleteDisks: boolean = false) {
-    console.log('Waiting for GALAXY Environment button')
+    console.log('Deleting Galaxy instance')
     await this.page.getByLabel('GALAXY Environment', { exact: false }).click();
-    console.log('Waiting for the Settings button')
     await this.page.getByText('Settings').click()
     await this.page.getByRole('button', { name: 'Delete Environment' }).click();
     if (deleteDisks) {
@@ -101,5 +100,6 @@ export class Terra {
     // else the default is to not delete disks
     await this.page.getByRole('button', { name: 'Delete' }).click();
     expect(this.page.getByRole('button', {name: 'Galaxy Environment'})).toBeHidden()
+    console.log('Galaxy instance deleted')
   }
 }

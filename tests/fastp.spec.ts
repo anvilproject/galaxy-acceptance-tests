@@ -55,16 +55,19 @@ test.describe('run the fastp tool on a small dataset', () => {
     await page.getByRole('option', { name: '1: ERR3485802.forward.fastq.gz' }).click()
 
     // Any of the "Run Tool" buttons will suffice.
+    console.log('Running the fastp tool')
     await page.getByRole('button', { name: 'Run Tool' }).first().click();
 
     // Wait for the tool to complete.
     await expect(page.getByRole('button', { name: '5 : fastp on data 2 and data 1: HTML report Display Edit attributes Delete' })).toHaveCount(1, {timeout: TimeUnits.MIN_5})
     
+    await page.screenshot({ path: 'playwright-report/fastp.jpg'})
+
     // Delete the history when done.
     await galaxy.deleteHistory()
 
     // We should always end up back at the default, empty, history.
     await expect(page.getByText('This history is empty.')).toHaveCount(1)
-
+    console.log('Tool complete')
   })
 });

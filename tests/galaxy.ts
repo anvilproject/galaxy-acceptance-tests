@@ -32,6 +32,7 @@ export class Galaxy {
         if (typeof name === 'undefined') {
             name = 'Test history - ' + new Date().toLocaleString()
         }
+        console.log(`Creating history "${name}"`)
         await this.page.getByRole('button', { name: 'Create new history' }).click()
         await this.page.locator('#right')
             .getByRole('button', { name: 'Edit'})
@@ -42,15 +43,18 @@ export class Galaxy {
         await this.page.getByRole('button', {name:'save'}).click()
         await this.page.getByRole('button', {name: 'Switch to history'}).click()
         await this.page.getByRole('cell', {name: new RegExp(name)}).click()    
+        console.log('History created.')
     }
 
     /**
      * Deletes the current history.
      */
     async deleteHistory() {
+        console.log('Deleting the current history')
         await this.page.getByRole('button', { name: 'History Options' }).click();
         await this.page.getByRole('menuitem', { name: 'Delete this History' }).click();
-        await this.page.getByRole('button', { name: 'OK' }).click();      
+        await this.page.getByRole('button', { name: 'OK' }).click();    
+        console.log('History deleted')  
     }
 
     /**
@@ -59,11 +63,13 @@ export class Galaxy {
      * @param items - a list of string
      */
     async upload(items: string[]) {
+        console.log('Uploading data')
         await this.page.getByLabel('Download from URL or upload files from disk').click();
         await this.page.getByRole('button', { name: ' Paste/Fetch data' }).click();
         await this.page.getByLabel('Regular').locator('textarea').click();
         await this.page.getByLabel('Regular').locator('textarea').fill(items.join('\n'));
         await this.page.getByRole('button', { name: 'Start' }).click();
         await this.page.getByRole('button', { name: 'Close' }).click();
+        console.log('Upload complete.')
     }
 }

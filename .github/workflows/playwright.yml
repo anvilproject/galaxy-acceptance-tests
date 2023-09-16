@@ -4,7 +4,19 @@ on:
     inputs:
       workspace: 
         description: 'the workspace to use when running the tests'
-        default: test
+        type: choice
+        options:
+          - integration
+          - acceptance
+        default: acceptance
+      server:
+        description: 'where to run the test'
+        type: choice
+        options:
+          - dev
+          - production
+        default: dev
+
   # push:
   #   branches: [ main, master ]
   # pull_request:
@@ -33,11 +45,29 @@ jobs:
       run: |
         mkdir .auth
         echo $USER_JSON > .auth/user.json
-    - name: Run Playwright tests
-      run: npx playwright test fastp
+    - name: Set environmental variables if this is a workflow dispatch
+      if: ${{ github.event_name == 'workflow_dispatch' }}
+      run: |
+        echo "TERRA_URL=${{ github.event.inputs.server }}" >> $GITHUB_ENV
+        echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV
+    - name: Launch Galaxy on Terra
+      run: |
+        npx playwright test launch
+        ls -al
+        ls -al playwright-report
+    - name: Run the fastp tool
+      run: |
+        npx playwright test fastp
+        ls -al
+        ls -al playwright-report
+    - name: Shutdown Galaxy
+      run: |
+        npx playwright test shutdown
+        ls -al
+        ls -al playwright-report  
     - uses: actions/upload-artifact@v3
       if: always()
       with:
         name: playwright-report
         path: playwright-report/
-        retention-days: 30
+        retention-days: 60

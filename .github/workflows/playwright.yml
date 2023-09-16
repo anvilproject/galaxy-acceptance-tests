@@ -1,5 +1,8 @@
 name: Playwright Tests
 on:
+  # schedule:
+  #   - cron: 17 0,3,6,9,12,15,18,21 * * *
+
   workflow_dispatch:
     inputs:
       workspace: 
@@ -17,10 +20,6 @@ on:
           - production
         default: dev
 
-  # push:
-  #   branches: [ main, master ]
-  # pull_request:
-  #   branches: [ main, master ]
 env:
   TERRA_URL: test
   TERRA_WORKSPACE: integration
@@ -50,22 +49,31 @@ jobs:
       run: |
         echo "TERRA_URL=${{ github.event.inputs.server }}" >> $GITHUB_ENV
         echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV
+    - name: Create a directory for the reports and screenshots
+      id: directory
+      run: |
+        name="$(date +'%y-%m-%d-%H-%M')"
+        mkdir -p results/$name
+        echo "name=$name" >> $GITHUB_OUTPUT
     - name: Launch Galaxy on Terra
       run: |
         npx playwright test launch
-        ls -al
-        ls -al playwright-report
+        cp launch.png results/${{ steps.directory.outputs.name }}/
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/launch.html
     - name: Run the fastp tool
       run: |
         npx playwright test fastp
-        ls -al
-        ls -al playwright-report
+        cp fastp.png results/${{ steps.directory.outputs.name }}/
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/fastp.html
     - name: Shutdown Galaxy
       if: always()
       run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'bot@github.com'      
+        git add results/${{ steps.directory.outputs.name }}
+        git commit -m "Results for $name"
+        git push 
         npx playwright test shutdown
-        ls -al
-        ls -al playwright-report  
     - uses: actions/upload-artifact@v3
       if: always()
       with:

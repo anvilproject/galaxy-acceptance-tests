@@ -1,6 +1,7 @@
 name: Playwright Tests
 on:
-  # schedule:
+  schedule:
+    - cron: 7 * * * *
   #   - cron: 17 0,3,6,9,12,15,18,21 * * *
 
   workflow_dispatch:
@@ -83,4 +84,4 @@ jobs:
       with:
         name: playwright-report
         path: playwright-report/
-        retention-days: 60
+        retention-days: 30

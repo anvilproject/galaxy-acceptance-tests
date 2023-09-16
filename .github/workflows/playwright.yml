@@ -61,6 +61,7 @@ jobs:
         ls -al
         ls -al playwright-report
     - name: Shutdown Galaxy
+      if: always()
       run: |
         npx playwright test shutdown
         ls -al

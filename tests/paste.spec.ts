@@ -27,7 +27,7 @@ test.describe('paste/upload data to a running Galaxy instance', () => {
     await terra.login()
   })
 
-  test('Paste text into the upload dialog', async () => {
+  test('Paste text into the upload dialog', async ({}, testInfo) => {
     test.setTimeout(TimeUnits.MIN_15)
     const page = await terra.openGalaxy()
     const galaxy = new Galaxy(page)
@@ -43,6 +43,9 @@ test.describe('paste/upload data to a running Galaxy instance', () => {
     await page.getByRole('button', { name: '1 : Pasted Entry Display Edit attributes Delete Add Tags Add Tags 1 line format txt, database ? uploaded txt file      This is a test.' }).getByTitle('Display').click();
     await expect(page.frameLocator('iframe[name="frame"]').getByText('This is a test.')).toHaveCount(1)
 
+    // Save a screenshot
+    galaxy.screenshot(testInfo, 'paste.png')
+    
     // Delete the history
     await galaxy.deleteHistory()
     await expect(page.getByText('This history is empty.')).toHaveCount(1)

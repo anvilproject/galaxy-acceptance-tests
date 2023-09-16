@@ -27,7 +27,7 @@ test.describe('run the fastp tool on a small dataset', () => {
     terra = new Terra(page);
   })
 
-  test('fastp', async () => {
+  test('fastp', async ({}, testInfo) => {
     test.setTimeout(TimeUnits.MIN_5)
     await terra.login()
     const page = await terra.openGalaxy()
@@ -61,8 +61,8 @@ test.describe('run the fastp tool on a small dataset', () => {
     // Wait for the tool to complete.
     await expect(page.getByRole('button', { name: '5 : fastp on data 2 and data 1: HTML report Display Edit attributes Delete' })).toHaveCount(1, {timeout: TimeUnits.MIN_5})
 
-    console.log('Saving a screenshot')
-    await page.screenshot({ path: 'playwright-report/fastp.jpg'})
+    // Save a screenshot
+    await galaxy.screenshot(testInfo, 'fastp.png')
 
     // Delete the history when done.
     await galaxy.deleteHistory()

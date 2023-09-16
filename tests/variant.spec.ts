@@ -36,7 +36,7 @@ test.describe('[WIP] run a variant calling workflow', () => {
     terra = new Terra(page);
   })
 
-  test('run a variant calling workflow', async () => {
+  test('run a variant calling workflow', async ({}, testInfo) => {
     await terra.login()
     const page = await terra.openGalaxy()
     const galaxy = new Galaxy(page)
@@ -59,6 +59,7 @@ test.describe('[WIP] run a variant calling workflow', () => {
     await page.getByPlaceholder('Enter a name for your new collection').click();
     await page.getByPlaceholder('Enter a name for your new collection').fill('Paired List');
     await page.getByRole('button', { name: 'Create collection' }).click();
+    galaxy.screenshot(testInfo, 'vc-data.png')
 
     // Import the workflow
     await page.getByRole('link', { name: 'Workflow', exact: true }).click();
@@ -71,5 +72,6 @@ test.describe('[WIP] run a variant calling workflow', () => {
     await page.getByRole('button', { name: 'Run Workflow' }).click();
 
     // TODO - determine the selector we should be waiting on here.
+    galaxy.screenshot(testInfo, 'vc-workflow.png')
   })
 });

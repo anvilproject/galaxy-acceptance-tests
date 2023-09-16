@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import { Page, expect } from '@playwright/test';
+import { Page, TestInfo, expect } from '@playwright/test';
 
 /**
  * A class to perform common tasks in Galaxy.
@@ -71,5 +71,14 @@ export class Galaxy {
         await this.page.getByRole('button', { name: 'Start' }).click();
         await this.page.getByRole('button', { name: 'Close' }).click();
         console.log('Upload complete.')
+    }
+
+    /** 
+     * Take a screenshot of the current state of the UI and attach it to the testInfo
+     */
+    async screenshot(testInfo: TestInfo, path:string = 'screenshot.png') {
+        console.log(`Saving screenshot ${path}`)
+        const screenshot = await this.page.screenshot({ path: path })
+        testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png'})
     }
 }

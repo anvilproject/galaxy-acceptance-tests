@@ -49,7 +49,7 @@ export class Terra {
     }
     if ('TERRA_URL' in process.env) {
       url = process.env.TERRA_URL!
-      if (url === 'test') {
+      if (url === 'test' || url == 'dev') {
         url = Terra.test + workspace
       }
       else if (url === 'production') {

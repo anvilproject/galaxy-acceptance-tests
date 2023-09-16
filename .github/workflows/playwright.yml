@@ -68,12 +68,16 @@ jobs:
     - name: Shutdown Galaxy
       if: always()
       run: |
+        npx playwright test shutdown
+        cp playwright-report/index.html ${{ steps.directory.outputs.name }}/shutdown.html
+    - name: Add the reports to the repository
+      if: always()
+      run: |
         git config --global user.name 'GitHub Action'
-        git config --global user.email 'bot@github.com'      
+        git config --global user.email 'action@github.com'      
         git add results/${{ steps.directory.outputs.name }}
         git commit -m "Results for $name"
         git push 
-        npx playwright test shutdown
     - uses: actions/upload-artifact@v3
       if: always()
       with:

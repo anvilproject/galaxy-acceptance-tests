@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Galaxy acceptance tests
 on:
   schedule:
     - cron: '37 * * * *'

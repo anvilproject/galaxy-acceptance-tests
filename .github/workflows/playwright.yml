@@ -1,8 +1,7 @@
 name: Playwright Tests
 on:
   schedule:
-    - cron: '23,53 * * * *'
-  #   - cron: 17 0,3,6,9,12,15,18,21 * * *
+    - cron: '37 0,6,12,18 * * *'
 
   workflow_dispatch:
     inputs:
@@ -61,11 +60,21 @@ jobs:
         npx playwright test launch
         cp launch.png results/${{ steps.directory.outputs.name }}/
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/launch.html
+    - uses: actions/upload-artifact@v3
+      with:
+        name: launch-report
+        path: playwright-report/
+        retention-days: 30
     - name: Run the fastp tool
       run: |
         npx playwright test fastp
         cp fastp.png results/${{ steps.directory.outputs.name }}/
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/fastp.html
+    - uses: actions/upload-artifact@v3
+      with:
+        name: fastp-report
+        path: playwright-report/
+        retention-days: 30
     - name: Shutdown Galaxy
       if: always()
       run: |
@@ -76,9 +85,9 @@ jobs:
       run: |
         git config --global user.name 'GitHub Action'
         git config --global user.email 'action@github.com'    
-        git pull  
+        git pull
         git add results/${{ steps.directory.outputs.name }}
-        git commit -m "Results for $name"
+        git commit -m "Results for ${{ steps.directory.outputs.name }}"
         git push 
     - uses: actions/upload-artifact@v3
       if: always()

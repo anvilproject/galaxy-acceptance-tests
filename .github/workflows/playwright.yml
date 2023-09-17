@@ -75,7 +75,8 @@ jobs:
       if: always()
       run: |
         git config --global user.name 'GitHub Action'
-        git config --global user.email 'action@github.com'      
+        git config --global user.email 'action@github.com'    
+        git pull  
         git add results/${{ steps.directory.outputs.name }}
         git commit -m "Results for $name"
         git push 

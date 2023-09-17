@@ -1,7 +1,7 @@
 name: Galaxy acceptance tests
 on:
   schedule:
-    - cron: '37 0,4,8,12,16,20 * * *'
+    - cron: '37 1,13 * * *'
 
   workflow_dispatch:
     inputs:
@@ -92,6 +92,6 @@ jobs:
     - uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: playwright-report
+        name: shutdown-report
         path: playwright-report/
         retention-days: 30

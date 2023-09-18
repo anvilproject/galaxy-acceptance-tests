@@ -27,12 +27,14 @@ test.describe('run the fastp tool on a small dataset', () => {
     terra = new Terra(page);
   })
 
-  test('fastp', async ({}, testInfo) => {
+  test('fastp', async ({ context }, testInfo) => {
     test.setTimeout(TimeUnits.MIN_5)
+    await context.tracing.start({screenshots: true, snapshots: true})
+
     await terra.login()
     const page = await terra.openGalaxy()
     const galaxy = new Galaxy(page)
-    
+
     // Create a new history and upload the datasets.
     await galaxy.newHistory('Fastp ' + new Date().toLocaleString())
     await galaxy.upload(VariantCalling.pair)
@@ -67,8 +69,11 @@ test.describe('run the fastp tool on a small dataset', () => {
     // Delete the history when done.
     await galaxy.deleteHistory()
 
+    await context.tracing.stop({path: 'fastp-trace.zip'})
+    
     // We should always end up back at the default, empty, history.
     await expect(page.getByText('This history is empty.')).toHaveCount(1)
+    
     console.log('Tool complete')
   })
 });

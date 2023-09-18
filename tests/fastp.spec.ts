@@ -70,7 +70,8 @@ test.describe('run the fastp tool on a small dataset', () => {
     await galaxy.deleteHistory()
 
     await context.tracing.stop({path: 'fastp-trace.zip'})
-    
+    await testInfo.attach('trace', {path: 'fastp-trace.zip'})
+
     // We should always end up back at the default, empty, history.
     await expect(page.getByText('This history is empty.')).toHaveCount(1)
     

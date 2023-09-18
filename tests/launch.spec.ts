@@ -29,7 +29,7 @@ test.describe('launch a new Galaxy instance', () => {
 
   test('Launch a Galaxy instance', async ({ page }, testInfo) => {
     // Give Leo lots of time to launch the cluster and install Galaxy
-    let timeout: number = TimeUnits.MIN_30
+    let timeout: number = TimeUnits.MIN_20
     test.setTimeout(timeout)
     terra.launch();
     const ok = page.getByRole('link', {name: 'Open Galaxy'}).waitFor().then(() => 'ok')

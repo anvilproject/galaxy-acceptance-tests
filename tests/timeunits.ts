@@ -32,6 +32,7 @@ export class TimeUnits {
     public static readonly MIN_5 = this.MIN_1 * 5
     public static readonly MIN_10 = this.MIN_1 * 10
     public static readonly MIN_15 = this.MIN_1 * 15
+    public static readonly MIN_20 = this.MIN_1 * 20
     public static readonly MIN_30 = this.MIN_1 * 30
 
     private _msec: number

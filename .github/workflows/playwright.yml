@@ -69,6 +69,7 @@ jobs:
       run: |
         npx playwright test fastp
         cp fastp.png results/${{ steps.directory.outputs.name }}/
+        cp fastp-trace.zip results/${{ steps.directory.outputs.name }}/
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/fastp.html
     - uses: actions/upload-artifact@v3
       with:

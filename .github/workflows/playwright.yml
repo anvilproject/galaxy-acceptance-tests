@@ -88,6 +88,7 @@ jobs:
         git config --global user.email 'action@github.com'    
         git pull
         git add results/${{ steps.directory.outputs.name }}
+        git add Results.md
         git commit -m "Results for ${{ steps.directory.outputs.name }}"
         git push 
     - uses: actions/upload-artifact@v3

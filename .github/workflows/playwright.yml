@@ -77,6 +77,16 @@ jobs:
         name: fastp-report
         path: playwright-report/
         retention-days: 30
+    - name: Test importing data from the workspace
+      run: |
+        npx playwright test import
+        cp import.png results/${{ steps.directory.outputs.name }}/
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/import.html
+    - uses: actions/upload-artifact@v3
+      with:
+        name: import-report
+        path: playwright-report/
+        retention-days: 30
     - name: Shutdown Galaxy
       if: always()
       run: |

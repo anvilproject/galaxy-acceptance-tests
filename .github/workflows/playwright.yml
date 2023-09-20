@@ -11,7 +11,8 @@ on:
         options:
           - integration
           - acceptance
-        default: acceptance
+          - sarscov2
+        default: sarscov2
       server:
         description: 'where to run the test'
         type: choice
@@ -21,7 +22,7 @@ on:
         default: dev
 
 env:
-  TERRA_URL: test
+  TERRA_URL: sarscov2
   TERRA_WORKSPACE: integration
   USER_JSON: ${{ secrets.USER_JSON }}
   TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
@@ -74,6 +75,16 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: fastp-report
+        path: playwright-report/
+        retention-days: 30
+    - name: Test importing data from the workspace
+      run: |
+        npx playwright test import
+        cp import.png results/${{ steps.directory.outputs.name }}/
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/import.html
+    - uses: actions/upload-artifact@v3
+      with:
+        name: import-report
         path: playwright-report/
         retention-days: 30
     - name: Shutdown Galaxy

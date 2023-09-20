@@ -48,15 +48,16 @@ test.describe('import data', () => {
     await page.getByRole('link', { name: 'sample/' }).click();
     await page.getByRole('row', { name: ' VA_sample_forward_reads.fastq -' }).locator('svg').click();
     await page.getByRole('row', { name: ' VA_sample_reverse_reads.fastq -' }).locator('svg').click();
+
+    // Start the upload/import
     await page.getByRole('button', { name: 'Ok' }).click();
     await page.getByRole('button', { name: 'Start' }).click();
     await page.getByRole('button', { name: 'Close' }).click();
-    await page.getByRole('button', { name: '3 : VA_sample_reverse_reads.fastq Display Edit attributes Delete' }).getByTitle('Display').click();
-    await page.getByRole('button', { name: 'History Options' }).click();
-    await page.getByRole('menuitem', { name: 'Delete this History' }).click();
-    await page.getByRole('button', { name: 'OK' }).click();
 
-    // Save a screenshot
+    // Wait until the upload completes
+    await page.getByRole('button', { name: '3 : VA_sample_reverse_reads.fastq Display Edit attributes Delete' }).getByTitle('Display').click();
+
+    // Take a screenshot.
     await galaxy.screenshot(testInfo, 'import.png')
 
     // Delete the history when done.

@@ -19,14 +19,20 @@ The most current result is at the end of the table.
 | Tue Sep 19 2023 | 1:48:42 PM | Launch a Galaxy instance | 00:04:09 | passed |
 | Tue Sep 19 2023 | 1:50:14 PM | fastp | 00:01:29 | passed |
 | Tue Sep 19 2023 | 1:50:37 PM | Delete the Galaxy instance | 00:00:11 | passed |
-| Thu Sep 21 2023 | 3:10:46 PM | Launch a Galaxy instance | 00:04:08 | passed |
-| Thu Sep 21 2023 | 3:35:17 PM | Launch a Galaxy instance | 00:05:55 | passed |
-| Thu Sep 21 2023 | 3:39:02 PM | fastp | 00:02:23 | passed |
-| Thu Sep 21 2023 | 3:41:19 PM | import | 00:00:46 | passed |
-| Thu Sep 21 2023 | 3:43:11 PM | Delete the Galaxy instance | 00:00:13 | passed |
-| Thu Sep 21 2023 | 1:16:51 PM | Launch a Galaxy instance | 00:01:08 | failed |
-| Thu Sep 21 2023 | 1:18:01 PM | Launch a Galaxy instance | 00:01:08 | failed |
-| Thu Sep 21 2023 | 1:19:09 PM | Launch a Galaxy instance | 00:01:08 | failed |
-| Thu Sep 21 2023 | 1:19:41 PM | Delete the Galaxy instance | 00:00:29 | timedOut |
-| Thu Sep 21 2023 | 1:20:13 PM | Delete the Galaxy instance | 00:00:30 | timedOut |
-| Thu Sep 21 2023 | 1:20:43 PM | Delete the Galaxy instance | 00:00:29 | timedOut |
+| Wed Sep 20 2023 | 2:26:31 AM | Launch a Galaxy instance | 00:20:00 | timedOut |
+| Wed Sep 20 2023 | 2:41:52 AM | Launch a Galaxy instance | 00:15:19 | failed |
+| Wed Sep 20 2023 | 2:42:02 AM | Launch a Galaxy instance | 00:00:09 | failed |
+| Wed Sep 20 2023 | 2:42:13 AM | Delete the Galaxy instance | 00:00:10 | passed |
+| Wed Sep 20 2023 | 1:55:48 PM | Launch a Galaxy instance | 00:11:41 | passed |
+| Wed Sep 20 2023 | 2:00:51 PM | fastp | 00:04:59 | timedOut |
+| Wed Sep 20 2023 | 2:00:52 PM | fastp | 00:00:00 | failed |
+| Wed Sep 20 2023 | 2:05:52 PM | fastp | 00:04:59 | timedOut |
+| Wed Sep 20 2023 | 2:06:06 PM | Delete the Galaxy instance | 00:00:12 | passed |
+| Thu Sep 21 2023 | 2:17:38 AM | Launch a Galaxy instance | 00:11:32 | passed |
+| Thu Sep 21 2023 | 2:20:14 AM | fastp | 00:02:32 | passed |
+| Thu Sep 21 2023 | 2:20:39 AM | Delete the Galaxy instance | 00:00:09 | passed |
+| Thu Sep 21 2023 | 1:56:08 PM | Launch a Galaxy instance | 00:11:53 | passed |
+| Thu Sep 21 2023 | 2:01:10 PM | fastp | 00:04:59 | timedOut |
+| Thu Sep 21 2023 | 2:01:11 PM | fastp | 00:00:00 | failed |
+| Thu Sep 21 2023 | 2:03:35 PM | fastp | 00:02:22 | passed |
+| Thu Sep 21 2023 | 2:03:56 PM | Delete the Galaxy instance | 00:00:09 | passed |

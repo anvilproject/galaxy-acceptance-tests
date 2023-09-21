@@ -22,10 +22,14 @@ The most current result is at the end of the table.
 | Thu Sep 21 2023 | 3:10:46 PM | Launch a Galaxy instance | 00:04:08 | passed |
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 | Thu Sep 21 2023 | 3:35:17 PM | Launch a Galaxy instance | 00:05:55 | passed |
 =======
 | Thu Sep 21 2023 | 3:39:02 PM | fastp | 00:02:23 | passed |
 >>>>>>> Stashed changes
 =======
 | Thu Sep 21 2023 | 3:41:19 PM | import | 00:00:46 | passed |
+>>>>>>> Stashed changes
+=======
+| Thu Sep 21 2023 | 3:43:11 PM | Delete the Galaxy instance | 00:00:13 | passed |
 >>>>>>> Stashed changes

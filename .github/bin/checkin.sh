@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 dir=$1
-html=$2
+name=$2
 shift 2
 
 git config --global user.name 'GitHub Action'

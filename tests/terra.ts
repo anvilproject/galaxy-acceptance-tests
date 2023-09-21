@@ -34,7 +34,7 @@ export class Terra {
   static readonly test: string = 'https://bvdp-saturn-dev.appspot.com/#workspaces/galaxy-anvil-dev/'; //integration_tests';
   static readonly production: string = 'https://app.terra.bio/#workspaces/notebooks-canary-project/'; //integration_tests';
   static readonly sarscov2: string = 'https://anvil.terra.bio/#workspaces/notebooks-canary-project/SARS-CoV-2-Genome%20copy'
-  
+
   constructor(public readonly page: Page) {
   }
 
@@ -55,6 +55,9 @@ export class Terra {
       }
       else if (url === 'production') {
         url = Terra.production + workspace
+      }
+      else if (url === 'sarscov2') {
+        url = Terra.sarscov2
       }
     }
     console.log(`Logging in to ${url}`)

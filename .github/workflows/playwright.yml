@@ -19,7 +19,8 @@ on:
         options:
           - dev
           - production
-        default: dev
+          - sarscov2
+        default: sarscov2
 
 env:
   TERRA_URL: sarscov2

@@ -51,10 +51,14 @@ The most current result is at the end of the table.
 >>>>>>> Stashed changes
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 | Fri Sep 22 2023 | 2:20:06 AM | Launch a Galaxy instance | 00:13:08 | passed |
 =======
 | Fri Sep 22 2023 | 2:23:44 AM | fastp | 00:02:25 | passed |
 >>>>>>> Stashed changes
 =======
 | Fri Sep 22 2023 | 2:26:20 AM | import | 00:00:44 | passed |
+>>>>>>> Stashed changes
+=======
+| Fri Sep 22 2023 | 2:27:59 AM | Delete the Galaxy instance | 00:00:11 | passed |
 >>>>>>> Stashed changes

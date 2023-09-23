@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -eu
+
 dir=$1
 name=$2
 shift 2
@@ -9,7 +11,10 @@ git stash
 git pull
 git stash pop
 
-mkdir -p results/$name
+if [[ ! -e results/$dir ]] ; then
+  mkdir -p results/$dir
+fi
+
 cp playwright-report/index.html results/$dir/$name.html
 if [[ -e $name.png ]] ; then
   cp $name.png results/$dir/

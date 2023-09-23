@@ -36,64 +36,25 @@ The most current result is at the end of the table.
 | Thu Sep 21 2023 | 2:01:11 PM | fastp | 00:00:00 | failed |
 | Thu Sep 21 2023 | 2:03:35 PM | fastp | 00:02:22 | passed |
 | Thu Sep 21 2023 | 2:03:56 PM | Delete the Galaxy instance | 00:00:09 | passed |
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 | Thu Sep 21 2023 | 4:14:07 PM | Launch a Galaxy instance | 00:04:08 | passed |
-=======
 | Thu Sep 21 2023 | 4:17:26 PM | fastp | 00:01:34 | passed |
->>>>>>> Stashed changes
-=======
 | Thu Sep 21 2023 | 4:19:48 PM | import | 00:00:42 | passed |
->>>>>>> Stashed changes
-=======
 | Thu Sep 21 2023 | 4:21:51 PM | Delete the Galaxy instance | 00:00:13 | passed |
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 | Fri Sep 22 2023 | 2:20:06 AM | Launch a Galaxy instance | 00:13:08 | passed |
-=======
 | Fri Sep 22 2023 | 2:23:44 AM | fastp | 00:02:25 | passed |
->>>>>>> Stashed changes
-=======
 | Fri Sep 22 2023 | 2:26:20 AM | import | 00:00:44 | passed |
->>>>>>> Stashed changes
-=======
 | Fri Sep 22 2023 | 2:27:59 AM | Delete the Galaxy instance | 00:00:11 | passed |
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 | Fri Sep 22 2023 | 1:57:30 PM | Launch a Galaxy instance | 00:13:17 | passed |
-=======
 | Fri Sep 22 2023 | 2:01:10 PM | fastp | 00:02:29 | passed |
->>>>>>> Stashed changes
-=======
 | Fri Sep 22 2023 | 2:03:35 PM | import | 00:00:58 | passed |
->>>>>>> Stashed changes
-=======
 | Fri Sep 22 2023 | 2:05:24 PM | Delete the Galaxy instance | 00:00:12 | passed |
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 | Sat Sep 23 2023 | 2:18:36 AM | Launch a Galaxy instance | 00:13:53 | passed |
-=======
 | Sat Sep 23 2023 | 2:22:30 AM | fastp | 00:02:26 | passed |
->>>>>>> Stashed changes
-=======
 | Sat Sep 23 2023 | 2:25:08 AM | import | 00:00:46 | passed |
->>>>>>> Stashed changes
-=======
 | Sat Sep 23 2023 | 2:26:49 AM | Delete the Galaxy instance | 00:00:12 | passed |
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
 | Sat Sep 23 2023 | 1:44:29 PM | Launch a Galaxy instance | 00:00:11 | failed |
 | Sat Sep 23 2023 | 1:57:28 PM | Launch a Galaxy instance | 00:12:57 | failed |
 | Sat Sep 23 2023 | 1:59:53 PM | Launch a Galaxy instance | 00:02:24 | failed |
-=======
 | Sat Sep 23 2023 | 2:02:05 PM | Delete the Galaxy instance | 00:00:17 | failed |
 | Sat Sep 23 2023 | 2:02:23 PM | Delete the Galaxy instance | 00:00:17 | failed |
 | Sat Sep 23 2023 | 2:02:54 PM | Delete the Galaxy instance | 00:00:29 | timedOut |
->>>>>>> Stashed changes

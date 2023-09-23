@@ -76,7 +76,11 @@ The most current result is at the end of the table.
 | Fri Sep 22 2023 | 2:05:24 PM | Delete the Galaxy instance | 00:00:12 | passed |
 >>>>>>> Stashed changes
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 | Sat Sep 23 2023 | 2:18:36 AM | Launch a Galaxy instance | 00:13:53 | passed |
 =======
 | Sat Sep 23 2023 | 2:22:30 AM | fastp | 00:02:26 | passed |
+>>>>>>> Stashed changes
+=======
+| Sat Sep 23 2023 | 2:25:08 AM | import | 00:00:46 | passed |
 >>>>>>> Stashed changes

@@ -88,3 +88,6 @@ The most current result is at the end of the table.
 =======
 | Sat Sep 23 2023 | 2:26:49 AM | Delete the Galaxy instance | 00:00:12 | passed |
 >>>>>>> Stashed changes
+| Sat Sep 23 2023 | 1:44:29 PM | Launch a Galaxy instance | 00:00:11 | failed |
+| Sat Sep 23 2023 | 1:57:28 PM | Launch a Galaxy instance | 00:12:57 | failed |
+| Sat Sep 23 2023 | 1:59:53 PM | Launch a Galaxy instance | 00:02:24 | failed |

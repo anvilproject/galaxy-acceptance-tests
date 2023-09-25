@@ -24,6 +24,7 @@
  */
 export class TimeUnits {
     public static readonly SEC_1: number = 1000
+    public static readonly SEC_2: number = this.SEC_1 * 2
     public static readonly SEC_5: number = this.SEC_1 * 5
     public static readonly SEC_10: number = this.SEC_1 * 10
     public static readonly SEC_30: number = this.SEC_1 * 30

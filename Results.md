@@ -70,3 +70,4 @@ The most current result is at the end of the table.
 | Mon Sep 25 2023 | 1:45:20 PM | Launch a Galaxy instance | 00:00:37 | failed |
 | Mon Sep 25 2023 | 1:46:00 PM | Launch a Galaxy instance | 00:00:39 | failed |
 | Mon Sep 25 2023 | 1:46:38 PM | Launch a Galaxy instance | 00:00:37 | failed |
+| Mon Sep 25 2023 | 4:52:33 PM | Launch a Galaxy instance | 00:13:32 | passed |

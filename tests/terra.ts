@@ -68,20 +68,23 @@ export class Terra {
     const page1 = await page1Promise;
     await page1.getByRole('button', { name: 'Sign in with Google' }).click();
     console.log('Signing in')
-    const link = page1.getByText(process.env.TERRA_EMAIL!)
-    const promise = expect(link).toBeVisible()
-    
-    const mustLogin: boolean = await promise
-    if (mustLogin) {
+    const link = page1.getByRole('link', { name: process.env.TERRA_EMAIL!, exact: false })
+    await page1.waitForTimeout(TimeUnits.SEC_5)
+    if (await link.isVisible()) {
       console.log('Found the Ron Weasley link')
-      await page1.getByRole('link', { name: 'Ron Weasley ron.weasley@test.firecloud.org' }).click()  
+      await link.click()  
+      await page1.getByLabel('Enter your password').fill(process.env.TERRA_PASSWORD!);  
+      await page1.click("#passwordNext")
     }
-    if (await expect(page1.getByLabel('Email or phone').toBeVisible())) {
+    else if (await page1.getByLabel('Email or phone').isVisible()) {
       console.log('Found login form')
       await page1.getByLabel('Email or phone').fill(process.env.TERRA_EMAIL!);
       await page1.click("#identifierNext")
       await page1.getByLabel('Enter your password').fill(process.env.TERRA_PASSWORD!);  
       await page1.click("#passwordNext")
+    }
+    else {
+      console.log("Login not required")  
     }
     console.log("Logged in")
   }

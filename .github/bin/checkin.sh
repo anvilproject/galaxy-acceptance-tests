@@ -12,21 +12,26 @@ git pull
 git stash pop
 
 if [[ ! -e results/$dir ]] ; then
+  echo "Creating results/$dir"
   mkdir -p results/$dir
 fi
 
+ls -al
+ls -al results
+ls -al results/$dir
+
 cp playwright-report/index.html results/$dir/$name.html
 if [[ -e $name.png ]] ; then
-  cp $name.png results/$dir/
+  mv $name.png results/$dir/
 fi
 
 while [[ $# > 0 ]] ; do
-  cp $1 results/$dir/
+  mv $1 results/$dir/
   shift
 done
 
 git add results/$dir
 git add Results.md
-git commit -m "Results for $dir"
+git commit -m "Results for $dir $name"
 git push 
 

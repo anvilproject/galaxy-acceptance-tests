@@ -2,13 +2,14 @@
 set -eu
 
 dir=$1
-name=$2
-shift 2
+branch=$2
+name=$3
+shift 3
 
 git config --global user.name 'GitHub Action'
 git config --global user.email 'action@github.com'  
 git stash  
-git pull
+git pull origin $branch
 git stash pop
 
 if [[ ! -e results/$dir ]] ; then
@@ -33,5 +34,5 @@ done
 git add results/$dir
 git add Results.md
 git commit -m "Results for $dir $name"
-git push 
+git push origin $branch
 

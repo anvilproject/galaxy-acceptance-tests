@@ -67,7 +67,7 @@ jobs:
       run: npx playwright test launch
     - name: Save launch results
       if: always()
-      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} launch
+      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} ${{ github.ref_name }} launch
     - uses: actions/upload-artifact@v3
       if: always()
       with:
@@ -101,7 +101,7 @@ jobs:
       run: npx playwright test fastp
     - name: Save the fastp test results
       if: always()
-      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} fastp fastp-trace.zip
+      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} ${{ github.ref_name }} fastp fastp-trace.zip
     - uses: actions/upload-artifact@v3
       if: always()
       with:
@@ -136,7 +136,7 @@ jobs:
         npx playwright test import
     - name: Save import test results
       if: always()
-      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} import
+      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} ${{ github.ref_name }} import
     - uses: actions/upload-artifact@v3
       with:
         name: import-report
@@ -170,7 +170,7 @@ jobs:
       run: npx playwright test shutdown
     - name: Add the reports to the repository
       if: always()
-      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} shutdown
+      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} ${{ github.ref_name }} shutdown
     - uses: actions/upload-artifact@v3
       if: always()
       with:

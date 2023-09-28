@@ -17,10 +17,6 @@ if [[ ! -e results/$dir ]] ; then
   mkdir -p results/$dir
 fi
 
-ls -al
-ls -al results
-ls -al results/$dir
-
 cp playwright-report/index.html results/$dir/$name.html
 if [[ -e $name.png ]] ; then
   mv $name.png results/$dir/
@@ -32,7 +28,7 @@ while [[ $# > 0 ]] ; do
 done
 
 git add results/$dir
-git add Results.md
+git add *.md
 git commit -m "Results for $dir $name"
 git push origin $branch
 

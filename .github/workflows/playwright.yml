@@ -62,118 +62,50 @@ jobs:
       run: |
         echo "TERRA_URL=${{ github.event.inputs.server }}" >> $GITHUB_ENV
         echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV        
-
     - name: Launch Galaxy on Terra
-      run: npx playwright test launch
-    - name: Save launch results
-      if: always()
-      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} ${{ github.ref_name }} launch
+      run: |
+        npx playwright test launch
+        cp playwright-report/index.html results/${{ needs.setup.outputs.directory }}/launch.html
+        if [[ -e launch.png ]] ; then mv launch.png results/${{ needs.setup.outputs.directory }}/ ; fi
     - uses: actions/upload-artifact@v3
-      if: always()
       with:
         name: launch-report
         path: playwright-report/
         retention-days: 30
-
-  fastp:
-    needs: [ setup, launch ]
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Write the user.json with saved browser context
-      run: |
-        mkdir .auth
-        echo $USER_JSON > .auth/user.json
-    - name: Set environmental variables if this is a workflow dispatch
-      if: ${{ github.event_name == 'workflow_dispatch' }}
-      run: |
-        echo "TERRA_URL=${{ github.event.inputs.server }}" >> $GITHUB_ENV
-        echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV
     - name: Run the fastp tool
-      run: npx playwright test fastp
-    - name: Save the fastp test results
-      if: always()
-      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} ${{ github.ref_name }} fastp fastp-trace.zip
+      run: |
+        npx playwright test fastp
+        cp playwright-report/index.html results/${{ needs.setup.outputs.directory }}/fastp.html
+        if [[ -e fastp.png ]] ; then mv fastp.png results/${{ needs.setup.outputs.directory }}/ ; fi
+        if [[ -e fastp-trace.zip ]] ; then mv fastp-trace.zip results/${{ needs.setup.outputs.directory }}/ ; fi
     - uses: actions/upload-artifact@v3
-      if: always()
       with:
         name: fastp-report
         path: playwright-report/
-        retention-days: 30
-
-  import:
-    needs: [ setup, launch, fastp ]
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Write the user.json with saved browser context
-      run: |
-        mkdir .auth
-        echo $USER_JSON > .auth/user.json
-    - name: Set environmental variables if this is a workflow dispatch
-      if: ${{ github.event_name == 'workflow_dispatch' }}
-      run: |
-        echo "TERRA_URL=${{ github.event.inputs.server }}" >> $GITHUB_ENV
-        echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV   
+        retention-days: 30 
     - name: Test importing data from the workspace
       run: |
         npx playwright test import
-    - name: Save import test results
-      if: always()
-      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} ${{ github.ref_name }} import
+        cp playwright-report/index.html results/${{ needs.setup.outputs.directory }}/import.html
+        if [[ -e import.png ]] ; then mv import.png results/${{ needs.setup.outputs.directory }}/ ; fi
     - uses: actions/upload-artifact@v3
       with:
         name: import-report
         path: playwright-report/
         retention-days: 30
+    - name: Shutdown 
+      if: always()
+      run: |
+        npx playwright test shutdown
+        cp playwright-report/index.html results/${{ needs.setup.outputs.directory }}/shutdown.html
+    - name: Add results to the repo 
+      if: always()
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'  
+        git add results/${{ needs.setup.outputs.directory }}
+        git add Results.md
+        git commit -m "Results for ${{ needs.setup.outputs.directory }}"
+        git push origin $
 
-  shutdown:
-    runs-on: ubuntu-latest
-    needs: [ setup, launch, import ]
-    if: always()
-    timeout-minutes: 15
-    steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Write the user.json with saved browser context
-      run: |
-        mkdir .auth
-        echo $USER_JSON > .auth/user.json
-    - name: Set environmental variables if this is a workflow dispatch
-      if: ${{ github.event_name == 'workflow_dispatch' }}
-      run: |
-        echo "TERRA_URL=${{ github.event.inputs.server }}" >> $GITHUB_ENV
-        echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV   
-    - name: Shutdown Galaxy
-      run: npx playwright test shutdown
-    - name: Add the reports to the repository
-      if: always()
-      run: .github/bin/checkin.sh ${{ needs.setup.outputs.directory }} ${{ github.ref_name }} shutdown
-    - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: shutdown-report
-        path: playwright-report/
-        retention-days: 30
+      

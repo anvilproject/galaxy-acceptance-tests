@@ -8,9 +8,9 @@ shift 3
 
 git config --global user.name 'GitHub Action'
 git config --global user.email 'action@github.com'  
-#git stash  
+git stash  
 git pull --rebase origin $branch
-#git stash pop
+git stash pop
 
 if [[ ! -e results/$dir ]] ; then
   echo "Creating results/$dir"

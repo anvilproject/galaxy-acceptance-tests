@@ -91,3 +91,9 @@ The most current result is at the end of the table.
 | Fri Sep 29 2023 | 4:27:18 PM | fastp | 00:00:00 | failed |
 | Fri Sep 29 2023 | 4:32:19 PM | fastp | 00:04:59 | timedOut |
 | Fri Sep 29 2023 | 4:32:31 PM | Delete the Galaxy instance | 00:00:09 | passed |
+| Fri Sep 29 2023 | 5:31:09 PM | Launch a Galaxy instance | 00:04:20 | passed |
+| Fri Sep 29 2023 | 5:31:45 PM | Paste text into the upload dialog | 00:00:32 | passed |
+| Fri Sep 29 2023 | 5:34:12 PM | fastp | 00:02:24 | passed |
+| Fri Sep 29 2023 | 5:44:27 PM | import | 00:10:00 | timedOut |
+| Fri Sep 29 2023 | 5:54:29 PM | import | 00:10:00 | timedOut |
+| Fri Sep 29 2023 | 5:56:10 PM | Delete the Galaxy instance | 00:00:11 | passed |

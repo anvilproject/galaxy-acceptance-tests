@@ -73,3 +73,9 @@ The most current result is at the end of the table.
 | Fri Sep 29 2023 | 2:55:54 AM | Delete the Galaxy instance | 00:00:29 | timedOut |
 | Fri Sep 29 2023 | 2:56:26 AM | Delete the Galaxy instance | 00:00:29 | timedOut |
 | Fri Sep 29 2023 | 2:56:57 AM | Delete the Galaxy instance | 00:00:29 | timedOut |
+| Fri Sep 29 2023 | 12:56:04 PM | Launch a Galaxy instance | 00:00:08 | failed |
+| Fri Sep 29 2023 | 12:56:15 PM | Launch a Galaxy instance | 00:00:09 | failed |
+| Fri Sep 29 2023 | 12:56:24 PM | Launch a Galaxy instance | 00:00:07 | failed |
+| Fri Sep 29 2023 | 12:56:44 PM | Delete the Galaxy instance | 00:00:13 | failed |
+| Fri Sep 29 2023 | 12:57:15 PM | Delete the Galaxy instance | 00:00:30 | timedOut |
+| Fri Sep 29 2023 | 12:57:46 PM | Delete the Galaxy instance | 00:00:29 | timedOut |

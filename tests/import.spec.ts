@@ -21,17 +21,17 @@ import { TimeUnits } from './timeunits';
 import { VariantCalling } from './data';
 
 test.describe('import data', () => {
-  let terra: Terra;
+//   let terra: Terra;
 
-  test.beforeEach(async ({ page }) => {
-    terra = new Terra(page);
-  })
+//   test.beforeEach(async ({ page }) => {
+//     terra = new Terra(page);
+//   })
 
-  test('import', async ({ }, testInfo) => {
+  test('import', async ({ page }, testInfo) => {
     test.setTimeout(TimeUnits.MIN_10)
-    await terra.login()
-    const page = await terra.openGalaxy()
-    const galaxy = new Galaxy(page)
+    // await terra.login()
+    // const page = await terra.openGalaxy()
+    const galaxy = await new Galaxy().setup(page)
 
     // Create a new history and upload the datasets.
     await galaxy.newHistory('Import ' + new Date().toLocaleString())

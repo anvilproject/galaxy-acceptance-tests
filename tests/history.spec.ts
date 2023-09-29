@@ -20,16 +20,17 @@ import { Galaxy } from './galaxy';
 require('dotenv').config({ path: __dirname+'/.env.local' })
 
 test.describe('create a new history and change its name', () => {
-  let terra: Terra;
+  // let terra: Terra;
 
-  test.beforeEach(async ({ page }) => {
-    terra = new Terra(page);
-    await terra.login();
-  })
+  // test.beforeEach(async ({ page }) => {
+  //   terra = new Terra(page);
+  //   await terra.login();
+  // })
 
-  test('history', async ({}, testInfo) => {
-    const page = await terra.openGalaxy()
-    const galaxy = new Galaxy(page)
+  test('history', async ({ page }, testInfo) => {
+    // const page = await terra.openGalaxy()
+    const galaxy = new Galaxy()
+    await galaxy.setup(page)
     
     const historyName = 'My new history'
     await galaxy.newHistory(historyName)

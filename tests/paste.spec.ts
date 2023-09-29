@@ -14,23 +14,23 @@
  *  limitations under the License.
  */
 import { test, expect } from '@playwright/test';
-import { Terra } from './terra';
 import { TimeUnits } from './timeunits';
 import { Galaxy } from './galaxy';
 
 test.describe('paste/upload data to a running Galaxy instance', () => {
   const TEST_DATA: string = 'This is a test.'
-  let terra: Terra;
+  // let terra: Terra;
 
-  test.beforeEach(async ({ page }) => {
-    terra = new Terra(page);
-    await terra.login()
-  })
+  // test.beforeEach(async ({ page }) => {
+  //   terra = new Terra(page);
+  //   await terra.login()
+  // })
 
-  test('Paste text into the upload dialog', async ({}, testInfo) => {
-    test.setTimeout(TimeUnits.MIN_15)
-    const page = await terra.openGalaxy()
-    const galaxy = new Galaxy(page)
+  test('Paste text into the upload dialog', async ({ page }, testInfo) => {
+    test.setTimeout(TimeUnits.MIN_2)
+    // const page = await terra.openGalaxy()
+    // const galaxy = new Galaxy(page)
+    const galaxy = await new Galaxy().setup(page)
 
     // Create a new history for this test
     await galaxy.newHistory('Paste test - ' + new Date().toLocaleString())

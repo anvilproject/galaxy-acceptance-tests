@@ -14,13 +14,29 @@
  *  limitations under the License.
  */
 import { Page, TestInfo, expect } from '@playwright/test';
+import { Terra } from './terra'
 
 /**
  * A class to perform common tasks in Galaxy.
  */
 export class Galaxy {
+
+    page: Page
+    // constructor(public readonly page: Page) {}
     
-    constructor(public readonly page: Page) {}
+    async setup(page: Page) {
+
+        if (Terra.isTerraTest()) {
+            let terra = new Terra(page)
+            await terra.login()
+            this.page = await terra.openGalaxy()
+        }
+        else {
+            this.page = page
+            await this.page.goto(process.env.TERRA_URL!)
+        }
+        return this
+    }
 
     /**
      * Create a new history.
@@ -41,8 +57,8 @@ export class Galaxy {
         await this.page.getByPlaceholder('Name').click()
         await this.page.getByPlaceholder('Name').fill(name);
         await this.page.getByRole('button', {name:'save'}).click()
-        await this.page.getByRole('button', {name: 'Switch to history'}).click()
-        await this.page.getByRole('cell', {name: new RegExp(name)}).click()    
+        // await this.page.getByRole('button', {name: 'Switch to history'}).click()
+        // await this.page.getByRole('cell', {name: new RegExp(name)}).click()    
         console.log('History created.')
     }
 

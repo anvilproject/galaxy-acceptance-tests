@@ -58,30 +58,30 @@ The most current result is at the end of the table.
 | Sat Sep 23 2023 | 2:02:05 PM | Delete the Galaxy instance | 00:00:17 | failed |
 | Sat Sep 23 2023 | 2:02:23 PM | Delete the Galaxy instance | 00:00:17 | failed |
 | Sat Sep 23 2023 | 2:02:54 PM | Delete the Galaxy instance | 00:00:29 | timedOut |
-| Mon Sep 25 2023 | 10:05:15 PM | Launch a Galaxy instance | 00:00:10 | failed |
-| Mon Sep 25 2023 | 10:05:25 PM | Launch a Galaxy instance | 00:00:09 | failed |
-| Mon Sep 25 2023 | 10:05:34 PM | Launch a Galaxy instance | 00:00:08 | failed |
-| Tue Sep 26 2023 | 1:18:07 PM | Launch a Galaxy instance | 00:00:13 | failed |
-| Tue Sep 26 2023 | 1:18:22 PM | Launch a Galaxy instance | 00:00:14 | failed |
-| Tue Sep 26 2023 | 1:18:36 PM | Launch a Galaxy instance | 00:00:13 | failed |
-| Tue Sep 26 2023 | 2:39:28 PM | Launch a Galaxy instance | 00:00:12 | failed |
-| Tue Sep 26 2023 | 2:39:42 PM | Launch a Galaxy instance | 00:00:13 | failed |
-| Tue Sep 26 2023 | 2:39:55 PM | Launch a Galaxy instance | 00:00:12 | failed |
-| Tue Sep 26 2023 | 4:40:55 PM | Launch a Galaxy instance | 00:06:14 | passed |
-| Fri Sep 29 2023 | 2:46:08 AM | Launch a Galaxy instance | 00:19:59 | timedOut |
-| Fri Sep 29 2023 | 2:47:18 AM | Launch a Galaxy instance | 00:01:09 | failed |
-| Fri Sep 29 2023 | 2:55:54 AM | Delete the Galaxy instance | 00:00:29 | timedOut |
-| Fri Sep 29 2023 | 2:56:26 AM | Delete the Galaxy instance | 00:00:29 | timedOut |
-| Fri Sep 29 2023 | 2:56:57 AM | Delete the Galaxy instance | 00:00:29 | timedOut |
-| Fri Sep 29 2023 | 12:56:04 PM | Launch a Galaxy instance | 00:00:08 | failed |
-| Fri Sep 29 2023 | 12:56:15 PM | Launch a Galaxy instance | 00:00:09 | failed |
-| Fri Sep 29 2023 | 12:56:24 PM | Launch a Galaxy instance | 00:00:07 | failed |
-| Fri Sep 29 2023 | 12:56:44 PM | Delete the Galaxy instance | 00:00:13 | failed |
-| Fri Sep 29 2023 | 12:57:15 PM | Delete the Galaxy instance | 00:00:30 | timedOut |
-| Fri Sep 29 2023 | 12:57:46 PM | Delete the Galaxy instance | 00:00:29 | timedOut |
-| Fri Sep 29 2023 | 3:08:23 PM | Launch a Galaxy instance | 00:04:21 | passed |
-| Fri Sep 29 2023 | 3:13:27 PM | fastp | 00:05:00 | timedOut |
-| Fri Sep 29 2023 | 3:13:28 PM | fastp | 00:00:00 | failed |
-| Fri Sep 29 2023 | 3:16:12 PM | fastp | 00:02:43 | passed |
-| Fri Sep 29 2023 | 3:17:17 PM | import | 00:00:47 | passed |
-| Fri Sep 29 2023 | 3:17:30 PM | Delete the Galaxy instance | 00:00:10 | passed |
+| Sun Sep 24 2023 | 2:09:32 AM | Launch a Galaxy instance | 00:00:37 | failed |
+| Sun Sep 24 2023 | 2:10:11 AM | Launch a Galaxy instance | 00:00:38 | failed |
+| Sun Sep 24 2023 | 2:10:49 AM | Launch a Galaxy instance | 00:00:36 | failed |
+| Sun Sep 24 2023 | 1:44:37 PM | Launch a Galaxy instance | 00:00:37 | failed |
+| Sun Sep 24 2023 | 1:45:16 PM | Launch a Galaxy instance | 00:00:37 | failed |
+| Sun Sep 24 2023 | 1:45:53 PM | Launch a Galaxy instance | 00:00:36 | failed |
+| Mon Sep 25 2023 | 2:08:13 AM | Launch a Galaxy instance | 00:00:36 | failed |
+| Mon Sep 25 2023 | 2:08:51 AM | Launch a Galaxy instance | 00:00:36 | failed |
+| Mon Sep 25 2023 | 2:09:27 AM | Launch a Galaxy instance | 00:00:36 | failed |
+| Mon Sep 25 2023 | 1:45:20 PM | Launch a Galaxy instance | 00:00:37 | failed |
+| Mon Sep 25 2023 | 1:46:00 PM | Launch a Galaxy instance | 00:00:39 | failed |
+| Mon Sep 25 2023 | 1:46:38 PM | Launch a Galaxy instance | 00:00:37 | failed |
+| Mon Sep 25 2023 | 4:52:33 PM | Launch a Galaxy instance | 00:13:32 | passed |
+| Tue Sep 26 2023 | 2:18:59 AM | Launch a Galaxy instance | 00:11:35 | passed |
+| Tue Sep 26 2023 | 1:57:34 PM | Launch a Galaxy instance | 00:13:21 | passed |
+| Wed Sep 27 2023 | 2:26:09 AM | Launch a Galaxy instance | 00:18:46 | passed |
+| Wed Sep 27 2023 | 1:55:24 PM | Launch a Galaxy instance | 00:11:16 | passed |
+| Thu Sep 28 2023 | 2:18:06 AM | Launch a Galaxy instance | 00:11:18 | passed |
+| Thu Sep 28 2023 | 1:55:34 PM | Launch a Galaxy instance | 00:11:07 | passed |
+| Thu Sep 28 2023 | 7:26:48 PM | Launch a Galaxy instance | 00:01:11 | failed |
+| Thu Sep 28 2023 | 7:27:59 PM | Launch a Galaxy instance | 00:01:10 | failed |
+| Thu Sep 28 2023 | 7:29:09 PM | Launch a Galaxy instance | 00:01:09 | failed |
+| Thu Sep 28 2023 | 8:01:48 PM | Launch a Galaxy instance | 00:04:12 | passed |
+| Fri Sep 29 2023 | 2:07:13 AM | Launch a Galaxy instance | 00:00:10 | failed |
+| Fri Sep 29 2023 | 2:07:25 AM | Launch a Galaxy instance | 00:00:10 | failed |
+| Fri Sep 29 2023 | 2:07:37 AM | Launch a Galaxy instance | 00:00:11 | failed |
+| Fri Sep 29 2023 | 1:57:17 PM | Launch a Galaxy instance | 00:13:31 | passed |

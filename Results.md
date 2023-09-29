@@ -97,3 +97,4 @@ The most current result is at the end of the table.
 | Fri Sep 29 2023 | 5:44:27 PM | import | 00:10:00 | timedOut |
 | Fri Sep 29 2023 | 5:54:29 PM | import | 00:10:00 | timedOut |
 | Fri Sep 29 2023 | 5:56:10 PM | Delete the Galaxy instance | 00:00:11 | passed |
+| Fri Sep 29 2023 | 10:48:50 PM | Launch a Galaxy instance | 00:19:59 | timedOut |

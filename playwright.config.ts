@@ -40,7 +40,11 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-
+    {
+      name: 'authenticate',
+      testDir: './tests',
+      testMatch: ['auth.setup.ts']
+    }
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },

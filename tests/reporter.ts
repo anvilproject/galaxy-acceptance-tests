@@ -10,7 +10,7 @@ import { writeFileSync } from 'fs'
         const duration = new Date(result.duration).toISOString().slice(11,19)
         const line: string = `| ${date} | ${time} | ${test.title} | ${duration} | ${result.status} |`
         console.log(line)
-        writeFileSync('Results.md', line + '\n', { flag: 'a+'})
+        writeFileSync(`Results.md`, line + '\n', { flag: 'a+'})
     }
   
 }

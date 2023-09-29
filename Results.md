@@ -68,3 +68,20 @@ The most current result is at the end of the table.
 | Tue Sep 26 2023 | 2:39:42 PM | Launch a Galaxy instance | 00:00:13 | failed |
 | Tue Sep 26 2023 | 2:39:55 PM | Launch a Galaxy instance | 00:00:12 | failed |
 | Tue Sep 26 2023 | 4:40:55 PM | Launch a Galaxy instance | 00:06:14 | passed |
+| Fri Sep 29 2023 | 2:46:08 AM | Launch a Galaxy instance | 00:19:59 | timedOut |
+| Fri Sep 29 2023 | 2:47:18 AM | Launch a Galaxy instance | 00:01:09 | failed |
+| Fri Sep 29 2023 | 2:55:54 AM | Delete the Galaxy instance | 00:00:29 | timedOut |
+| Fri Sep 29 2023 | 2:56:26 AM | Delete the Galaxy instance | 00:00:29 | timedOut |
+| Fri Sep 29 2023 | 2:56:57 AM | Delete the Galaxy instance | 00:00:29 | timedOut |
+| Fri Sep 29 2023 | 12:56:04 PM | Launch a Galaxy instance | 00:00:08 | failed |
+| Fri Sep 29 2023 | 12:56:15 PM | Launch a Galaxy instance | 00:00:09 | failed |
+| Fri Sep 29 2023 | 12:56:24 PM | Launch a Galaxy instance | 00:00:07 | failed |
+| Fri Sep 29 2023 | 12:56:44 PM | Delete the Galaxy instance | 00:00:13 | failed |
+| Fri Sep 29 2023 | 12:57:15 PM | Delete the Galaxy instance | 00:00:30 | timedOut |
+| Fri Sep 29 2023 | 12:57:46 PM | Delete the Galaxy instance | 00:00:29 | timedOut |
+| Fri Sep 29 2023 | 3:08:23 PM | Launch a Galaxy instance | 00:04:21 | passed |
+| Fri Sep 29 2023 | 3:13:27 PM | fastp | 00:05:00 | timedOut |
+| Fri Sep 29 2023 | 3:13:28 PM | fastp | 00:00:00 | failed |
+| Fri Sep 29 2023 | 3:16:12 PM | fastp | 00:02:43 | passed |
+| Fri Sep 29 2023 | 3:17:17 PM | import | 00:00:47 | passed |
+| Fri Sep 29 2023 | 3:17:30 PM | Delete the Galaxy instance | 00:00:10 | passed |

@@ -81,3 +81,6 @@ The most current result is at the end of the table.
 | Thu Sep 28 2023 | 7:27:59 PM | Launch a Galaxy instance | 00:01:10 | failed |
 | Thu Sep 28 2023 | 7:29:09 PM | Launch a Galaxy instance | 00:01:09 | failed |
 | Thu Sep 28 2023 | 8:01:48 PM | Launch a Galaxy instance | 00:04:12 | passed |
+| Fri Sep 29 2023 | 2:07:13 AM | Launch a Galaxy instance | 00:00:10 | failed |
+| Fri Sep 29 2023 | 2:07:25 AM | Launch a Galaxy instance | 00:00:10 | failed |
+| Fri Sep 29 2023 | 2:07:37 AM | Launch a Galaxy instance | 00:00:11 | failed |

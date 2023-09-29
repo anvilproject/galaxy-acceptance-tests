@@ -102,8 +102,15 @@ jobs:
     - name: Shutdown 
       if: always()
       run: |
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/previous.html      
         npx playwright test shutdown
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/shutdown.html
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: final-report
+        path: playwright-report/
+        retention-days: 30
     - name: Add results to the repo 
       if: always()
       run: |

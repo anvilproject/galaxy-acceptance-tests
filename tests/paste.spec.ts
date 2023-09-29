@@ -44,8 +44,9 @@ test.describe('paste/upload data to a running Galaxy instance', () => {
     await expect(page.frameLocator('iframe[name="frame"]').getByText('This is a test.')).toHaveCount(1)
 
     // Save a screenshot
-    galaxy.screenshot(testInfo, 'paste.png')
-    
+    const screenshot = await page.screenshot({ path: 'paste.png' })
+    testInfo.attach('screenshot', {body: screenshot, contentType: 'image/png'})
+
     // Delete the history
     await galaxy.deleteHistory()
     await expect(page.getByText('This history is empty.')).toHaveCount(1)

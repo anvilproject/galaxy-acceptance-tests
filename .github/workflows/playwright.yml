@@ -1,7 +1,7 @@
 name: Galaxy acceptance tests
 on:
-  schedule:
-    - cron: '37 1,13 * * *'
+ schedule:
+   - cron: '37 1,13 * * *'
 
   workflow_dispatch:
     inputs:
@@ -68,6 +68,16 @@ jobs:
         name: launch-report
         path: playwright-report/
         retention-days: 30
+    - name: Paste text into the upload dialog
+      run: |
+        npx playwright test paste
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/paste.html
+        if [[ -e paste.png ]] ; then mv paste.png results/${{ steps.directory.outputs.name }}/ ; fi
+    - uses: actions/upload-artifact@v3
+      with:
+        name: paste-report
+        path: playwright-report/
+        retention-days: 30   
     - name: Run the fastp tool
       run: |
         npx playwright test fastp

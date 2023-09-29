@@ -35,7 +35,17 @@ export class Terra {
   static readonly production: string = 'https://app.terra.bio/#workspaces/notebooks-canary-project/'; //integration_tests';
   static readonly sarscov2: string = 'https://anvil.terra.bio/#workspaces/notebooks-canary-project/SARS-CoV-2-Genome%20copy'
 
+  static aliases:string[] = ['dev', 'test', 'prod', 'production', 'sarscov2' ]
+
   constructor(public readonly page: Page) {
+  }
+
+  static isTerraTest(): boolean {
+    if (! ('TERRA_URL' in process.env) ) {
+      return false
+    }
+    let url = process.env.TERRA_URL!
+    return this.aliases.includes(url)
   }
 
   async login(url?: string | undefined) {

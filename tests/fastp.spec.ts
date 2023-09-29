@@ -21,19 +21,21 @@ import { TimeUnits } from './timeunits';
 import { VariantCalling } from './data';
 
 test.describe('run the fastp tool on a small dataset', () => {
-  let terra: Terra;
+  // let terra: Terra;
 
-  test.beforeEach(async ({ page }) => {
-    terra = new Terra(page);
-  })
+  // test.beforeEach(async ({ page }) => {
+  //   terra = new Terra(page);
+  // })
 
-  test('fastp', async ({ context }, testInfo) => {
+  test('fastp', async ({ page, context }, testInfo) => {
     test.setTimeout(TimeUnits.MIN_5)
     await context.tracing.start({screenshots: true, snapshots: true})
 
-    await terra.login()
-    const page = await terra.openGalaxy()
-    const galaxy = new Galaxy(page)
+    // await terra.login()
+    // const page = await terra.openGalaxy()
+    // const galaxy = new Galaxy(page)
+    const galaxy = new Galaxy()
+    await galaxy.setup(page)
 
     // Create a new history and upload the datasets.
     await galaxy.newHistory('Fastp ' + new Date().toLocaleString())

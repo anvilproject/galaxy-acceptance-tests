@@ -63,6 +63,7 @@ jobs:
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/launch.html
         if [[ -e launch.png ]] ; then mv launch.png results/${{ steps.directory.outputs.name }}/ ; fi
     - uses: actions/upload-artifact@v3
+      if: always()
       with:
         name: launch-report
         path: playwright-report/

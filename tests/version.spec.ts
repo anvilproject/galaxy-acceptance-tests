@@ -21,10 +21,14 @@ test.describe('Ensure we are running the correct version of Galaxy', () => {
 
     test('Version', async ({ page }, testInfo) => {
         const galaxy = await new Galaxy().setup(page)
+        let version = EXPECTED_VERSION
+        if ('TERRA_VERSION' in process.env) {
+            version = process.env.TERRA_VERSION!
+        }
         await galaxy.page.getByRole('link', { name: 'Admin' }).click();
         await galaxy.page.getByRole('button', { name: 'Help' }).click();
         await galaxy.page.getByRole('menuitem', { name: 'About' }).click();
-        await expect(galaxy.page.getByText(`The Galaxy Server is running version ${EXPECTED_VERSION}.`)).toHaveCount(1)
+        await expect(galaxy.page.getByText(`The Galaxy Server is running version ${version}`)).toHaveCount(1)
         await galaxy.screenshot(testInfo, 'version.png')
     })
 })

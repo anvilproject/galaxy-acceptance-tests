@@ -22,7 +22,6 @@ import { Terra } from './terra'
 export class Galaxy {
 
     page: Page
-    // constructor(public readonly page: Page) {}
     
     async setup(page: Page) {
 
@@ -33,6 +32,9 @@ export class Galaxy {
         }
         else {
             this.page = page
+            // if ( !('TERRA_URL' in process.env) ) {
+            //     process.env.TERRA_URL = 'http://35.196.87.134:8000/galaxy/'
+            // }
             await this.page.goto(process.env.TERRA_URL!)
         }
         return this
@@ -86,7 +88,7 @@ export class Galaxy {
         await this.page.getByLabel('Regular').locator('textarea').fill(items.join('\n'));
         await this.page.getByRole('button', { name: 'Start' }).click();
         await this.page.getByRole('button', { name: 'Close' }).click();
-        console.log('Upload complete.')
+        console.log('Upload in progress.')
     }
 
     /** 

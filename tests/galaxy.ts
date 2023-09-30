@@ -97,4 +97,8 @@ export class Galaxy {
         const screenshot = await this.page.screenshot({ path: path })
         testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png'})
     }
+
+    getPage() {
+        return this.page
+    }
 }

@@ -29,17 +29,16 @@ test.describe('create a new history and change its name', () => {
 
   test('history', async ({ page }, testInfo) => {
     // const page = await terra.openGalaxy()
-    const galaxy = new Galaxy()
-    await galaxy.setup(page)
+    const galaxy = await new Galaxy().setup(page)
     
-    const historyName = 'My new history'
+    const historyName = 'Test history ' + new Date().toISOString()
     await galaxy.newHistory(historyName)
-    await expect(page.getByRole('heading', { name: historyName })).toHaveCount(1)
+    await expect(galaxy.page.getByRole('heading', { name: historyName })).toHaveCount(1)
     await galaxy.screenshot(testInfo, 'history.png')
     await galaxy.deleteHistory()
 
     // We should always end up back at the default, empty, history.
-    await expect(page.getByText('This history is empty.')).toHaveCount(1)
+    await expect(galaxy.page.getByText('This history is empty.')).toHaveCount(1)
   });
 });
 

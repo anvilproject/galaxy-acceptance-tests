@@ -56,26 +56,18 @@ test.describe('paste/upload data to a running Galaxy instance', () => {
 
   test('Paste text into the upload dialog', async ({ page }, testInfo) => {
     test.setTimeout(TimeUnits.MIN_2)
-    // const page = await terra.openGalaxy()
-    // const galaxy = new Galaxy(page)
-    // process.env.TERRA_URL = 'http://35.196.87.134:8000/galaxy/'
     const galaxy = await new Galaxy().setup(page)
 
-    // await page.goto('http://35.196.87.134:8000/galaxy/')
     // Create a new history for this test
-    // const galaxy = new Galaxy()
-    // galaxy.page = page
     await galaxy.newHistory('Paste test - ' + new Date().toLocaleString())
 
     // Upload data by pasting text into the upload dialog.
     await galaxy.upload([TEST_DATA])
-    // await expect(page.getByLabel('1: Pasted Entry')).toHaveCount(1, { timeout: TimeUnits.MIN_1 })
-    // await galaxy.page.getByRole('button', { name: '1 : Pasted Entry Display Edit attributes Delete' }).click();
-    await galaxy.page.getByTestId('right').getByText('Pasted Entry').click()
 
-    // Wait for the upload to complete, click the eyeball, and check for the expected text.
-    await galaxy.page.getByRole('button', { name: '1 : Pasted Entry Display Edit attributes Delete Add Tags Add Tags 1 line format txt, database ? uploaded txt file      This is a test.' }).getByTitle('Display').click();
-    // await galaxy.page.getByRole('button', { name: '1 : Pasted Entry' }).getByTitle('Display').click();
+    // Wait for the upload to complete and ensure it was successful.
+    const rightPanel = galaxy.page.locator('#right')
+    await rightPanel.getByRole('button', { name: '1: Pasted Entry Display Edit attibutes Delete' }).click()
+    await rightPanel.getByRole('link', { name: 'Display'}).click()
     await expect(galaxy.page.frameLocator('iframe[name="frame"]').getByText('This is a test.')).toHaveCount(1)
 
     // Save a screenshot

@@ -80,7 +80,7 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Paste text into the upload dialog
-      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.paste }}
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.paste }}
       run: |
         npx playwright test paste
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/paste.html
@@ -91,7 +91,7 @@ jobs:
         path: playwright-report/
         retention-days: 30   
     - name: Run the fastp tool
-      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.fastp }}
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.fastp }}
       run: |
         npx playwright test fastp
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/fastp.html
@@ -103,7 +103,7 @@ jobs:
         path: playwright-report/
         retention-days: 30 
     - name: Test importing data from the workspace
-      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.import }}
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.import }}
       run: |
         npx playwright test import
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/import.html

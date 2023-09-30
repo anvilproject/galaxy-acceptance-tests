@@ -24,7 +24,7 @@ test.describe('create a new history and change its name', () => {
   test('history', async ({ page }, testInfo) => {
     const galaxy = await new Galaxy().setup(page)
     
-    const historyName = 'Test history ' + new Date().toISOString()
+    const historyName = 'Test history ' + new Date().toLocaleString()
     await galaxy.newHistory(historyName)
     await expect(galaxy.page.getByRole('heading', { name: historyName })).toHaveCount(1)
     await galaxy.screenshot(testInfo, 'history.png')

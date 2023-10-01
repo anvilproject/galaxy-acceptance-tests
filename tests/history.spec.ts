@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 import {test, expect} from '@playwright/test';
-import {Terra} from './terra';
-import {Galaxy} from './galaxy';
+import {Terra} from '../modules/terra';
+import {Galaxy} from '../modules/galaxy';
 
 require('dotenv').config({path: __dirname + '/.env.local'})
 

@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 import {test, expect} from '@playwright/test';
-import {Galaxy} from './galaxy';
-import {TimeUnits} from './timeunits';
+import {Galaxy} from '../modules/galaxy';
+import {TimeUnits} from '../modules/timeunits';
 
 test.describe('connect to an already running Galaxy instance', () => {
     test('Open Galaxy in a new tab', async ({page}) => {

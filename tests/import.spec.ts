@@ -15,10 +15,10 @@
  */
 
 import {test, expect} from '@playwright/test';
-import {Terra} from './terra';
-import {Galaxy} from './galaxy';
-import {TimeUnits} from './timeunits';
-import {VariantCalling} from './data';
+import {Terra} from '../modules/terra';
+import {Galaxy} from '../modules/galaxy';
+import {TimeUnits} from '../modules/timeunits';
+import {VariantCalling} from '../modules/data';
 
 test.describe('import data', () => {
 //   let terra: Terra;

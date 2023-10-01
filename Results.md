@@ -103,3 +103,4 @@ The most current result is at the end of the table.
 | Sun Oct 01 2023 | 7:47:05 PM | Paste text into the upload dialog | 00:02:00 | timedOut |
 | Sun Oct 01 2023 | 7:49:06 PM | Paste text into the upload dialog | 00:02:00 | timedOut |
 | Sun Oct 01 2023 | 7:49:19 PM | Delete the Galaxy instance | 00:00:10 | passed |
+| Sun Oct 01 2023 | 9:50:17 PM | Launch a Galaxy instance | 00:00:09 | failed |

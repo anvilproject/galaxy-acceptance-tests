@@ -135,7 +135,9 @@ jobs:
     - name: Shutdown
       if: always()
       run: |
-        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/previous.html      
+        if [[ -e playwright-report/index.html ]] ; then
+          cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/previous.html
+        fi
         npx playwright test shutdown
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/shutdown.html
     - uses: actions/upload-artifact@v3

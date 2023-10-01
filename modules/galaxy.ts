@@ -14,13 +14,31 @@
  *  limitations under the License.
  */
 import { Page, TestInfo, expect } from '@playwright/test';
+import { Terra } from './terra'
 
 /**
  * A class to perform common tasks in Galaxy.
  */
 export class Galaxy {
+
+    page: Page
     
-    constructor(public readonly page: Page) {}
+    async setup(page: Page) {
+
+        if (Terra.isTerraTest()) {
+            let terra = new Terra(page)
+            await terra.login()
+            this.page = await terra.openGalaxy()
+        }
+        else {
+            this.page = page
+            // if ( !('TERRA_URL' in process.env) ) {
+            //     process.env.TERRA_URL = 'http://35.196.87.134:8000/galaxy/'
+            // }
+            await this.page.goto(process.env.TERRA_URL!)
+        }
+        return this
+    }
 
     /**
      * Create a new history.
@@ -41,8 +59,8 @@ export class Galaxy {
         await this.page.getByPlaceholder('Name').click()
         await this.page.getByPlaceholder('Name').fill(name);
         await this.page.getByRole('button', {name:'save'}).click()
-        await this.page.getByRole('button', {name: 'Switch to history'}).click()
-        await this.page.getByRole('cell', {name: new RegExp(name)}).click()    
+        // await this.page.getByRole('button', {name: 'Switch to history'}).click()
+        // await this.page.getByRole('cell', {name: new RegExp(name)}).click()    
         console.log('History created.')
     }
 
@@ -70,7 +88,7 @@ export class Galaxy {
         await this.page.getByLabel('Regular').locator('textarea').fill(items.join('\n'));
         await this.page.getByRole('button', { name: 'Start' }).click();
         await this.page.getByRole('button', { name: 'Close' }).click();
-        console.log('Upload complete.')
+        console.log('Upload in progress.')
     }
 
     /** 
@@ -80,5 +98,9 @@ export class Galaxy {
         console.log(`Saving screenshot ${path}`)
         const screenshot = await this.page.screenshot({ path: path })
         testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png'})
+    }
+
+    getPage() {
+        return this.page
     }
 }

@@ -15,9 +15,9 @@
  */
 
 import { test, expect } from '@playwright/test';
-import { Terra } from './terra';
-import { Galaxy } from './galaxy';
-import { VariantCalling as VC } from './data';
+import { Terra } from '../modules/terra';
+import { Galaxy } from '../modules/galaxy';
+import { VariantCalling as VC } from '../modules/data';
 // const datasets: string = 'https://benchmarking-inputs.s3.amazonaws.com/ERR3485802/ERR3485802.forward.fastq.gz\nhttps://benchmarking-inputs.s3.amazonaws.com/ERR3485802/ERR3485802.reverse.fastq.gz\nhttps://benchmarking-inputs.s3.amazonaws.com/ERR3485802/GenBank+genome.genbank'
 
 /*  !!! WARNING !!!

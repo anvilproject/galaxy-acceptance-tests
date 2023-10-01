@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 import { test as authenticate, expect } from '@playwright/test';
-import { Terra } from './terra';
-import { TimeUnits } from './timeunits';
+import { Terra } from '../modules/terra';
+import { TimeUnits } from '../modules/timeunits';
 
 const authFile = '.auth/user.json';
 

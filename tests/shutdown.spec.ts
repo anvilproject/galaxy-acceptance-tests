@@ -14,18 +14,13 @@
  *  limitations under the License.
  */
 import { test, expect } from '@playwright/test';
-import { Terra } from './terra';
+import { Terra } from '../modules/terra';
 
 test.describe('shutdown the instance and delete disks', () => {
-    let terra: Terra;
-
-    test.beforeEach(async ({ page }) => {
-      terra = new Terra(page);
-    })
-  
   test('Delete the Galaxy instance', async ({ page }) => {
-    await terra.login()
-    await terra.shutdown()
-    await expect(page.getByLabel('Galaxy Environment')).toHaveCount(0)
+      const terra = new Terra(page);
+      await terra.login()
+      await terra.shutdown()
+      await expect(page.getByLabel('Galaxy Environment')).toHaveCount(0)
   });
 });

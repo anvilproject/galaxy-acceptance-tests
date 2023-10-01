@@ -14,67 +14,60 @@
  *  limitations under the License.
  */
 
-import { test, expect } from '@playwright/test';
-import { Terra } from './terra';
-import { Galaxy } from './galaxy';
-import { TimeUnits } from './timeunits';
-import { VariantCalling } from './data';
+import {test, expect} from '@playwright/test';
+import {Galaxy} from '../modules/galaxy';
+import {TimeUnits} from '../modules/timeunits';
+import {VariantCalling} from '../modules/data';
 
 test.describe('run the fastp tool on a small dataset', () => {
-  let terra: Terra;
 
-  test.beforeEach(async ({ page }) => {
-    terra = new Terra(page);
-  })
+    test('fastp', async ({page, context}, testInfo) => {
+        test.setTimeout(TimeUnits.MIN_5)
+        await context.tracing.start({screenshots: true, snapshots: true})
 
-  test('fastp', async ({ context }, testInfo) => {
-    test.setTimeout(TimeUnits.MIN_5)
-    await context.tracing.start({screenshots: true, snapshots: true})
+        const galaxy = await new Galaxy().setup(page)
 
-    await terra.login()
-    const page = await terra.openGalaxy()
-    const galaxy = new Galaxy(page)
+        // Create a new history and upload the datasets.
+        await galaxy.newHistory('Fastp ' + new Date().toLocaleString())
+        await galaxy.upload(VariantCalling.pair)
 
-    // Create a new history and upload the datasets.
-    await galaxy.newHistory('Fastp ' + new Date().toLocaleString())
-    await galaxy.upload(VariantCalling.pair)
+        // Wait for the uploads to complete
+        // const rightPanel = galaxy.page.locator('#right')
+        await galaxy.page.getByRole('button', {name: '1: ERR3485802.forward.fastq.gz Display Edit attributes Delete'}).click();
+        await galaxy.page.getByRole('button', {name: '2: ERR3485802.reverse.fastq.gz Display Edit attributes Delete'}).click();
 
-    // Wait for the uploads to complete
-    await expect(page.getByRole('button', { name: '1 : ERR3485802.forward.fastq.gz Display Edit attributes Delete', exact: false })).toHaveCount(1, { timeout: TimeUnits.MIN_5 })
-    await expect(page.getByRole('button', { name: '2 : ERR3485802.reverse.fastq.gz Display Edit attributes Delete', exact: false })).toHaveCount(1, { timeout: TimeUnits.MIN_5 })
+        // Search for the fastp tool
+        await galaxy.page.getByPlaceholder('search tools').fill('fastp')
+        await galaxy.page.getByRole('link', {name: 'fastp - fast all-in-one preprocessing for FASTQ files'}).click();
 
-    // Search for the fastp tool
-    await page.getByPlaceholder('search tools').fill('fastp')
-    await page.getByRole('link', { name: 'fastp - fast all-in-one preprocessing for FASTQ files' }).click();
+        // Configure the tool to use the uploaded datasets
+        await galaxy.page.getByText('Single-end').nth(1).click();
+        await galaxy.page.getByRole('option', {name: 'Paired'}).locator('span').first().click();
+        await galaxy.page.locator('#center')
+            .getByRole('link', {name: '2: ERR3485802.reverse.fastq.gz'})
+            .first()
+            .click();
+        await galaxy.page.getByRole('option', {name: '1: ERR3485802.forward.fastq.gz'}).click();
 
-    // Configure the tool to use the datasets
-    await page.getByRole('link', { name: 'Single-end' }).click();
-    await page.getByRole('option', { name: 'Paired', exact: true }).click();
-    await page.locator('#center')
-      .getByRole('link', { name: '2: ERR3485802.reverse.fastq.gz' })
-      .first()
-      .click()
-    await page.getByRole('option', { name: '1: ERR3485802.forward.fastq.gz' }).click()
+        // Any of the "Run Tool" buttons will suffice.
+        console.log('Running the fastp tool')
+        await galaxy.page.getByRole('button', {name: 'Run Tool'}).first().click();
 
-    // Any of the "Run Tool" buttons will suffice.
-    console.log('Running the fastp tool')
-    await page.getByRole('button', { name: 'Run Tool' }).first().click();
+        // Wait for the tool to complete.
+        await galaxy.page.getByRole('button', {name: '5: fastp on data 2 and data 1: HTML report Display Edit attributes Delete'}).click();
 
-    // Wait for the tool to complete.
-    await expect(page.getByRole('button', { name: '5 : fastp on data 2 and data 1: HTML report Display Edit attributes Delete' })).toHaveCount(1, {timeout: TimeUnits.MIN_5})
+        // Save a screenshot
+        await galaxy.screenshot(testInfo, 'fastp.png')
 
-    // Save a screenshot
-    await galaxy.screenshot(testInfo, 'fastp.png')
+        // Delete the history when done.
+        await galaxy.deleteHistory()
 
-    // Delete the history when done.
-    await galaxy.deleteHistory()
+        await context.tracing.stop({path: 'fastp-trace.zip'})
+        await testInfo.attach('trace', {path: 'fastp-trace.zip'})
 
-    await context.tracing.stop({path: 'fastp-trace.zip'})
-    await testInfo.attach('trace', {path: 'fastp-trace.zip'})
+        // We should always end up back at the default, empty, history.
+        await expect(galaxy.page.getByText('This history is empty.')).toHaveCount(1)
 
-    // We should always end up back at the default, empty, history.
-    await expect(page.getByText('This history is empty.')).toHaveCount(1)
-    
-    console.log('Tool complete')
-  })
+        console.log('Tool complete')
+    })
 });

@@ -15,7 +15,7 @@
  */
 
 import { test, expect } from '@playwright/test';
-import { TimeUnits } from './timeunits';
+import { TimeUnits } from '../modules/timeunits';
 require('dotenv').config({ path: '../tests/.env.local' })
 
 class Greeter {

@@ -13,25 +13,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import { test, expect } from '@playwright/test';
-import { Terra } from './terra';
-import { TimeUnits } from './timeunits';
+import {test, expect} from '@playwright/test';
+import {Galaxy} from '../modules/galaxy';
+import {TimeUnits} from '../modules/timeunits';
 
 test.describe('connect to an already running Galaxy instance', () => {
-  let terra: Terra;
-
-  test.beforeAll(async () => {
-        test.setTimeout(TimeUnits.minutes(5).msec())
-  })
-  
-  test.beforeEach(async ({ page }) => {
-    terra = new Terra(page);
-    await terra.login();
-  })
-
-  test('Open Galaxy in a new tab', async ({ page }) => {
-    const page2 = await terra.openGalaxy()
-    await expect(page2).toHaveURL(/proxy\/google\/v1\/apps\/terra/)
-  });
+    test('Open Galaxy in a new tab', async ({page}) => {
+        test.setTimeout(TimeUnits.MIN_5)
+        const galaxy = await new Galaxy().setup(page)
+        await expect(galaxy.page).toHaveURL(/proxy\/google\/v1\/apps\/terra/)
+    });
 });
 

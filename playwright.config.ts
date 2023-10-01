@@ -20,7 +20,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: 1, //process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html'], ['./tests/reporter.ts']],
+  reporter: [['html'], ['./modules/reporter.ts']],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

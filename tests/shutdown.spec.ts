@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 import { test, expect } from '@playwright/test';
-import { Terra } from './terra';
+import { Terra } from '../modules/terra';
 
 test.describe('shutdown the instance and delete disks', () => {
   test('Delete the Galaxy instance', async ({ page }) => {

@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 import { test, expect } from '@playwright/test';
-import { Galaxy } from './galaxy';
+import { Galaxy } from '../modules/galaxy';
 
 test.describe('Ensure we are running the correct version of Galaxy', () => {
     const EXPECTED_VERSION: string = '23.1'

@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 import {test, expect} from '@playwright/test';
-import {TimeUnits} from './timeunits';
-import {Galaxy} from './galaxy';
+import {TimeUnits} from '../modules/timeunits';
+import {Galaxy} from '../modules/galaxy';
 
 test.describe('paste/upload data to a running Galaxy instance', () => {
     const TEST_DATA: string = 'This is a test.'

@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 import {test, expect} from '@playwright/test';
-import {Terra} from './terra';
+import {Terra} from '../modules/terra';
 
 test.describe('see if we can login to Terra', () => {
     test('ensure we can connect to Terra', async ({page}) => {

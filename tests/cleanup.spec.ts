@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 import {test, expect} from '@playwright/test';
-import {Terra} from './terra';
-import {TimeUnits} from './timeunits';
+import {Terra} from '../modules/terra';
+import {TimeUnits} from '../modules/timeunits';
 
 test.describe('delete any lingering persistent disks', () => {
     test('delete disks from the user\'s cloud environments menu', async ({page}) => {

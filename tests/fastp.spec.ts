@@ -15,9 +15,9 @@
  */
 
 import {test, expect} from '@playwright/test';
-import {Galaxy} from './galaxy';
-import {TimeUnits} from './timeunits';
-import {VariantCalling} from './data';
+import {Galaxy} from '../modules/galaxy';
+import {TimeUnits} from '../modules/timeunits';
+import {VariantCalling} from '../modules/data';
 
 test.describe('run the fastp tool on a small dataset', () => {
 

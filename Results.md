@@ -91,14 +91,15 @@ The most current result is at the end of the table.
 | Fri Sep 29 2023 | 4:27:18 PM | fastp | 00:00:00 | failed |
 | Fri Sep 29 2023 | 4:32:19 PM | fastp | 00:04:59 | timedOut |
 | Fri Sep 29 2023 | 4:32:31 PM | Delete the Galaxy instance | 00:00:09 | passed |
-| Fri Sep 29 2023 | 5:31:09 PM | Launch a Galaxy instance | 00:04:20 | passed |
-| Fri Sep 29 2023 | 5:31:45 PM | Paste text into the upload dialog | 00:00:32 | passed |
-| Fri Sep 29 2023 | 5:34:12 PM | fastp | 00:02:24 | passed |
-| Fri Sep 29 2023 | 5:44:27 PM | import | 00:10:00 | timedOut |
-| Fri Sep 29 2023 | 5:54:29 PM | import | 00:10:00 | timedOut |
-| Fri Sep 29 2023 | 5:56:10 PM | Delete the Galaxy instance | 00:00:11 | passed |
-| Fri Sep 29 2023 | 10:48:50 PM | Launch a Galaxy instance | 00:19:59 | timedOut |
-| Sat Sep 30 2023 | 1:06:09 AM | Launch a Galaxy instance | 00:11:05 | passed |
-| Sat Sep 30 2023 | 1:21:13 AM | Paste text into the upload dialog | 00:15:00 | timedOut |
-| Sat Sep 30 2023 | 1:21:55 AM | Paste text into the upload dialog | 00:00:41 | passed |
-| Sat Sep 30 2023 | 1:24:10 AM | Delete the Galaxy instance | 00:00:11 | passed |
+| Sat Sep 30 2023 | 2:05:57 AM | Launch a Galaxy instance | 00:00:09 | failed |
+| Sat Sep 30 2023 | 2:25:59 AM | Launch a Galaxy instance | 00:20:00 | timedOut |
+| Sat Sep 30 2023 | 2:34:50 AM | Delete the Galaxy instance | 00:00:09 | passed |
+| Sat Sep 30 2023 | 1:46:01 PM | Launch a Galaxy instance | 00:00:09 | failed |
+| Sat Sep 30 2023 | 1:46:12 PM | Launch a Galaxy instance | 00:00:10 | failed |
+| Sat Sep 30 2023 | 1:46:21 PM | Launch a Galaxy instance | 00:00:08 | failed |
+| Sat Sep 30 2023 | 1:46:36 PM | Delete the Galaxy instance | 00:00:09 | passed |
+| Sun Oct 01 2023 | 7:42:55 PM | Launch a Galaxy instance | 00:04:10 | passed |
+| Sun Oct 01 2023 | 7:44:59 PM | Paste text into the upload dialog | 00:02:00 | timedOut |
+| Sun Oct 01 2023 | 7:47:05 PM | Paste text into the upload dialog | 00:02:00 | timedOut |
+| Sun Oct 01 2023 | 7:49:06 PM | Paste text into the upload dialog | 00:02:00 | timedOut |
+| Sun Oct 01 2023 | 7:49:19 PM | Delete the Galaxy instance | 00:00:10 | passed |

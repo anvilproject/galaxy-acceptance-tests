@@ -13,25 +13,25 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import { test, expect } from '@playwright/test';
-import { Terra } from './terra';
-import { Galaxy } from './galaxy';
+import {test, expect} from '@playwright/test';
+import {Terra} from './terra';
+import {Galaxy} from './galaxy';
 
-require('dotenv').config({ path: __dirname+'/.env.local' })
+require('dotenv').config({path: __dirname + '/.env.local'})
 
 test.describe('create a new history and change its name', () => {
 
-  test('history', async ({ page }, testInfo) => {
-    const galaxy = await new Galaxy().setup(page)
-    
-    const historyName = 'Test history ' + new Date().toLocaleString()
-    await galaxy.newHistory(historyName)
-    await expect(galaxy.page.getByRole('heading', { name: historyName })).toHaveCount(1)
-    await galaxy.screenshot(testInfo, 'history.png')
-    await galaxy.deleteHistory()
+    test('history', async ({page}, testInfo) => {
+        const galaxy = await new Galaxy().setup(page)
 
-    // We should always end up back at the default, empty, history.
-    await expect(galaxy.page.getByText('This history is empty.')).toHaveCount(1)
-  });
+        const historyName = 'Test history ' + new Date().toLocaleString()
+        await galaxy.newHistory(historyName)
+        await expect(galaxy.page.getByRole('heading', {name: historyName})).toHaveCount(1)
+        await galaxy.screenshot(testInfo, 'history.png')
+        await galaxy.deleteHistory()
+
+        // We should always end up back at the default, empty, history.
+        await expect(galaxy.page.getByText('This history is empty.')).toHaveCount(1)
+    });
 });
 

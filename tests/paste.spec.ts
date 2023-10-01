@@ -65,9 +65,8 @@ test.describe('paste/upload data to a running Galaxy instance', () => {
     await galaxy.upload([TEST_DATA])
 
     // Wait for the upload to complete and ensure it was successful.
-    const rightPanel = galaxy.page.locator('#right')
-    await rightPanel.getByRole('button', { name: '1: Pasted Entry Display Edit attibutes Delete' }).click()
-    await rightPanel.getByRole('link', { name: 'Display'}).click()
+    await galaxy.page.getByRole('button', { name: '1: Pasted Entry Display Edit attributes Delete' }).click();
+    await galaxy.page.getByRole('button', { name: '1: Pasted Entry Display Edit attributes Delete 1 line format txt', exact: false }).getByTitle('Display').click();
     await expect(galaxy.page.frameLocator('iframe[name="frame"]').getByText('This is a test.')).toHaveCount(1)
 
     // Save a screenshot

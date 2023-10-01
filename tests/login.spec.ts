@@ -13,18 +13,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import { test, expect } from '@playwright/test';
-import { Terra } from './terra';
+import {test, expect} from '@playwright/test';
+import {Terra} from '../modules/terra';
 
 test.describe('see if we can login to Terra', () => {
-    let terra: Terra;
-
-    test.beforeEach(async ({ page }) => {
-      terra = new Terra(page);
-    })
-  
-  test('ensure we can connect to Terra', async ({ page }) => {
-    await terra.login()
-    await expect(page.getByText('About the workspaceEdit description')).toHaveCount(1)
-  });
+    test('ensure we can connect to Terra', async ({page}) => {
+        const terra = new Terra(page);
+        await terra.login()
+        await expect(page.getByText('About the workspaceEdit description')).toHaveCount(1)
+    });
 });

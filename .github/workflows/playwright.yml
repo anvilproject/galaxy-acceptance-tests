@@ -21,7 +21,18 @@ on:
           - production
           - sarscov2
         default: sarscov2
-
+      paste:
+        description: 'run the paste test'
+        type: boolean
+        default: true
+      fastp:
+        description: 'run the fastp tool test'
+        type: boolean
+        default: true
+      import:
+        description: 'run the import data test'
+        type: boolean
+        default: true
 env:
   TERRA_URL: sarscov2
   TERRA_WORKSPACE: integration
@@ -69,6 +80,7 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Paste text into the upload dialog
+      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.paste }}
       run: |
         npx playwright test paste
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/paste.html
@@ -79,6 +91,7 @@ jobs:
         path: playwright-report/
         retention-days: 30   
     - name: Run the fastp tool
+      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.fastp }}
       run: |
         npx playwright test fastp
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/fastp.html
@@ -90,6 +103,7 @@ jobs:
         path: playwright-report/
         retention-days: 30 
     - name: Test importing data from the workspace
+      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.import }}
       run: |
         npx playwright test import
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/import.html
@@ -102,8 +116,15 @@ jobs:
     - name: Shutdown 
       if: always()
       run: |
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/previous.html      
         npx playwright test shutdown
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/shutdown.html
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: final-report
+        path: playwright-report/
+        retention-days: 30
     - name: Add results to the repo 
       if: always()
       run: |

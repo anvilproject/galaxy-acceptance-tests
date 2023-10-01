@@ -104,3 +104,15 @@ The most current result is at the end of the table.
 | Sun Oct 01 2023 | 7:49:06 PM | Paste text into the upload dialog | 00:02:00 | timedOut |
 | Sun Oct 01 2023 | 7:49:19 PM | Delete the Galaxy instance | 00:00:10 | passed |
 | Sun Oct 01 2023 | 9:50:17 PM | Launch a Galaxy instance | 00:00:09 | failed |
+| Sun Oct 01 2023 | 10:12:58 PM | Launch a Galaxy instance | 00:04:11 | passed |
+| Sun Oct 01 2023 | 10:15:00 PM | Paste text into the upload dialog | 00:02:00 | timedOut |
+| Sun Oct 01 2023 | 10:15:40 PM | Paste text into the upload dialog | 00:00:38 | passed |
+| Sun Oct 01 2023 | 10:20:48 PM | fastp | 00:05:00 | timedOut |
+| Sun Oct 01 2023 | 10:20:49 PM | fastp | 00:00:00 | failed |
+| Sun Oct 01 2023 | 10:23:08 PM | fastp | 00:02:18 | passed |
+| Sun Oct 01 2023 | 10:33:23 PM | import | 00:09:59 | timedOut |
+| Sun Oct 01 2023 | 10:34:13 PM | import | 00:00:49 | passed |
+| Sun Oct 01 2023 | 10:34:22 PM | Version | 00:00:00 | failed |
+| Sun Oct 01 2023 | 10:34:24 PM | Version | 00:00:00 | failed |
+| Sun Oct 01 2023 | 10:34:24 PM | Version | 00:00:00 | failed |
+| Sun Oct 01 2023 | 10:34:38 PM | Delete the Galaxy instance | 00:00:11 | passed |

@@ -65,11 +65,14 @@ test.describe('paste/upload data to a running Galaxy instance', () => {
         await galaxy.upload([TEST_DATA])
 
         // Wait for the upload to complete and ensure it was successful.
-        await galaxy.page.getByRole('button', {name: '1: Pasted Entry Display Edit attributes Delete'}).click();
-        await galaxy.page.getByRole('button', {
-            name: '1: Pasted Entry Display Edit attributes Delete 1 line format txt',
-            exact: false
-        }).getByTitle('Display').click();
+        await galaxy.page.getByRole('button', {name: 'Pasted Entry Display Edit attributes Delete', exact: false}).click();
+        // await galaxy.page.getByRole('button', {
+        //     name: '1 : Pasted Entry Display Edit attributes Delete 1 line format txt',
+        //     exact: false
+        // }).getByTitle('Display').click();
+        let button = await galaxy.page.getByRole('button', { name: 'Pasted Entry', exact: false })
+        await button.getByTitle('Display').click()
+
         await expect(galaxy.page.frameLocator('iframe[name="frame"]').getByText('This is a test.')).toHaveCount(1)
 
         // Save a screenshot

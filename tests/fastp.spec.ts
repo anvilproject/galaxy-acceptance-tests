@@ -32,9 +32,8 @@ test.describe('run the fastp tool on a small dataset', () => {
         await galaxy.upload(VariantCalling.pair)
 
         // Wait for the uploads to complete
-        // const rightPanel = galaxy.page.locator('#right')
-        await galaxy.page.getByRole('button', {name: '1: ERR3485802.forward.fastq.gz Display Edit attributes Delete'}).click();
-        await galaxy.page.getByRole('button', {name: '2: ERR3485802.reverse.fastq.gz Display Edit attributes Delete'}).click();
+        await galaxy.page.getByRole('button', {name: 'ERR3485802.forward.fastq.gz Display Edit attributes Delete', exact: false }).click();
+        await galaxy.page.getByRole('button', {name: 'ERR3485802.reverse.fastq.gz Display Edit attributes Delete', exact: false}).click();
 
         // Search for the fastp tool
         await galaxy.page.getByPlaceholder('search tools').fill('fastp')
@@ -42,7 +41,8 @@ test.describe('run the fastp tool on a small dataset', () => {
 
         // Configure the tool to use the uploaded datasets
         await galaxy.page.getByText('Single-end').nth(1).click();
-        await galaxy.page.getByRole('option', {name: 'Paired'}).locator('span').first().click();
+        //await galaxy.page.getByRole('option', {name: 'Paired'}).locator('span').first().click();
+        await galaxy.page.getByRole('option', {name: 'Paired', exact: true}).click()
         await galaxy.page.locator('#center')
             .getByRole('link', {name: '2: ERR3485802.reverse.fastq.gz'})
             .first()
@@ -54,7 +54,7 @@ test.describe('run the fastp tool on a small dataset', () => {
         await galaxy.page.getByRole('button', {name: 'Run Tool'}).first().click();
 
         // Wait for the tool to complete.
-        await galaxy.page.getByRole('button', {name: '5: fastp on data 2 and data 1: HTML report Display Edit attributes Delete'}).click();
+        await galaxy.page.getByRole('button', {name: 'fastp on data 2 and data 1: HTML report Display Edit attributes Delete', exact: false }).click();
 
         // Save a screenshot
         await galaxy.screenshot(testInfo, 'fastp.png')

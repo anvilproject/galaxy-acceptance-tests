@@ -1,7 +1,7 @@
 name: Galaxy acceptance tests
 on:
-#  schedule:
-#    - cron: '37 1,13 * * *'
+  schedule:
+    - cron: '37 1,13 * * *'
 
   workflow_dispatch:
     inputs:
@@ -33,12 +33,21 @@ on:
         description: 'run the import data test'
         type: boolean
         default: true
+      version:
+        description: 'check the version number of the server'
+        type: boolean
+        default: true
+      expected:
+        description: 'the expected version number'
+        type: string
+        default: '23.0.1.dev0'
 env:
   TERRA_URL: sarscov2
   TERRA_WORKSPACE: integration
   USER_JSON: ${{ secrets.USER_JSON }}
   TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
   TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
+  TERRA_VERSION: '23.0.1.dev0'
 
 jobs:
   test:
@@ -80,7 +89,7 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Paste text into the upload dialog
-      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.paste }}
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.paste == 'true' }}
       run: |
         npx playwright test paste
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/paste.html
@@ -91,7 +100,7 @@ jobs:
         path: playwright-report/
         retention-days: 30   
     - name: Run the fastp tool
-      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.fastp }}
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.fastp == 'true' }}
       run: |
         npx playwright test fastp
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/fastp.html
@@ -103,7 +112,7 @@ jobs:
         path: playwright-report/
         retention-days: 30 
     - name: Test importing data from the workspace
-      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.import }}
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.import == 'true' }}
       run: |
         npx playwright test import
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/import.html
@@ -113,7 +122,17 @@ jobs:
         name: import-report
         path: playwright-report/
         retention-days: 30
-    - name: Shutdown 
+    - name: Check the Galaxy version number on the About page
+      if: ${{ github.event_name == 'schedule' || $github.event.inputs.version == 'true' }}
+      run: |
+        url=$TERRA_URL
+        if [[ ${{ github.event_name }} = 'workflow_dispatch' ]] ; then
+          url=${{ github.event.inputs.expected }}
+        fi
+        TERRA_URL=$url npx playwright test version
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/version.html
+        if [[ -e version.png ]] ; then mv version.png results/${{ steps.directory.outputs.name }}/ ; fi
+    - name: Shutdown
       if: always()
       run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/previous.html      

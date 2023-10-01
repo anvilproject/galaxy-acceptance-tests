@@ -123,7 +123,7 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Check the Galaxy version number on the About page
-      if: ${{ github.event_name == 'schedule' || $github.event.inputs.version == 'true' }}
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.version == 'true' }}
       run: |
         url=$TERRA_URL
         if [[ ${{ github.event_name }} = 'workflow_dispatch' ]] ; then

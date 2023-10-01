@@ -13,19 +13,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import { test, expect } from '@playwright/test';
-import { Terra } from './terra';
+import {test, expect} from '@playwright/test';
+import {Terra} from './terra';
 
 test.describe('shutdown the instance but keep the disks', () => {
-    let terra: Terra;
-
-    test.beforeEach(async ({ page }) => {
-      terra = new Terra(page);
-    })
-  
-  test('Delete the Galaxy instance', async ({ page }) => {
-    await terra.login()
-    await terra.shutdown(false)
-    await expect(page.getByLabel('Galaxy Environment')).toHaveCount(0)
-  });
+    test('Delete the Galaxy instance', async ({page}) => {
+        const terra = new Terra(page);
+        await terra.login()
+        await terra.shutdown(false)
+        await expect(page.getByLabel('Galaxy Environment')).toHaveCount(0)
+    });
 });

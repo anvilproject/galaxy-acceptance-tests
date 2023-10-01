@@ -55,7 +55,7 @@ test.describe('import data', () => {
     await galaxy.page.getByRole('button', { name: 'Close' }).click();
 
     // Wait until the upload completes
-    await galaxy.page.getByRole('button', { name: '3 : VA_sample_reverse_reads.fastq Display Edit attributes Delete' }).getByTitle('Display').click();
+    await galaxy.page.getByRole('button', { name: '3: VA_sample_reverse_reads.fastq Display Edit attributes Delete' }).getByTitle('Display').click();
 
     // Take a screenshot.
     await galaxy.screenshot(testInfo, 'import.png')

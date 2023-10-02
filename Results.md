@@ -144,3 +144,8 @@ The most current result is at the end of the table.
 | Mon Oct 02 2023 | 1:34:38 PM | fastp | 00:00:00 | failed |
 | Mon Oct 02 2023 | 1:39:39 PM | fastp | 00:04:59 | timedOut |
 | Mon Oct 02 2023 | 1:39:51 PM | Delete the Galaxy instance | 00:00:10 | passed |
+| Mon Oct 02 2023 | 1:56:51 PM | Launch a Galaxy instance | 00:06:14 | passed |
+| Mon Oct 02 2023 | 1:56:55 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 1:56:57 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 1:56:58 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 1:57:11 PM | Delete the Galaxy instance | 00:00:10 | passed |

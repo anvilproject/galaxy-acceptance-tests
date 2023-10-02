@@ -149,3 +149,7 @@ The most current result is at the end of the table.
 | Mon Oct 02 2023 | 1:56:57 PM | Version | 00:00:00 | failed |
 | Mon Oct 02 2023 | 1:56:58 PM | Version | 00:00:00 | failed |
 | Mon Oct 02 2023 | 1:57:11 PM | Delete the Galaxy instance | 00:00:10 | passed |
+| Mon Oct 02 2023 | 2:15:23 PM | Launch a Galaxy instance | 00:07:07 | passed |
+| Mon Oct 02 2023 | 2:15:26 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 2:15:27 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 2:15:28 PM | Version | 00:00:00 | failed |

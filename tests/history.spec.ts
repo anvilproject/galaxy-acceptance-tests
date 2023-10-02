@@ -19,7 +19,7 @@ import {Galaxy} from '../modules/galaxy';
 
 require('dotenv').config({path: __dirname + '/.env.local'})
 
-test.describe('create a new history and change its name', () => {
+test.describe('Create a new history and change its name', () => {
 
     test('history', async ({page}, testInfo) => {
         const galaxy = await new Galaxy().setup(page)

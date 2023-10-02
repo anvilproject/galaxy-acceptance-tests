@@ -19,7 +19,7 @@ import { Galaxy } from '../modules/galaxy';
 test.describe('Ensure we are running the correct version of Galaxy', () => {
     const EXPECTED_VERSION: string = '23.1'
 
-    test('Version', async ({ page }, testInfo) => {
+    test('check the Galaxy version', async ({ page }, testInfo) => {
         const galaxy = await new Galaxy().setup(page)
         let version = EXPECTED_VERSION
         if ('TERRA_VERSION' in process.env) {

@@ -19,9 +19,9 @@ import {Galaxy} from '../modules/galaxy';
 import {TimeUnits} from '../modules/timeunits';
 import {VariantCalling} from '../modules/data';
 
-test.describe('run the fastp tool on a small dataset', () => {
+test.describe('Run the fastp tool on a small dataset', () => {
 
-    test('fastp', async ({page, context}, testInfo) => {
+    test('run the fastp tool', async ({page, context}, testInfo) => {
         test.setTimeout(TimeUnits.MIN_5)
         await context.tracing.start({screenshots: true, snapshots: true})
 

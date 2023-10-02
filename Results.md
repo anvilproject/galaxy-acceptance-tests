@@ -155,3 +155,5 @@ The most current result is at the end of the table.
 | Mon Oct 02 2023 | 2:15:28 PM | Version | 00:00:00 | failed |
 | Mon Oct 02 2023 | 2:59:36 PM | Launch a Galaxy instance | 00:04:20 | passed |
 | Mon Oct 02 2023 | 2:59:54 PM | Version | 00:00:14 | passed |
+| Mon Oct 02 2023 | 3:33:05 PM | Launch a Galaxy instance | 00:20:00 | timedOut |
+| Mon Oct 02 2023 | 3:53:07 PM | Launch a Galaxy instance | 00:20:00 | timedOut |

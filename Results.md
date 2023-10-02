@@ -124,3 +124,7 @@ The most current result is at the end of the table.
 | Mon Oct 02 2023 | 2:30:24 AM | fastp | 00:00:00 | failed |
 | Mon Oct 02 2023 | 2:35:25 AM | fastp | 00:04:59 | timedOut |
 | Mon Oct 02 2023 | 2:35:37 AM | Delete the Galaxy instance | 00:00:09 | passed |
+| Mon Oct 02 2023 | 11:16:36 AM | Launch a Galaxy instance | 00:00:15 | failed |
+| Mon Oct 02 2023 | 11:16:48 AM | Launch a Galaxy instance | 00:00:10 | failed |
+| Mon Oct 02 2023 | 11:16:58 AM | Launch a Galaxy instance | 00:00:09 | failed |
+| Mon Oct 02 2023 | 11:17:12 AM | Delete the Galaxy instance | 00:00:09 | passed |

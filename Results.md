@@ -103,3 +103,63 @@ The most current result is at the end of the table.
 | Sun Oct 01 2023 | 7:47:05 PM | Paste text into the upload dialog | 00:02:00 | timedOut |
 | Sun Oct 01 2023 | 7:49:06 PM | Paste text into the upload dialog | 00:02:00 | timedOut |
 | Sun Oct 01 2023 | 7:49:19 PM | Delete the Galaxy instance | 00:00:10 | passed |
+| Sun Oct 01 2023 | 9:50:17 PM | Launch a Galaxy instance | 00:00:09 | failed |
+| Sun Oct 01 2023 | 10:12:58 PM | Launch a Galaxy instance | 00:04:11 | passed |
+| Sun Oct 01 2023 | 10:15:00 PM | Paste text into the upload dialog | 00:02:00 | timedOut |
+| Sun Oct 01 2023 | 10:15:40 PM | Paste text into the upload dialog | 00:00:38 | passed |
+| Sun Oct 01 2023 | 10:20:48 PM | fastp | 00:05:00 | timedOut |
+| Sun Oct 01 2023 | 10:20:49 PM | fastp | 00:00:00 | failed |
+| Sun Oct 01 2023 | 10:23:08 PM | fastp | 00:02:18 | passed |
+| Sun Oct 01 2023 | 10:33:23 PM | import | 00:09:59 | timedOut |
+| Sun Oct 01 2023 | 10:34:13 PM | import | 00:00:49 | passed |
+| Sun Oct 01 2023 | 10:34:22 PM | Version | 00:00:00 | failed |
+| Sun Oct 01 2023 | 10:34:24 PM | Version | 00:00:00 | failed |
+| Sun Oct 01 2023 | 10:34:24 PM | Version | 00:00:00 | failed |
+| Sun Oct 01 2023 | 10:34:38 PM | Delete the Galaxy instance | 00:00:11 | passed |
+| Mon Oct 02 2023 | 2:20:38 AM | Launch a Galaxy instance | 00:04:10 | passed |
+| Mon Oct 02 2023 | 2:22:42 AM | Paste text into the upload dialog | 00:01:59 | timedOut |
+| Mon Oct 02 2023 | 2:24:44 AM | Paste text into the upload dialog | 00:01:59 | timedOut |
+| Mon Oct 02 2023 | 2:25:16 AM | Paste text into the upload dialog | 00:00:31 | passed |
+| Mon Oct 02 2023 | 2:30:23 AM | fastp | 00:04:59 | timedOut |
+| Mon Oct 02 2023 | 2:30:24 AM | fastp | 00:00:00 | failed |
+| Mon Oct 02 2023 | 2:35:25 AM | fastp | 00:04:59 | timedOut |
+| Mon Oct 02 2023 | 2:35:37 AM | Delete the Galaxy instance | 00:00:09 | passed |
+| Mon Oct 02 2023 | 11:16:36 AM | Launch a Galaxy instance | 00:00:15 | failed |
+| Mon Oct 02 2023 | 11:16:48 AM | Launch a Galaxy instance | 00:00:10 | failed |
+| Mon Oct 02 2023 | 11:16:58 AM | Launch a Galaxy instance | 00:00:09 | failed |
+| Mon Oct 02 2023 | 11:17:12 AM | Delete the Galaxy instance | 00:00:09 | passed |
+| Mon Oct 02 2023 | 11:39:27 AM | Launch a Galaxy instance | 00:00:12 | failed |
+| Mon Oct 02 2023 | 11:39:38 AM | Launch a Galaxy instance | 00:00:10 | failed |
+| Mon Oct 02 2023 | 11:39:47 AM | Launch a Galaxy instance | 00:00:08 | failed |
+| Mon Oct 02 2023 | 11:40:06 AM | Delete the Galaxy instance | 00:00:11 | passed |
+| Mon Oct 02 2023 | 12:24:39 PM | Launch a Galaxy instance | 00:13:10 | passed |
+| Mon Oct 02 2023 | 12:25:18 PM | Paste text into the upload dialog | 00:00:34 | passed |
+| Mon Oct 02 2023 | 12:30:22 PM | fastp | 00:05:00 | timedOut |
+| Mon Oct 02 2023 | 12:30:23 PM | fastp | 00:00:00 | failed |
+| Mon Oct 02 2023 | 12:33:03 PM | fastp | 00:02:38 | passed |
+| Mon Oct 02 2023 | 12:40:26 PM | Delete the Galaxy instance | 00:00:11 | passed |
+| Mon Oct 02 2023 | 1:28:56 PM | Launch a Galaxy instance | 00:06:15 | passed |
+| Mon Oct 02 2023 | 1:29:33 PM | Paste text into the upload dialog | 00:00:34 | passed |
+| Mon Oct 02 2023 | 1:34:37 PM | fastp | 00:04:59 | timedOut |
+| Mon Oct 02 2023 | 1:34:38 PM | fastp | 00:00:00 | failed |
+| Mon Oct 02 2023 | 1:39:39 PM | fastp | 00:04:59 | timedOut |
+| Mon Oct 02 2023 | 1:39:51 PM | Delete the Galaxy instance | 00:00:10 | passed |
+| Mon Oct 02 2023 | 1:56:51 PM | Launch a Galaxy instance | 00:06:14 | passed |
+| Mon Oct 02 2023 | 1:56:55 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 1:56:57 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 1:56:58 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 1:57:11 PM | Delete the Galaxy instance | 00:00:10 | passed |
+| Mon Oct 02 2023 | 2:15:23 PM | Launch a Galaxy instance | 00:07:07 | passed |
+| Mon Oct 02 2023 | 2:15:26 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 2:15:27 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 2:15:28 PM | Version | 00:00:00 | failed |
+| Mon Oct 02 2023 | 2:59:36 PM | Launch a Galaxy instance | 00:04:20 | passed |
+| Mon Oct 02 2023 | 2:59:54 PM | Version | 00:00:14 | passed |
+| Mon Oct 02 2023 | 3:33:05 PM | Launch a Galaxy instance | 00:20:00 | timedOut |
+| Mon Oct 02 2023 | 3:53:07 PM | Launch a Galaxy instance | 00:20:00 | timedOut |
+| Mon Oct 02 2023 | 4:25:07 PM | Launch a Galaxy instance | 00:06:14 | passed |
+| Mon Oct 02 2023 | 4:25:24 PM | Version | 00:00:14 | passed |
+| Mon Oct 02 2023 | 4:25:56 PM | Paste text into the upload dialog | 00:00:29 | passed |
+| Mon Oct 02 2023 | 4:28:18 PM | fastp | 00:02:19 | passed |
+| Mon Oct 02 2023 | 4:38:30 PM | import | 00:09:59 | timedOut |
+| Mon Oct 02 2023 | 4:39:24 PM | import | 00:00:53 | passed |

@@ -28,7 +28,7 @@ test.describe('Ensure we are running the correct version of Galaxy', () => {
         await galaxy.page.getByRole('link', { name: 'Admin' }).click();
         await galaxy.page.getByRole('button', { name: 'Help' }).click();
         await galaxy.page.getByRole('menuitem', { name: 'About' }).click();
-        await expect(galaxy.page.getByText(`The Galaxy Server is running version ${version}`)).toHaveCount(1)
         await galaxy.screenshot(testInfo, 'version.png')
+        await expect(galaxy.page.getByText(`The Galaxy Server is running version ${version}`)).toHaveCount(1)
     })
 })

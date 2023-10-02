@@ -27,7 +27,7 @@ test.describe('import data', () => {
 //     terra = new Terra(page);
 //   })
 
-    test('import', async ({page}, testInfo) => {
+    test('Import datasets from the workspace', async ({page}, testInfo) => {
         test.setTimeout(TimeUnits.MIN_10)
         // await terra.login()
         // const page = await terra.openGalaxy()

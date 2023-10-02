@@ -30,16 +30,9 @@ import { VariantCalling as VC } from '../modules/data';
  *    - Waiting for the workflow to complete has not been implemented.
  */  
 test.describe('[WIP] run a variant calling workflow', () => {
-  let terra: Terra;
 
-  test.beforeEach(async ({ page }) => {
-    terra = new Terra(page);
-  })
-
-  test('run a variant calling workflow', async ({}, testInfo) => {
-    await terra.login()
-    const page = await terra.openGalaxy()
-    const galaxy = new Galaxy(page)
+  test('run a variant calling workflow', async ({ page }, testInfo) => {
+    const galaxy = await new Galaxy().setup(page)
 
     // Create a new history
     await galaxy.newHistory('Variant - ' + new Date().toLocaleString())

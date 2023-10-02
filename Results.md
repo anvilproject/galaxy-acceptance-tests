@@ -132,3 +132,9 @@ The most current result is at the end of the table.
 | Mon Oct 02 2023 | 11:39:38 AM | Launch a Galaxy instance | 00:00:10 | failed |
 | Mon Oct 02 2023 | 11:39:47 AM | Launch a Galaxy instance | 00:00:08 | failed |
 | Mon Oct 02 2023 | 11:40:06 AM | Delete the Galaxy instance | 00:00:11 | passed |
+| Mon Oct 02 2023 | 12:24:39 PM | Launch a Galaxy instance | 00:13:10 | passed |
+| Mon Oct 02 2023 | 12:25:18 PM | Paste text into the upload dialog | 00:00:34 | passed |
+| Mon Oct 02 2023 | 12:30:22 PM | fastp | 00:05:00 | timedOut |
+| Mon Oct 02 2023 | 12:30:23 PM | fastp | 00:00:00 | failed |
+| Mon Oct 02 2023 | 12:33:03 PM | fastp | 00:02:38 | passed |
+| Mon Oct 02 2023 | 12:40:26 PM | Delete the Galaxy instance | 00:00:11 | passed |

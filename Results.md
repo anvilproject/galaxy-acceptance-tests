@@ -157,3 +157,9 @@ The most current result is at the end of the table.
 | Mon Oct 02 2023 | 2:59:54 PM | Version | 00:00:14 | passed |
 | Mon Oct 02 2023 | 3:33:05 PM | Launch a Galaxy instance | 00:20:00 | timedOut |
 | Mon Oct 02 2023 | 3:53:07 PM | Launch a Galaxy instance | 00:20:00 | timedOut |
+| Mon Oct 02 2023 | 4:25:07 PM | Launch a Galaxy instance | 00:06:14 | passed |
+| Mon Oct 02 2023 | 4:25:24 PM | Version | 00:00:14 | passed |
+| Mon Oct 02 2023 | 4:25:56 PM | Paste text into the upload dialog | 00:00:29 | passed |
+| Mon Oct 02 2023 | 4:28:18 PM | fastp | 00:02:19 | passed |
+| Mon Oct 02 2023 | 4:38:30 PM | import | 00:09:59 | timedOut |
+| Mon Oct 02 2023 | 4:39:24 PM | import | 00:00:53 | passed |

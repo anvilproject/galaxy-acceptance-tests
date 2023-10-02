@@ -128,3 +128,7 @@ The most current result is at the end of the table.
 | Mon Oct 02 2023 | 11:16:48 AM | Launch a Galaxy instance | 00:00:10 | failed |
 | Mon Oct 02 2023 | 11:16:58 AM | Launch a Galaxy instance | 00:00:09 | failed |
 | Mon Oct 02 2023 | 11:17:12 AM | Delete the Galaxy instance | 00:00:09 | passed |
+| Mon Oct 02 2023 | 11:39:27 AM | Launch a Galaxy instance | 00:00:12 | failed |
+| Mon Oct 02 2023 | 11:39:38 AM | Launch a Galaxy instance | 00:00:10 | failed |
+| Mon Oct 02 2023 | 11:39:47 AM | Launch a Galaxy instance | 00:00:08 | failed |
+| Mon Oct 02 2023 | 11:40:06 AM | Delete the Galaxy instance | 00:00:11 | passed |

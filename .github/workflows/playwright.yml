@@ -88,6 +88,21 @@ jobs:
         name: launch-report
         path: playwright-report/
         retention-days: 30
+    - name: Check the Galaxy version number on the About page
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.version == 'true' }}
+      run: |
+        url=$TERRA_URL
+        if [[ ${{ github.event_name }} = 'workflow_dispatch' ]] ; then
+          url=${{ github.event.inputs.expected }}
+        fi
+        TERRA_URL=$url npx playwright test version
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/version.html
+        if [[ -e version.png ]] ; then mv version.png results/${{ steps.directory.outputs.name }}/ ; fi
+    - uses: actions/upload-artifact@v3
+      with:
+        name: version-report
+        path: playwright-report/
+        retention-days: 30
     - name: Paste text into the upload dialog
       if: ${{ github.event_name == 'schedule' || github.event.inputs.paste == 'true' }}
       run: |
@@ -122,16 +137,6 @@ jobs:
         name: import-report
         path: playwright-report/
         retention-days: 30
-    - name: Check the Galaxy version number on the About page
-      if: ${{ github.event_name == 'schedule' || github.event.inputs.version == 'true' }}
-      run: |
-        url=$TERRA_URL
-        if [[ ${{ github.event_name }} = 'workflow_dispatch' ]] ; then
-          url=${{ github.event.inputs.expected }}
-        fi
-        TERRA_URL=$url npx playwright test version
-        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/version.html
-        if [[ -e version.png ]] ; then mv version.png results/${{ steps.directory.outputs.name }}/ ; fi
     - name: Shutdown
       if: always()
       run: |

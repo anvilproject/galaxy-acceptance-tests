@@ -137,14 +137,14 @@ jobs:
         name: import-report
         path: playwright-report/
         retention-days: 30
-#    - name: Shutdown
-#      if: always()
-#      run: |
-#        if [[ -e playwright-report/index.html ]] ; then
-#          cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/previous.html
-#        fi
-#        npx playwright test shutdown
-#        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/shutdown.html
+    - name: Shutdown
+      if: always()
+      run: |
+        if [[ -e playwright-report/index.html ]] ; then
+          cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/previous.html
+        fi
+        npx playwright test shutdown
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/shutdown.html
     - uses: actions/upload-artifact@v3
       if: always()
       with:

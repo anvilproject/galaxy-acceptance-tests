@@ -91,11 +91,11 @@ jobs:
     - name: Check the Galaxy version number on the About page
       if: ${{ github.event_name == 'schedule' || github.event.inputs.version == 'true' }}
       run: |
-        url=$TERRA_URL
+        version=$TERRA_VERSION
         if [[ ${{ github.event_name }} = 'workflow_dispatch' ]] ; then
-          url=${{ github.event.inputs.expected }}
+          version=${{ github.event.inputs.expected }}
         fi
-        TERRA_URL=$url npx playwright test version
+        TERRA_VERSION=$version npx playwright test version
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/version.html
         if [[ -e version.png ]] ; then mv version.png results/${{ steps.directory.outputs.name }}/ ; fi
     - uses: actions/upload-artifact@v3

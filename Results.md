@@ -188,3 +188,9 @@ The most current result is at the end of the table.
 | Wed Oct 04 2023 | 2:47:56 AM | Import datasets from the workspace | 00:09:59 | timedOut |
 | Wed Oct 04 2023 | 2:48:40 AM | Import datasets from the workspace | 00:00:42 | passed |
 | Wed Oct 04 2023 | 2:49:00 AM | Delete the Galaxy instance | 00:00:10 | passed |
+| Wed Oct 04 2023 | 2:02:51 PM | Launch a Galaxy instance | 00:19:59 | timedOut |
+| Wed Oct 04 2023 | 2:04:03 PM | Launch a Galaxy instance | 00:01:11 | failed |
+| Wed Oct 04 2023 | 2:05:16 PM | Launch a Galaxy instance | 00:01:11 | failed |
+| Wed Oct 04 2023 | 2:05:51 PM | Delete the Galaxy instance | 00:00:30 | timedOut |
+| Wed Oct 04 2023 | 2:06:23 PM | Delete the Galaxy instance | 00:00:30 | timedOut |
+| Wed Oct 04 2023 | 2:06:54 PM | Delete the Galaxy instance | 00:00:30 | timedOut |

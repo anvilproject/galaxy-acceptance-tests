@@ -256,3 +256,12 @@ The most current result is at the end of the table.
 | Mon Oct 09 2023 | 2:21:46 AM | run the fastp tool | 00:02:26 | passed |
 | Mon Oct 09 2023 | 2:22:42 AM | Import datasets from the workspace | 00:00:42 | passed |
 | Mon Oct 09 2023 | 2:22:55 AM | Delete the Galaxy instance | 00:00:10 | passed |
+| Mon Oct 09 2023 | 1:54:46 PM | Launch a Galaxy instance | 00:11:46 | passed |
+| Mon Oct 09 2023 | 1:55:03 PM | check the Galaxy version | 00:00:14 | passed |
+| Mon Oct 09 2023 | 1:57:06 PM | Paste text into the upload dialog | 00:01:59 | timedOut |
+| Mon Oct 09 2023 | 1:57:45 PM | Paste text into the upload dialog | 00:00:38 | passed |
+| Mon Oct 09 2023 | 2:02:53 PM | run the fastp tool | 00:05:00 | timedOut |
+| Mon Oct 09 2023 | 2:02:54 PM | run the fastp tool | 00:00:00 | failed |
+| Mon Oct 09 2023 | 2:05:32 PM | run the fastp tool | 00:02:37 | passed |
+| Mon Oct 09 2023 | 2:06:25 PM | Import datasets from the workspace | 00:00:41 | passed |
+| Mon Oct 09 2023 | 2:06:38 PM | Delete the Galaxy instance | 00:00:10 | passed |

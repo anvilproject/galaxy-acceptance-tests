@@ -303,3 +303,8 @@ The most current result is at the end of the table.
 | Thu Oct 12 2023 | 2:42:01 AM | Import datasets from the workspace | 00:09:59 | timedOut |
 | Thu Oct 12 2023 | 2:42:51 AM | Import datasets from the workspace | 00:00:49 | passed |
 | Thu Oct 12 2023 | 2:43:11 AM | Delete the Galaxy instance | 00:00:10 | passed |
+| Thu Oct 12 2023 | 1:55:40 PM | Launch a Galaxy instance | 00:11:26 | passed |
+| Thu Oct 12 2023 | 1:56:14 PM | check the Galaxy version | 00:00:30 | timedOut |
+| Thu Oct 12 2023 | 1:56:45 PM | check the Galaxy version | 00:00:29 | timedOut |
+| Thu Oct 12 2023 | 1:57:16 PM | check the Galaxy version | 00:00:29 | timedOut |
+| Thu Oct 12 2023 | 1:57:29 PM | Delete the Galaxy instance | 00:00:10 | passed |

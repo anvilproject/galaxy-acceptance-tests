@@ -340,3 +340,10 @@ The most current result is at the end of the table.
 | Sat Oct 14 2023 | 2:25:38 PM | Delete the Galaxy instance | 00:00:29 | timedOut |
 | Sat Oct 14 2023 | 2:26:10 PM | Delete the Galaxy instance | 00:00:29 | timedOut |
 | Sat Oct 14 2023 | 2:26:41 PM | Delete the Galaxy instance | 00:00:29 | timedOut |
+| Sun Oct 15 2023 | 2:23:57 AM | Launch a Galaxy instance | 00:12:59 | passed |
+| Sun Oct 15 2023 | 2:24:15 AM | check the Galaxy version | 00:00:15 | passed |
+| Sun Oct 15 2023 | 2:24:49 AM | Paste text into the upload dialog | 00:00:30 | passed |
+| Sun Oct 15 2023 | 2:29:52 AM | run the fastp tool | 00:04:59 | timedOut |
+| Sun Oct 15 2023 | 2:29:53 AM | run the fastp tool | 00:00:00 | failed |
+| Sun Oct 15 2023 | 2:34:54 AM | run the fastp tool | 00:05:00 | timedOut |
+| Sun Oct 15 2023 | 2:35:08 AM | Delete the Galaxy instance | 00:00:11 | passed |

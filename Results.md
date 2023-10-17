@@ -368,3 +368,9 @@ The most current result is at the end of the table.
 | Mon Oct 16 2023 | 1:58:32 PM | run the fastp tool | 00:02:26 | passed |
 | Mon Oct 16 2023 | 1:59:32 PM | Import datasets from the workspace | 00:00:45 | passed |
 | Mon Oct 16 2023 | 1:59:47 PM | Delete the Galaxy instance | 00:00:12 | passed |
+| Tue Oct 17 2023 | 2:20:14 AM | Launch a Galaxy instance | 00:11:28 | passed |
+| Tue Oct 17 2023 | 2:20:31 AM | check the Galaxy version | 00:00:14 | passed |
+| Tue Oct 17 2023 | 2:21:04 AM | Paste text into the upload dialog | 00:00:30 | passed |
+| Tue Oct 17 2023 | 2:23:30 AM | run the fastp tool | 00:02:23 | passed |
+| Tue Oct 17 2023 | 2:24:22 AM | Import datasets from the workspace | 00:00:39 | passed |
+| Tue Oct 17 2023 | 2:24:36 AM | Delete the Galaxy instance | 00:00:11 | passed |

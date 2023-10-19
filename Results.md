@@ -404,3 +404,8 @@ The most current result is at the end of the table.
 | Thu Oct 19 2023 | 2:30:28 AM | run the fastp tool | 00:00:00 | failed |
 | Thu Oct 19 2023 | 2:35:29 AM | run the fastp tool | 00:04:59 | timedOut |
 | Thu Oct 19 2023 | 2:35:43 AM | Delete the Galaxy instance | 00:00:12 | passed |
+| Thu Oct 19 2023 | 1:57:40 PM | Launch a Galaxy instance | 00:13:31 | passed |
+| Thu Oct 19 2023 | 1:58:13 PM | check the Galaxy version | 00:00:30 | timedOut |
+| Thu Oct 19 2023 | 1:58:45 PM | check the Galaxy version | 00:00:30 | timedOut |
+| Thu Oct 19 2023 | 1:59:16 PM | check the Galaxy version | 00:00:29 | timedOut |
+| Thu Oct 19 2023 | 1:59:31 PM | Delete the Galaxy instance | 00:00:13 | passed |

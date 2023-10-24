@@ -468,3 +468,14 @@ The most current result is at the end of the table.
 | Mon Oct 23 2023 | 2:06:13 PM | run the fastp tool | 00:02:26 | passed |
 | Mon Oct 23 2023 | 2:07:11 PM | Import datasets from the workspace | 00:00:43 | passed |
 | Mon Oct 23 2023 | 2:07:25 PM | Delete the Galaxy instance | 00:00:12 | passed |
+| Tue Oct 24 2023 | 2:20:43 AM | Launch a Galaxy instance | 00:13:16 | passed |
+| Tue Oct 24 2023 | 2:21:00 AM | check the Galaxy version | 00:00:13 | passed |
+| Tue Oct 24 2023 | 2:23:03 AM | Paste text into the upload dialog | 00:01:59 | timedOut |
+| Tue Oct 24 2023 | 2:25:05 AM | Paste text into the upload dialog | 00:01:59 | timedOut |
+| Tue Oct 24 2023 | 2:25:35 AM | Paste text into the upload dialog | 00:00:29 | passed |
+| Tue Oct 24 2023 | 2:30:42 AM | run the fastp tool | 00:05:00 | timedOut |
+| Tue Oct 24 2023 | 2:30:43 AM | run the fastp tool | 00:00:00 | failed |
+| Tue Oct 24 2023 | 2:33:27 AM | run the fastp tool | 00:02:43 | passed |
+| Tue Oct 24 2023 | 2:43:43 AM | Import datasets from the workspace | 00:09:59 | timedOut |
+| Tue Oct 24 2023 | 2:44:33 AM | Import datasets from the workspace | 00:00:50 | passed |
+| Tue Oct 24 2023 | 2:44:58 AM | Delete the Galaxy instance | 00:00:13 | passed |

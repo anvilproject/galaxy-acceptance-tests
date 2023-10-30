@@ -17,7 +17,7 @@ import {test, expect} from '@playwright/test';
 import {Terra} from '../modules/terra';
 import {TimeUnits} from '../modules/timeunits';
 
-require('dotenv').config({path: __dirname + '/.env.local'})
+// require('dotenv').config({path: __dirname + '/.env.local'})
 
 test.describe('launch a new Galaxy instance', () => {
     let terra: Terra;

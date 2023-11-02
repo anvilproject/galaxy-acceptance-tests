@@ -592,3 +592,8 @@ The most current result is at the end of the table.
 | Wed Nov 01 2023 | 2:07:16 PM | run the fastp tool | 00:00:00 | failed |
 | Wed Nov 01 2023 | 2:12:17 PM | run the fastp tool | 00:04:59 | timedOut |
 | Wed Nov 01 2023 | 2:12:30 PM | Delete the Galaxy instance | 00:00:11 | passed |
+| Thu Nov 02 2023 | 2:23:25 AM | Launch a Galaxy instance | 00:15:15 | passed |
+| Thu Nov 02 2023 | 2:23:58 AM | check the Galaxy version | 00:00:30 | timedOut |
+| Thu Nov 02 2023 | 2:24:30 AM | check the Galaxy version | 00:00:30 | timedOut |
+| Thu Nov 02 2023 | 2:25:01 AM | check the Galaxy version | 00:00:30 | timedOut |
+| Thu Nov 02 2023 | 2:25:14 AM | Delete the Galaxy instance | 00:00:11 | passed |

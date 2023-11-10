@@ -19,25 +19,45 @@ import {TimeUnits} from '../modules/timeunits';
 
 test.describe('delete any lingering persistent disks', () => {
     test('delete disks from the user\'s cloud environments menu', async ({page}) => {
+        test.setTimeout(120000)
         const terra = new Terra(page);
         await terra.login()
         await page.getByRole('button', {name: 'Toggle main menu'}).click();
         await page.getByRole('button', {name: 'Google profile image Ron Weasley'}).click();
         await page.getByRole('link', {name: 'Cloud Environments'}).click();
-        const delete_button = page.getByRole('table', {name: 'persistent disks'})
-            .getByRole('cell', {name: 'integration_test'})
-            .locator('xpath=..')
-            .getByRole('cell', {name: 'Delete'})
-
-        const visible = await delete_button.isVisible()
-        if (visible) {
-            console.log('Found disks to delete!')
-            await delete_button.click()
+        var deleting = true
+        var count = 0
+        while (true) {
+            await page.getByRole('table', {name: 'persistent disks'}).getByRole('button', {name: 'Delete'}).nth(1).click({timeout: 5000})
             await page.getByRole('button', {name: 'OK'}).click()
-            await expect(delete_button).toBeHidden({timeout: TimeUnits.MIN_10})
-        } else {
-            console.log('No persistent disks to delete')
+            ++count
+            console.log(`Deleted disk ${count}`)
+            page.waitForTimeout(5000)
         }
+        // while (deleting) {
+        //     console.log("Looking for the delete button")
+        //     // const delete_button = page.getByRole('table', {name: 'persistent disks'})
+        //     //     .getByRole('cell', {name: 'SARS-CoV-2-Genome copy', exact: false})
+        //     //     .locator('xpath=..')
+        //     //     .getByRole('cell', {name: 'Delete'})
+        //     var delete_button = page.getByRole('table', {name: 'persistent disks'})
+        //     if (! await delete_button.isVisible()) {
+        //         console.log("No table found")
+        //         deleting = false
+        //     }
+        //     delete_button = page.getByRole('button', {name: 'Delete'})
+        //         // .getByRole('cell', {name: 'Delete'})
+        //     const visible = await delete_button.isVisible()
+        //     if (visible) {
+        //         console.log('Found disks to delete!')
+        //         await delete_button.click()
+        //         await page.getByRole('button', {name: 'OK'}).click()
+        //         await expect(delete_button).toBeHidden({timeout: TimeUnits.MIN_10})
+        //     } else {
+        //         console.log('No persistent disks to delete')
+        //         deleting = false
+        //     }
+        // }
         console.log('Done')
     });
 });

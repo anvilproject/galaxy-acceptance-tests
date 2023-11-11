@@ -716,18 +716,18 @@ The most current result is at the end of the table.
 | Fri Nov 10 2023 | 2:03:39 PM | run the fastp tool | 00:00:00 | failed | :red_circle: |
 | Fri Nov 10 2023 | 2:08:40 PM | run the fastp tool | 00:04:59 | timedOut | :alarm_clock: |
 | Fri Nov 10 2023 | 2:08:57 PM | Delete the Galaxy instance | 00:00:14 | passed | :green_circle: |
-| Sat Nov 11 2023 | 2:57:15 AM | Launch a Galaxy instance | 00:12:35 | passed | :green_circle |
-| Sat Nov 11 2023 | 2:57:33 AM | check the Galaxy version | 00:00:16 | passed | :green_circle |
-| Sat Nov 11 2023 | 2:58:06 AM | Paste text into the upload dialog | 00:00:30 | passed | :green_circle |
-| Sat Nov 11 2023 | 3:00:21 AM | run the fastp tool | 00:02:13 | passed | :green_circle |
-| Sat Nov 11 2023 | 3:01:10 AM | Import datasets from the workspace | 00:00:39 | passed | :green_circle |
-| Sat Nov 11 2023 | 3:01:24 AM | Delete the Galaxy instance | 00:00:12 | passed | :green_circle |
-| Sat Nov 11 2023 | 1:58:33 PM | Launch a Galaxy instance | 00:13:27 | passed | :green_circle |
+| Sat Nov 11 2023 | 2:57:15 AM | Launch a Galaxy instance | 00:12:35 | passed | :green_circle: |
+| Sat Nov 11 2023 | 2:57:33 AM | check the Galaxy version | 00:00:16 | passed | :green_circle: |
+| Sat Nov 11 2023 | 2:58:06 AM | Paste text into the upload dialog | 00:00:30 | passed | :green_circle: |
+| Sat Nov 11 2023 | 3:00:21 AM | run the fastp tool | 00:02:13 | passed | :green_circle: |
+| Sat Nov 11 2023 | 3:01:10 AM | Import datasets from the workspace | 00:00:39 | passed | :green_circle: |
+| Sat Nov 11 2023 | 3:01:24 AM | Delete the Galaxy instance | 00:00:12 | passed | :green_circle: |
+| Sat Nov 11 2023 | 1:58:33 PM | Launch a Galaxy instance | 00:13:27 | passed | :green_circle: |
 | Sat Nov 11 2023 | 1:59:06 PM | check the Galaxy version | 00:00:30 | timedOut | :alarm_clock: |
-| Sat Nov 11 2023 | 1:59:27 PM | check the Galaxy version | 00:00:20 | passed | :green_circle |
-| Sat Nov 11 2023 | 2:00:07 PM | Paste text into the upload dialog | 00:00:32 | passed | :green_circle |
-| Sat Nov 11 2023 | 2:02:37 PM | run the fastp tool | 00:02:27 | passed | :green_circle |
-| Sat Nov 11 2023 | 2:04:41 PM | Import datasets from the workspace | 00:01:50 | passed | :green_circle |
+| Sat Nov 11 2023 | 1:59:27 PM | check the Galaxy version | 00:00:20 | passed | :green_circle: |
+| Sat Nov 11 2023 | 2:00:07 PM | Paste text into the upload dialog | 00:00:32 | passed | :green_circle: |
+| Sat Nov 11 2023 | 2:02:37 PM | run the fastp tool | 00:02:27 | passed | :green_circle: |
+| Sat Nov 11 2023 | 2:04:41 PM | Import datasets from the workspace | 00:01:50 | passed | :green_circle: |
 | Sat Nov 11 2023 | 2:05:01 PM | Delete the Galaxy instance | 00:00:17 | failed | :red_circle: |
 | Sat Nov 11 2023 | 2:05:32 PM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
-| Sat Nov 11 2023 | 2:05:46 PM | Delete the Galaxy instance | 00:00:13 | passed | :green_circle |
+| Sat Nov 11 2023 | 2:05:46 PM | Delete the Galaxy instance | 00:00:13 | passed | :green_circle: |

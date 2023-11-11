@@ -10,7 +10,7 @@ import { writeFileSync } from 'fs'
         const duration = new Date(result.duration).toISOString().slice(11,19)
         var icon: string = ':question:'
         if (result.status == 'passed') {
-            icon = ':green_circle'
+            icon = ':green_circle:'
         }
         else if (result.status == 'failed' ) {
             icon = ':red_circle:'

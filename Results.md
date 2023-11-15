@@ -731,3 +731,48 @@ The most current result is at the end of the table.
 | Sat Nov 11 2023 | 2:05:01 PM | Delete the Galaxy instance | 00:00:17 | failed | :red_circle: |
 | Sat Nov 11 2023 | 2:05:32 PM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
 | Sat Nov 11 2023 | 2:05:46 PM | Delete the Galaxy instance | 00:00:13 | passed | :green_circle: |
+| Sun Nov 12 2023 | 2:31:57 AM | Launch a Galaxy instance | 00:14:01 | passed | :green_circle: |
+| Sun Nov 12 2023 | 2:32:17 AM | check the Galaxy version | 00:00:17 | passed | :green_circle: |
+| Sun Nov 12 2023 | 2:32:57 AM | Paste text into the upload dialog | 00:00:36 | passed | :green_circle: |
+| Sun Nov 12 2023 | 2:35:35 AM | run the fastp tool | 00:02:35 | passed | :green_circle: |
+| Sun Nov 12 2023 | 2:36:40 AM | Import datasets from the workspace | 00:00:49 | passed | :green_circle: |
+| Sun Nov 12 2023 | 2:36:57 AM | Delete the Galaxy instance | 00:00:14 | passed | :green_circle: |
+| Sun Nov 12 2023 | 1:56:58 PM | Launch a Galaxy instance | 00:13:30 | passed | :green_circle: |
+| Sun Nov 12 2023 | 1:57:17 PM | check the Galaxy version | 00:00:16 | passed | :green_circle: |
+| Sun Nov 12 2023 | 1:57:52 PM | Paste text into the upload dialog | 00:00:32 | passed | :green_circle: |
+| Sun Nov 12 2023 | 2:00:12 PM | run the fastp tool | 00:02:18 | passed | :green_circle: |
+| Sun Nov 12 2023 | 2:01:06 PM | Import datasets from the workspace | 00:00:41 | passed | :green_circle: |
+| Sun Nov 12 2023 | 2:01:23 PM | Delete the Galaxy instance | 00:00:13 | passed | :green_circle: |
+| Mon Nov 13 2023 | 2:25:36 AM | Launch a Galaxy instance | 00:13:29 | passed | :green_circle: |
+| Mon Nov 13 2023 | 2:26:09 AM | check the Galaxy version | 00:00:30 | timedOut | :alarm_clock: |
+| Mon Nov 13 2023 | 2:26:40 AM | check the Galaxy version | 00:00:29 | timedOut | :alarm_clock: |
+| Mon Nov 13 2023 | 2:27:11 AM | check the Galaxy version | 00:00:29 | timedOut | :alarm_clock: |
+| Mon Nov 13 2023 | 2:27:27 AM | Delete the Galaxy instance | 00:00:14 | passed | :green_circle: |
+| Mon Nov 13 2023 | 1:56:40 PM | Launch a Galaxy instance | 00:13:47 | passed | :green_circle: |
+| Mon Nov 13 2023 | 1:57:01 PM | check the Galaxy version | 00:00:18 | passed | :green_circle: |
+| Mon Nov 13 2023 | 1:57:33 PM | Paste text into the upload dialog | 00:00:30 | passed | :green_circle: |
+| Mon Nov 13 2023 | 1:59:21 PM | run the fastp tool | 00:01:46 | passed | :green_circle: |
+| Mon Nov 13 2023 | 2:00:13 PM | Import datasets from the workspace | 00:00:42 | passed | :green_circle: |
+| Mon Nov 13 2023 | 2:00:33 PM | Delete the Galaxy instance | 00:00:17 | passed | :green_circle: |
+| Tue Nov 14 2023 | 2:10:59 AM | Launch a Galaxy instance | 00:00:37 | failed | :red_circle: |
+| Tue Nov 14 2023 | 2:11:38 AM | Launch a Galaxy instance | 00:00:38 | failed | :red_circle: |
+| Tue Nov 14 2023 | 2:12:15 AM | Launch a Galaxy instance | 00:00:36 | failed | :red_circle: |
+| Tue Nov 14 2023 | 2:12:51 AM | Delete the Galaxy instance | 00:00:30 | timedOut | :alarm_clock: |
+| Tue Nov 14 2023 | 2:13:23 AM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
+| Tue Nov 14 2023 | 2:13:54 AM | Delete the Galaxy instance | 00:00:30 | timedOut | :alarm_clock: |
+| Tue Nov 14 2023 | 1:43:46 PM | Launch a Galaxy instance | 00:00:36 | failed | :red_circle: |
+| Tue Nov 14 2023 | 1:44:23 PM | Launch a Galaxy instance | 00:00:36 | failed | :red_circle: |
+| Tue Nov 14 2023 | 1:44:59 PM | Launch a Galaxy instance | 00:00:35 | failed | :red_circle: |
+| Tue Nov 14 2023 | 1:45:33 PM | Delete the Galaxy instance | 00:00:30 | timedOut | :alarm_clock: |
+| Tue Nov 14 2023 | 1:46:05 PM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
+| Tue Nov 14 2023 | 1:46:36 PM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
+| Wed Nov 15 2023 | 2:29:47 AM | Launch a Galaxy instance | 00:12:22 | passed | :green_circle: |
+| Wed Nov 15 2023 | 2:30:14 AM | check the Galaxy version | 00:00:23 | failed | :red_circle: |
+| Wed Nov 15 2023 | 2:30:40 AM | check the Galaxy version | 00:00:25 | failed | :red_circle: |
+| Wed Nov 15 2023 | 2:31:02 AM | check the Galaxy version | 00:00:22 | failed | :red_circle: |
+| Wed Nov 15 2023 | 2:31:21 AM | Delete the Galaxy instance | 00:00:16 | passed | :green_circle: |
+| Wed Nov 15 2023 | 1:59:04 PM | Launch a Galaxy instance | 00:15:16 | passed | :green_circle: |
+| Wed Nov 15 2023 | 1:59:31 PM | check the Galaxy version | 00:00:23 | failed | :red_circle: |
+| Wed Nov 15 2023 | 2:00:00 PM | check the Galaxy version | 00:00:27 | failed | :red_circle: |
+| Wed Nov 15 2023 | 2:00:23 PM | check the Galaxy version | 00:00:22 | failed | :red_circle: |
+| Wed Nov 15 2023 | 2:00:39 PM | Delete the Galaxy instance | 00:00:14 | passed | :green_circle: |

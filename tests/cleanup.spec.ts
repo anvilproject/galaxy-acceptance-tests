@@ -28,11 +28,11 @@ test.describe('delete any lingering persistent disks', () => {
         var deleting = true
         var count = 0
         while (true) {
-            await page.getByRole('table', {name: 'persistent disks'}).getByRole('button', {name: 'Delete'}).nth(1).click({timeout: 5000})
+            await page.getByRole('table', {name: 'persistent disks'}).getByRole('button', {name: 'Delete'}).nth(1).click({timeout: TimeUnits.SEC_30})
             await page.getByRole('button', {name: 'OK'}).click()
             ++count
             console.log(`Deleted disk ${count}`)
-            page.waitForTimeout(5000)
+            page.waitForTimeout(TimeUnits.SEC_10)
         }
         // while (deleting) {
         //     console.log("Looking for the delete button")

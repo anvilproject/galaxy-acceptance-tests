@@ -781,3 +781,10 @@ The most current result is at the end of the table.
 | Thu Nov 16 2023 | 2:33:10 AM | check the Galaxy version | 00:00:24 | failed | :red_circle: |
 | Thu Nov 16 2023 | 2:33:40 AM | check the Galaxy version | 00:00:30 | timedOut | :alarm_clock: |
 | Thu Nov 16 2023 | 2:33:58 AM | Delete the Galaxy instance | 00:00:16 | passed | :green_circle: |
+| Thu Nov 16 2023 | 1:55:55 PM | Launch a Galaxy instance | 00:12:46 | passed | :green_circle: |
+| Thu Nov 16 2023 | 1:56:28 PM | check the Galaxy version | 00:00:29 | timedOut | :alarm_clock: |
+| Thu Nov 16 2023 | 1:56:59 PM | check the Galaxy version | 00:00:30 | timedOut | :alarm_clock: |
+| Thu Nov 16 2023 | 1:57:27 PM | check the Galaxy version | 00:00:27 | failed | :red_circle: |
+| Thu Nov 16 2023 | 1:57:46 PM | Delete the Galaxy instance | 00:00:17 | failed | :red_circle: |
+| Thu Nov 16 2023 | 1:58:17 PM | Delete the Galaxy instance | 00:00:30 | timedOut | :alarm_clock: |
+| Thu Nov 16 2023 | 1:58:47 PM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |

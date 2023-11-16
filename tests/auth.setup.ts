@@ -28,13 +28,13 @@ authenticate('authenticate', async ({ page }) => {
   const page1 = await page1Promise;
   await page1.getByRole('button', { name: 'Sign in with Google' }).click();
   await page1.waitForTimeout(TimeUnits.SEC_5)
-  if (await page1.getByRole('link', {name: process.env.TERRA_EMAIL!, exact: false}).isVisible()) {
-    await page1.getByRole('link', {name: process.env.TERRA_EMAIL!, exact: false}).click()
-  }
-  else {
+  // if (await page1.getByRole('link', {name: process.env.TERRA_EMAIL!, exact: false}).first().isVisible()) {
+  //   await page1.getByRole('link', {name: process.env.TERRA_EMAIL!, exact: false}).first().click()
+  // }
+  // else {
     await page1.getByLabel('Email or phone').fill(process.env.TERRA_EMAIL!);
     await page1.click("#identifierNext")
-  }
+  // }
   await page1.getByLabel('Enter your password').fill(process.env.TERRA_PASSWORD!);  
   await page1.click("#passwordNext")
 

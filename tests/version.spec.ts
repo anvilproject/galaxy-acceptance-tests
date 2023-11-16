@@ -25,7 +25,6 @@ test.describe('Ensure we are running the correct version of Galaxy', () => {
         if ('TERRA_VERSION' in process.env) {
             version = process.env.TERRA_VERSION!
         }
-        await galaxy.page.getByRole('link', { name: 'Admin' }).click();
         await galaxy.page.getByRole('button', { name: 'Help' }).click();
         await galaxy.page.getByRole('menuitem', { name: 'About' }).click();
         await galaxy.screenshot(testInfo, 'version.png')

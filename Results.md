@@ -788,3 +788,9 @@ The most current result is at the end of the table.
 | Thu Nov 16 2023 | 1:57:46 PM | Delete the Galaxy instance | 00:00:17 | failed | :red_circle: |
 | Thu Nov 16 2023 | 1:58:17 PM | Delete the Galaxy instance | 00:00:30 | timedOut | :alarm_clock: |
 | Thu Nov 16 2023 | 1:58:47 PM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
+| Fri Nov 17 2023 | 2:19:36 AM | Launch a Galaxy instance | 00:01:15 | failed | :red_circle: |
+| Fri Nov 17 2023 | 2:21:48 AM | Launch a Galaxy instance | 00:02:12 | failed | :red_circle: |
+| Fri Nov 17 2023 | 2:22:54 AM | Launch a Galaxy instance | 00:01:04 | failed | :red_circle: |
+| Fri Nov 17 2023 | 2:23:16 AM | Delete the Galaxy instance | 00:00:16 | failed | :red_circle: |
+| Fri Nov 17 2023 | 2:23:34 AM | Delete the Galaxy instance | 00:00:17 | failed | :red_circle: |
+| Fri Nov 17 2023 | 2:23:50 AM | Delete the Galaxy instance | 00:00:14 | passed | :green_circle: |

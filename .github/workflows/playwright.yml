@@ -47,7 +47,7 @@ env:
   USER_JSON: ${{ secrets.USER_JSON }}
   TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
   TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
-  TERRA_VERSION: '23.1'
+  TERRA_VERSION: ${{ vars.GALAXY_VERSION }}
 
 jobs:
   test:

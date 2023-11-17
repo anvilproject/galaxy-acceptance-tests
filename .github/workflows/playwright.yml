@@ -80,6 +80,9 @@ jobs:
     - name: Launch Galaxy on Terra
       run: |
         npx playwright test launch
+    - name: Save launch report to the results folder
+      if: always()
+      run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/launch.html
         if [[ -e launch.png ]] ; then mv launch.png results/${{ steps.directory.outputs.name }}/ ; fi
     - uses: actions/upload-artifact@v3
@@ -89,7 +92,8 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Check the Galaxy version number on the About page
-      if: ${{ github.event_name == 'schedule' || github.event.inputs.version == 'true' }}
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.version == 'true' }}'
+      continue-on-error: true
       run: |
         version=$TERRA_VERSION
         if [[ ${{ github.event_name }} = 'workflow_dispatch' ]] ; then
@@ -104,9 +108,12 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Paste text into the upload dialog
-      if: ${{ github.event_name == 'schedule' || github.event.inputs.paste == 'true' }}
+      if: ${{ (github.event_name == 'schedule' || github.event.inputs.paste == 'true') && hashFiles('launched') != '' }}
+      continue-on-error: true
       run: |
         npx playwright test paste
+    - name: Save report to the results folder
+      run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/paste.html
         if [[ -e paste.png ]] ; then mv paste.png results/${{ steps.directory.outputs.name }}/ ; fi
     - uses: actions/upload-artifact@v3
@@ -116,11 +123,13 @@ jobs:
         retention-days: 30   
     - name: Run the fastp tool
       if: ${{ github.event_name == 'schedule' || github.event.inputs.fastp == 'true' }}
+      continue-on-error: true
       run: |
         npx playwright test fastp
+    - name: Save report to the results folder
+      run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/fastp.html
         if [[ -e fastp.png ]] ; then mv fastp.png results/${{ steps.directory.outputs.name }}/ ; fi
-        if [[ -e fastp-trace.zip ]] ; then mv fastp-trace.zip results/${{ steps.directory.outputs.name }}/ ; fi
     - uses: actions/upload-artifact@v3
       with:
         name: fastp-report
@@ -128,8 +137,11 @@ jobs:
         retention-days: 30 
     - name: Test importing data from the workspace
       if: ${{ github.event_name == 'schedule' || github.event.inputs.import == 'true' }}
+      continue-on-error: true
       run: |
         npx playwright test import
+    - name: Save report to the results folder
+      run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/import.html
         if [[ -e import.png ]] ; then mv import.png results/${{ steps.directory.outputs.name }}/ ; fi
     - uses: actions/upload-artifact@v3
@@ -140,15 +152,12 @@ jobs:
     - name: Shutdown
       if: always()
       run: |
-        if [[ -e playwright-report/index.html ]] ; then
-          cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/previous.html
-        fi
         npx playwright test shutdown
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/shutdown.html
     - uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: final-report
+        name: shutdown-report
         path: playwright-report/
         retention-days: 30
     - name: Add results to the repo 

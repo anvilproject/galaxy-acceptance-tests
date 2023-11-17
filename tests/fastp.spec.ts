@@ -23,7 +23,6 @@ test.describe('Run the fastp tool on a small dataset', () => {
 
     test('run the fastp tool', async ({page, context}, testInfo) => {
         test.setTimeout(TimeUnits.MIN_5)
-        await context.tracing.start({screenshots: true, snapshots: true})
 
         const galaxy = await new Galaxy().setup(page)
 
@@ -61,9 +60,6 @@ test.describe('Run the fastp tool on a small dataset', () => {
 
         // Delete the history when done.
         await galaxy.deleteHistory()
-
-        await context.tracing.stop({path: 'fastp-trace.zip'})
-        await testInfo.attach('trace', {path: 'fastp-trace.zip'})
 
         // We should always end up back at the default, empty, history.
         await expect(galaxy.page.getByText('This history is empty.')).toHaveCount(1)

@@ -40,14 +40,14 @@ on:
       expected:
         description: 'the expected version number'
         type: string
-        default: '23.0.1.dev0'
+        default: '23.1`'
 env:
   TERRA_URL: sarscov2
   TERRA_WORKSPACE: integration
   USER_JSON: ${{ secrets.USER_JSON }}
   TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
   TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
-  TERRA_VERSION: '23.0.1.dev0'
+  TERRA_VERSION: '23.1'
 
 jobs:
   test:

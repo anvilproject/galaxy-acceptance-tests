@@ -835,3 +835,6 @@ The most current result is at the end of the table.
 | Mon Nov 20 2023 | 2:38:43 AM | Delete the Galaxy instance | 00:00:17 | failed | :red_circle: |
 | Mon Nov 20 2023 | 2:39:15 AM | Delete the Galaxy instance | 00:00:30 | timedOut | :alarm_clock: |
 | Mon Nov 20 2023 | 2:39:45 AM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
+| Mon Nov 20 2023 | 1:43:14 PM | Delete the Galaxy instance | 00:00:00 | failed | :red_circle: |
+| Mon Nov 20 2023 | 1:43:14 PM | Delete the Galaxy instance | 00:00:00 | failed | :red_circle: |
+| Mon Nov 20 2023 | 1:43:15 PM | Delete the Galaxy instance | 00:00:00 | failed | :red_circle: |

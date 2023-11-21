@@ -838,3 +838,9 @@ The most current result is at the end of the table.
 | Mon Nov 20 2023 | 1:43:14 PM | Delete the Galaxy instance | 00:00:00 | failed | :red_circle: |
 | Mon Nov 20 2023 | 1:43:14 PM | Delete the Galaxy instance | 00:00:00 | failed | :red_circle: |
 | Mon Nov 20 2023 | 1:43:15 PM | Delete the Galaxy instance | 00:00:00 | failed | :red_circle: |
+| Tue Nov 21 2023 | 2:34:33 AM | Launch a Galaxy instance | 00:12:43 | passed | :green_circle: |
+| Tue Nov 21 2023 | 2:34:52 AM | check the Galaxy version | 00:00:16 | passed | :green_circle: |
+| Tue Nov 21 2023 | 2:35:30 AM | Paste text into the upload dialog | 00:00:35 | passed | :green_circle: |
+| Tue Nov 21 2023 | 2:37:27 AM | run the fastp tool | 00:01:54 | passed | :green_circle: |
+| Tue Nov 21 2023 | 2:38:26 AM | Import datasets from the workspace | 00:00:45 | passed | :green_circle: |
+| Tue Nov 21 2023 | 2:38:43 AM | Delete the Galaxy instance | 00:00:13 | passed | :green_circle: |

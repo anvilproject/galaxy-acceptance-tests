@@ -41,3 +41,14 @@ There are also two "tests", that are used for administrative purposes.
 1. `auth.setup.ts`<br/>Run this test in _headed_ mode to save the security context to `.auth/user.json`.  Update the GitHub secret `USER_JSON` to enable the test user account to authenticate without triggering two-factor authentication.
 1. `cleanup.spec.ts`<br/>Delete disks that sometimes linger.
 
+## Running the tests locally
+
+To run the tests locally you will need to set the environment variable `TERRA_URL` to point to the Galaxy instance to be tested.  This should be set to the URL of an external Galaxy server or to the string `sarscov2` to test the Terra production instance.  When testing the Terra production instance you will also need to set `TERRA_EMAIL` and `TERRA_PASSWORD` to the email and password of a user than has access to Terra.
+
+```bash
+TERRA_URL=http://<IP address>:8000/galaxy/
+npx playwright test history paste fastp
+```
+
+If testing against a Terra production instance you will also need to run the `launch.spec.ts` and `shutdown.spec.ts` tests to launch and shutdown the Galaxy instance.
+

@@ -40,7 +40,7 @@ on:
       expected:
         description: 'the expected version number'
         type: string
-        default: '23.1`'
+        default: '23.1'
 env:
   TERRA_URL: sarscov2
   TERRA_WORKSPACE: integration

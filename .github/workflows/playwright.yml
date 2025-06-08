@@ -34,7 +34,7 @@ on:
         type: boolean
         default: true
       export:
-        description: : 'run the export data test'
+        description: 'run the export data test'
         type: boolean
         default: true
       version:

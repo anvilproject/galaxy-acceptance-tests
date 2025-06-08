@@ -64,8 +64,8 @@ jobs:
         node-version: 18
     - name: Install dependencies
       run: npm ci
-#    - name: Install Ubuntu dependencies
-#      run: apt-get update && apt-get install libasound2t64
+    - name: Install Ubuntu dependencies
+      run: apt-get update && apt-get install libasound2t64
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps chromium
 #    - name: Write the user.json with saved browser context

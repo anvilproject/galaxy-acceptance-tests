@@ -1,7 +1,7 @@
 name: Galaxy acceptance tests
 on:
-  schedule:
-    - cron: '37 1,13 * * *'
+#  schedule:
+#    - cron: '37 1,13 * * *'
 
   workflow_dispatch:
     inputs:
@@ -47,7 +47,7 @@ on:
         default: '24.1'
 env:
   TERRA_URL: sarscov2
-  TERRA_WORKSPACE: integration
+#  TERRA_WORKSPACE: integration
   USER_JSON: ${{ secrets.USER_JSON }}
   TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
   TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
@@ -74,13 +74,13 @@ jobs:
       if: ${{ github.event_name == 'workflow_dispatch' }}
       run: |
         echo "TERRA_URL=${{ github.event.inputs.server }}" >> $GITHUB_ENV
-        echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV   
+#        echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV
         env
     - name: Print versions
       run: |
-        node --version
-        npx --version
-        npx playwright --version
+        echo "Node      : $(node --version)"
+        echo "NPS       : $(npx --version)"
+        echo "Playwright: $(npx playwright --version)"
     - name: Create a directory for the reports and screenshots
       id: directory
       run: |

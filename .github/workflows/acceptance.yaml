@@ -74,7 +74,13 @@ jobs:
       if: ${{ github.event_name == 'workflow_dispatch' }}
       run: |
         echo "TERRA_URL=${{ github.event.inputs.server }}" >> $GITHUB_ENV
-        echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV        
+        echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV   
+        env
+    - name: Print versions
+      run: |
+        node --version
+        npx --version
+        npx playwright --version
     - name: Create a directory for the reports and screenshots
       id: directory
       run: |

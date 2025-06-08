@@ -1,0 +1,191 @@
+name: Galaxy acceptance tests
+on:
+  schedule:
+    - cron: '37 1,13 * * *'
+
+  workflow_dispatch:
+    inputs:
+      workspace: 
+        description: 'the workspace to use when running the tests'
+        type: choice
+        options:
+          - integration
+          - acceptance
+          - sarscov2
+        default: sarscov2
+      server:
+        description: 'where to run the test'
+        type: choice
+        options:
+          - dev
+          - production
+          - sarscov2
+        default: sarscov2
+      paste:
+        description: 'run the paste test'
+        type: boolean
+        default: true
+      fastp:
+        description: 'run the fastp tool test'
+        type: boolean
+        default: true
+      import:
+        description: 'run the import data test'
+        type: boolean
+        default: true
+      export:
+        description: : 'run the export data test'
+        type: boolean
+        default: true
+      version:
+        description: 'check the version number of the server'
+        type: boolean
+        default: true
+      expected:
+        description: 'the expected version number'
+        type: string
+        default: '24.1'
+env:
+  TERRA_URL: sarscov2
+  TERRA_WORKSPACE: integration
+  USER_JSON: ${{ secrets.USER_JSON }}
+  TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
+  TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
+  TERRA_VERSION: ${{ vars.GALAXY_VERSION }}
+  AUTHENTICATOR_KEY: ${{ secrets.AUTHENTICATOR_KEY }}
+jobs:
+  test:
+    timeout-minutes: 120
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+#    - name: Write the user.json with saved browser context
+#      run: |
+#        mkdir .auth
+#        echo $USER_JSON > .auth/user.json
+    - name: Set environmental variables if this is a workflow dispatch
+      if: ${{ github.event_name == 'workflow_dispatch' }}
+      run: |
+        echo "TERRA_URL=${{ github.event.inputs.server }}" >> $GITHUB_ENV
+        echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV        
+    - name: Create a directory for the reports and screenshots
+      id: directory
+      run: |
+        name="$(date +'%Y-%m-%d-%H-%M')"
+        mkdir -p results/$name
+        echo "name=$name" >> $GITHUB_OUTPUT        
+    - name: Launch Galaxy on Terra
+      run: |
+        npx playwright test launch
+    - name: Save launch report to the results folder
+      if: always()
+      run: |
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/launch.html
+        if [[ -e launch.png ]] ; then mv launch.png results/${{ steps.directory.outputs.name }}/ ; fi
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: launch-report
+        path: playwright-report/
+        retention-days: 30
+    - name: Check the Galaxy version number on the About page
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.version == 'true' }}
+      continue-on-error: true
+      run: |
+        version=$TERRA_VERSION
+        if [[ ${{ github.event_name }} = 'workflow_dispatch' ]] ; then
+          version=${{ github.event.inputs.expected }}
+        fi
+        TERRA_VERSION=$version npx playwright test version
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/version.html
+        if [[ -e version.png ]] ; then mv version.png results/${{ steps.directory.outputs.name }}/ ; fi
+    - uses: actions/upload-artifact@v3
+      with:
+        name: version-report
+        path: playwright-report/
+        retention-days: 30
+    - name: Paste text into the upload dialog
+      if: ${{ (github.event_name == 'schedule' || github.event.inputs.paste == 'true') && hashFiles('launched') != '' }}
+      continue-on-error: true
+      run: |
+        npx playwright test paste
+    - name: Save report to the results folder
+      run: |
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/paste.html
+        if [[ -e paste.png ]] ; then mv paste.png results/${{ steps.directory.outputs.name }}/ ; fi
+    - uses: actions/upload-artifact@v3
+      with:
+        name: paste-report
+        path: playwright-report/
+        retention-days: 30   
+    - name: Run the fastp tool
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.fastp == 'true' }}
+      continue-on-error: true
+      run: |
+        npx playwright test fastp
+    - name: Save report to the results folder
+      run: |
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/fastp.html
+        if [[ -e fastp.png ]] ; then mv fastp.png results/${{ steps.directory.outputs.name }}/ ; fi
+    - uses: actions/upload-artifact@v3
+      with:
+        name: fastp-report
+        path: playwright-report/
+        retention-days: 30 
+    - name: Test importing data from the workspace
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.import == 'true' }}
+      continue-on-error: true
+      run: |
+        npx playwright test import
+    - name: Save report to the results folder
+      run: |
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/import.html
+        if [[ -e import*.png ]] ; then mv import*.png results/${{ steps.directory.outputs.name }}/ ; fi
+    - uses: actions/upload-artifact@v3
+      with:
+        name: import-report
+        path: playwright-report/
+        retention-days: 30
+    - name: Test exporting data to the workspace
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.export == 'true' }}
+      continue-on-error: true
+      run: |
+        npx playwright test export
+    - name: Save report to the results folder
+      run: |
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/export.html
+        if [[ -e export*.png ]] ; then mv export*.png results/${{ steps.directory.outputs.name }}/ ; fi
+    - uses: actions/upload-artifact@v3
+      with:
+        name: export-report
+        path: playwright-report/
+        retention-days: 30
+    - name: Shutdown
+      if: always()
+      run: |
+        npx playwright test shutdown
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/shutdown.html
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: shutdown-report
+        path: playwright-report/
+        retention-days: 30
+    - name: Add results to the repo 
+      if: always()
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'  
+        git add results/${{ steps.directory.outputs.name }}
+        git add Results.md
+        git commit -m "Results for ${{ steps.directory.outputs.name }}"
+        git push origin ${{ github.ref_name }}
+
+      

@@ -89,7 +89,7 @@ jobs:
       run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/launch.html
         if [[ -e launch.png ]] ; then mv launch.png results/${{ steps.directory.outputs.name }}/ ; fi
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: launch-report
@@ -106,7 +106,7 @@ jobs:
         TERRA_VERSION=$version npx playwright test version
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/version.html
         if [[ -e version.png ]] ; then mv version.png results/${{ steps.directory.outputs.name }}/ ; fi
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: version-report
         path: playwright-report/
@@ -120,7 +120,7 @@ jobs:
       run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/paste.html
         if [[ -e paste.png ]] ; then mv paste.png results/${{ steps.directory.outputs.name }}/ ; fi
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: paste-report
         path: playwright-report/
@@ -134,7 +134,7 @@ jobs:
       run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/fastp.html
         if [[ -e fastp.png ]] ; then mv fastp.png results/${{ steps.directory.outputs.name }}/ ; fi
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: fastp-report
         path: playwright-report/
@@ -148,7 +148,7 @@ jobs:
       run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/import.html
         if [[ -e import*.png ]] ; then mv import*.png results/${{ steps.directory.outputs.name }}/ ; fi
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: import-report
         path: playwright-report/
@@ -162,7 +162,7 @@ jobs:
       run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/export.html
         if [[ -e export*.png ]] ; then mv export*.png results/${{ steps.directory.outputs.name }}/ ; fi
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: export-report
         path: playwright-report/
@@ -172,7 +172,7 @@ jobs:
       run: |
         npx playwright test shutdown
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/shutdown.html
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: shutdown-report

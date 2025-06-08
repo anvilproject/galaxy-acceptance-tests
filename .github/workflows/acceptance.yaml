@@ -65,7 +65,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps chromium
+      run: npx playwright install #--with-deps chromium
 #    - name: Write the user.json with saved browser context
 #      run: |
 #        mkdir .auth

@@ -25,6 +25,7 @@ test.describe('launch a new Galaxy instance', () => {
     test.beforeEach(async ({page}) => {
         terra = new Terra(page);
         await terra.login();
+        await expect(page.getByText('About the workspace')).toHaveCount(1)
     })
 
     test('Launch a Galaxy instance', async ({page}, testInfo) => {

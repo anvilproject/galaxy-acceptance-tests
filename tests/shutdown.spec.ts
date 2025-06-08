@@ -20,7 +20,7 @@ test.describe('shutdown the instance and delete disks', () => {
   test('Delete the Galaxy instance', async ({ page }) => {
       const terra = new Terra(page);
       await terra.login()
-      await terra.shutdown()
+      await terra.shutdown(true)
       await expect(page.getByLabel('Galaxy Environment')).toHaveCount(0)
   });
 });

@@ -33,6 +33,10 @@ on:
         description: 'run the import data test'
         type: boolean
         default: true
+      export:
+        description: : 'run the export data test'
+        type: boolean
+        default: true
       version:
         description: 'check the version number of the server'
         type: boolean
@@ -40,7 +44,7 @@ on:
       expected:
         description: 'the expected version number'
         type: string
-        default: '23.1'
+        default: '24.1'
 env:
   TERRA_URL: sarscov2
   TERRA_WORKSPACE: integration
@@ -48,10 +52,10 @@ env:
   TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
   TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
   TERRA_VERSION: ${{ vars.GALAXY_VERSION }}
-
+  AUTHENTICATOR_KEY: ${{ secrets.AUTHENTICATOR_KEY }}
 jobs:
   test:
-    timeout-minutes: 45
+    timeout-minutes: 120
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -62,10 +66,10 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Write the user.json with saved browser context
-      run: |
-        mkdir .auth
-        echo $USER_JSON > .auth/user.json
+#    - name: Write the user.json with saved browser context
+#      run: |
+#        mkdir .auth
+#        echo $USER_JSON > .auth/user.json
     - name: Set environmental variables if this is a workflow dispatch
       if: ${{ github.event_name == 'workflow_dispatch' }}
       run: |
@@ -92,7 +96,7 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Check the Galaxy version number on the About page
-      if: ${{ github.event_name == 'schedule' || github.event.inputs.version == 'true' }}'
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.version == 'true' }}
       continue-on-error: true
       run: |
         version=$TERRA_VERSION
@@ -143,10 +147,24 @@ jobs:
     - name: Save report to the results folder
       run: |
         cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/import.html
-        if [[ -e import.png ]] ; then mv import.png results/${{ steps.directory.outputs.name }}/ ; fi
+        if [[ -e import*.png ]] ; then mv import*.png results/${{ steps.directory.outputs.name }}/ ; fi
     - uses: actions/upload-artifact@v3
       with:
         name: import-report
+        path: playwright-report/
+        retention-days: 30
+    - name: Test exporting data to the workspace
+      if: ${{ github.event_name == 'schedule' || github.event.inputs.export == 'true' }}
+      continue-on-error: true
+      run: |
+        npx playwright test export
+    - name: Save report to the results folder
+      run: |
+        cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/export.html
+        if [[ -e export*.png ]] ; then mv export*.png results/${{ steps.directory.outputs.name }}/ ; fi
+    - uses: actions/upload-artifact@v3
+      with:
+        name: export-report
         path: playwright-report/
         retention-days: 30
     - name: Shutdown

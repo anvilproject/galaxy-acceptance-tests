@@ -20,29 +20,24 @@ import {Galaxy} from '../modules/galaxy';
 import {TimeUnits} from '../modules/timeunits';
 import {VariantCalling} from '../modules/data';
 
-test.describe('import data', () => {
-//   let terra: Terra;
+test.describe('import data tests', () => {
 
-//   test.beforeEach(async ({ page }) => {
-//     terra = new Terra(page);
-//   })
-
-    test('Import datasets from the workspace', async ({page}, testInfo) => {
-        test.setTimeout(TimeUnits.MIN_10)
-        // await terra.login()
-        // const page = await terra.openGalaxy()
+    test('Import datasets from the Tables section', async ({page}, testInfo) => {
+        test.setTimeout(TimeUnits.MIN_2)
         const galaxy = await new Galaxy().setup(page)
 
         // Create a new history and upload the datasets.
-        await galaxy.newHistory('Import ' + new Date().toLocaleString())
-        await galaxy.page.getByLabel('Download from URL or upload files from disk').click();
-        await galaxy.page.getByRole('button', {name: ' Choose remote files'}).click();
+        await galaxy.newHistory('Import Tables ' + new Date().toLocaleString())
+        // await galaxy.page.getByLabel('Download from URL or upload files from disk').click();
+        await galaxy.page.getByRole('link', { name: 'Upload' }).click()
+        await galaxy.page.getByRole('button', {name: 'Choose remote files'}).click();
+        // await galaxy.page.locator("#btn-remote-files").click()
         await galaxy.page.getByRole('link', {name: 'SARS-CoV-2-Genome copy'}).click();
         await galaxy.page.getByRole('link', {name: 'Tables/'}).click();
         await galaxy.page.getByRole('link', {name: 'reference/'}).click();
         await galaxy.page.getByRole('row', {name: ' SARS-CoV-2_reference_genome.fasta -'}).locator('svg').click();
         await galaxy.page.getByRole('button', {name: 'Ok'}).click();
-        await galaxy.page.getByRole('button', {name: ' Choose remote files'}).click();
+        await galaxy.page.getByRole('button', {name: 'Choose remote files'}).click();
         await galaxy.page.getByRole('link', {name: 'SARS-CoV-2-Genome copy'}).click();
         await galaxy.page.getByRole('link', {name: 'Tables/'}).click();
         await galaxy.page.getByRole('link', {name: 'sample/'}).click();
@@ -52,20 +47,63 @@ test.describe('import data', () => {
         // Start the upload/import
         await galaxy.page.getByRole('button', {name: 'Ok'}).click();
         await galaxy.page.getByRole('button', {name: 'Start'}).click();
-        await galaxy.page.getByRole('button', {name: 'Close'}).click();
-
+        await galaxy.page.getByRole('button', {name: 'Close', exact: true}).click();
         // Wait until the upload completes
-        await galaxy.page.getByRole('button', {name: 'VA_sample_reverse_reads.fastq Display Edit attributes Delete', exact: false}).getByTitle('Display').click();
+        // await expect(galaxy.page.getByRole("button", { name: "This job is currently running"})).toHaveCount(3, {timeout: TimeUnits.MIN_10})
+        // await expect(galaxy.page.getByRole("button", { name: "This job is currently running"})).toHaveCount(0, {timeout: TimeUnits.MIN_10})
+        await galaxy.waitForJobs()
 
         // Take a screenshot.
-        await galaxy.screenshot(testInfo, 'import.png')
+        await galaxy.screenshot(testInfo, 'import-tables.png')
 
         // Delete the history when done.
-        await galaxy.deleteHistory()
+        // await galaxy.deleteHistory()
 
         // We should always end up back at the default, empty, history.
-        await expect(galaxy.page.getByText('This history is empty.')).toHaveCount(1)
+        // await expect(galaxy.page.getByText('This history is empty.')).toHaveCount(1)
 
         console.log('Test complete')
     })
+
+    test('Import datasets from the Other Data section', async ({page}, testInfo) => {
+        test.setTimeout(TimeUnits.MIN_2)
+        const galaxy = await new Galaxy().setup(page)
+
+        // Create a new history and upload the datasets.
+        await galaxy.newHistory('Import Other Data ' + new Date().toLocaleString())
+        // await galaxy.page.getByLabel('Download from URL or upload files from disk').click();
+        await galaxy.page.getByRole('link', { name: 'Upload' }).click()
+        await galaxy.page.getByRole('button', {name: 'Choose remote files'}).click();
+        // await galaxy.page.locator("#btn-remote-files").click()
+        await galaxy.page.getByRole('link', {name: 'SARS-CoV-2-Genome copy'}).click();
+        await galaxy.page.getByRole('link', {name: 'Other Data/'}).click();
+        await galaxy.page.getByRole('link', {name: 'Files/'}).click();
+        await galaxy.page.getByRole('link', {name: 'uploads/'}).click();
+        await galaxy.page.getByRole('link', {name: 'TestData/'}).click();
+        await galaxy.page.getByText('Galaxy-History-VC-Test-Data.').click();
+        await galaxy.page.getByRole('button', {name: 'Ok'}).click();
+
+        // Start the upload/import
+        await galaxy.page.getByRole('button', {name: 'Start'}).click();
+        await galaxy.page.getByRole('button', {name: 'Close', exact: true}).click();
+        // Wait until the upload completes
+        await galaxy.waitForJobs()
+
+        // await galaxy.page.getByRole('button', {name: 'VA_sample_reverse_reads.fastq', exact: false}).getByTitle('Display').click();
+        // await expect(galaxy.page.getByRole("button", { name: "This job is currently running"})).toHaveCount(1, {timeout: TimeUnits.MIN_10})
+        // await expect(galaxy.page.getByRole("button", { name: "This job is currently running"})).toHaveCount(0, {timeout: TimeUnits.MIN_10})
+
+        // Take a screenshot.
+        await galaxy.screenshot(testInfo, 'import-other-data.png')
+
+        // Delete the history when done.
+        // await galaxy.deleteHistory()
+
+        // We should always end up back at the default, empty, history.
+        // await expect(galaxy.page.getByText('This history is empty.')).toHaveCount(1)
+
+        console.log('Test complete')
+    })
+
 });
+

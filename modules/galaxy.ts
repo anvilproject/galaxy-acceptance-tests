@@ -15,6 +15,7 @@
  */
 import { Page, TestInfo, expect } from '@playwright/test';
 import { Terra } from './terra'
+import {TimeUnits} from "./timeunits";
 
 /**
  * A class to perform common tasks in Galaxy.
@@ -46,7 +47,7 @@ export class Galaxy {
      * @param name - the name of the new history to create. If not defined one will be generated
      *               based on the local date and time.
      */
-    async newHistory(name: string | undefined) {
+    async old_newHistory(name: string | undefined) {
         if (typeof name === 'undefined') {
             name = 'Test history - ' + new Date().toLocaleString()
         }
@@ -64,15 +65,37 @@ export class Galaxy {
         console.log('History created.')
     }
 
+    async newHistory(name: string | undefined) : Promise<void>  {
+        if (typeof name === 'undefined') {
+           name = 'Test history - ' + new Date().toLocaleString()
+        }
+        console.log(`Creating history "${name}"`)
+        await this.page.getByRole('navigation', { name: 'current history management' }).getByRole('button').first().click();
+        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        await this.page.getByRole('button', { name: 'Edit' }).click();
+        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        await this.page.getByRole('textbox', { name: 'Name' }).click();
+        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        await this.page.getByRole('textbox', { name: 'Name' }).press('ControlOrMeta+a');
+        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        await this.page.getByRole('textbox', { name: 'Name' }).fill(name);
+        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        await this.page.getByRole('button', { name: 'Save' }).click();
+        await this.page.waitForTimeout(TimeUnits.SEC_2)
+        console.log('History created')
+    }
     /**
      * Deletes the current history.
      */
     async deleteHistory() {
         console.log('Deleting the current history')
         await this.page.getByRole('button', { name: 'History Options' }).click();
+        await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('menuitem', { name: 'Delete this History' }).click();
-        await this.page.getByRole('button', { name: 'OK' }).click();    
-        console.log('History deleted')  
+        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        await this.page.getByRole('button', { name: 'OK' }).click();
+        await this.page.waitForTimeout(TimeUnits.SEC_2)
+        console.log('History deleted')
     }
 
     /**
@@ -82,15 +105,37 @@ export class Galaxy {
      */
     async upload(items: string[]) {
         console.log('Uploading data')
-        await this.page.getByLabel('Download from URL or upload files from disk').click();
-        await this.page.getByRole('button', { name: ' Paste/Fetch data' }).click();
+        // await this.page.getByLabel('Download from URL or upload files from disk').click();
+        await this.page.getByRole('link', { name: 'Upload' }).click()
+        await this.page.getByRole('button', { name: 'Paste/Fetch data', exact: false }).click();
         await this.page.getByLabel('Regular').locator('textarea').click();
         await this.page.getByLabel('Regular').locator('textarea').fill(items.join('\n'));
         await this.page.getByRole('button', { name: 'Start' }).click();
-        await this.page.getByRole('button', { name: 'Close' }).click();
+        await this.page.getByRole('button', { name: 'Close', exact: true }).click();
         console.log('Upload in progress.')
+        await this.waitForJobs()
+        // await expect(async () => {
+        //     const count = await this.page.getByRole("button", { name: "This job is currently running" }).count();
+        //     expect(count).toBeGreaterThan(0);
+        // }).toPass();
+        // await expect(this.page.getByRole("button", { name: "This job is currently running"})).toHaveCount(0, {timeout: TimeUnits.MIN_10})
+        console.log('Upload complete.')
     }
 
+    /**
+     * Wait for all currently running jobs to complete
+     */
+    async waitForJobs() : Promise<void> {
+        console.log('Waiting for jobs')
+        // Wait for them to be started
+        await expect(async () => {
+            const count = await this.page.getByRole("button", { name: "This job is currently running" }).count();
+            expect(count).toBeGreaterThan(0);
+        }).toPass();
+        // Then wait for them to finish
+        await expect(this.page.getByRole("button", { name: "This job is currently running"})).toHaveCount(0, {timeout: TimeUnits.MIN_10})
+        console.log('Jobs complete')
+    }
     /** 
      * Take a screenshot of the current state of the UI and attach it to the testInfo
      */

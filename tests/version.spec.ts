@@ -17,7 +17,7 @@ import { test, expect } from '@playwright/test';
 import { Galaxy } from '../modules/galaxy';
 
 test.describe('Ensure we are running the correct version of Galaxy', () => {
-    const EXPECTED_VERSION: string = '23.1'
+    const EXPECTED_VERSION: string = '24.1'
 
     test('check the Galaxy version', async ({ page }, testInfo) => {
         const galaxy = await new Galaxy().setup(page)
@@ -25,9 +25,8 @@ test.describe('Ensure we are running the correct version of Galaxy', () => {
         if ('TERRA_VERSION' in process.env) {
             version = process.env.TERRA_VERSION!
         }
-        await galaxy.page.getByRole('button', { name: 'Help' }).click();
-        await galaxy.page.getByRole('menuitem', { name: 'About' }).click();
+        await galaxy.page.getByLabel('Main').getByRole('link', { name: 'Admin' }).click()
+        await expect(galaxy.page.getByLabel('Administration').locator('h3')).toContainText(version);
         await galaxy.screenshot(testInfo, 'version.png')
-        await expect(galaxy.page.getByText(`The Galaxy Server is running version ${version}`)).toHaveCount(1)
     })
 })

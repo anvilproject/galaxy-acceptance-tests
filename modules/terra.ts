@@ -16,6 +16,7 @@
 
 import { Page, expect } from '@playwright/test';
 import { TimeUnits } from './timeunits';
+import { otp } from "./topt"
 
 require('dotenv').config({ path: '.env.local' })
 
@@ -77,25 +78,29 @@ export class Terra {
     await this.page.getByRole('button', { name: 'Sign In' }).click();
     const page1 = await page1Promise;
     await page1.getByRole('button', { name: 'Sign in with Google' }).click();
-    // console.log('Signing in')
-    // await page1.waitForTimeout(TimeUnits.SEC_5)
-    // const link = page1.getByRole('link', { name: process.env.TERRA_EMAIL!, exact: false })
-    // if (await link.isVisible()) {
-    //   console.log('Found the Ron Weasley link')
-    //   await link.click()  
-    //   await page1.getByLabel('Enter your password').fill(process.env.TERRA_PASSWORD!);  
-    //   await page1.click("#passwordNext")
-    // }
-    // else if (await page1.getByLabel('Email or phone').isVisible()) {
-    //   console.log('Found login form')
-    //   await page1.getByLabel('Email or phone').fill(process.env.TERRA_EMAIL!);
-    //   await page1.click("#identifierNext")
-    //   await page1.getByLabel('Enter your password').fill(process.env.TERRA_PASSWORD!);  
-    //   await page1.click("#passwordNext")
-    // }
-    // else {
-    //   console.log("Login not required")  
-    // }
+    console.log('Signing in')
+    await page1.waitForTimeout(TimeUnits.SEC_2)
+    const link = page1.getByRole('link', { name: process.env.TERRA_EMAIL!, exact: false })
+    if (await link.isVisible()) {
+      console.log('Found the Ron Weasley link')
+      await link.click()
+      await page1.getByLabel('Enter your password').fill(process.env.TERRA_PASSWORD!);
+      await page1.click("#passwordNext")
+    }
+    else if (await page1.getByLabel('Email or phone').isVisible()) {
+      console.log('Found login form')
+      await page1.getByLabel('Email or phone').fill(process.env.TERRA_EMAIL!);
+      await page1.click("#identifierNext")
+      await page1.getByLabel('Enter your password').fill(process.env.TERRA_PASSWORD!);
+      await page1.click("#passwordNext")
+      await page1.getByLabel("Enter code").fill(otp())
+      await page1.getByRole("button", {name: "Next"}).click()
+      // await page1.getByLabel("Continue").click()
+      // await this.page.getByRole('button', { name: 'Agree' }).click();
+    }
+    else {
+      console.log("Login not required")
+    }
     console.log("Logged in")
   }
 

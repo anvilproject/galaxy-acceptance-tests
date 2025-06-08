@@ -16,12 +16,14 @@
 import {test, expect} from '@playwright/test';
 import {Terra} from '../modules/terra';
 import {Galaxy} from '../modules/galaxy';
+import {TimeUnits} from "../modules/timeunits";
 
 require('dotenv').config({path: __dirname + '/.env.local'})
 
 test.describe('Create a new history and change its name', () => {
 
     test('history', async ({page}, testInfo) => {
+        test.setTimeout(TimeUnits.MIN_2)
         const galaxy = await new Galaxy().setup(page)
 
         const historyName = 'Test history ' + new Date().toLocaleString()

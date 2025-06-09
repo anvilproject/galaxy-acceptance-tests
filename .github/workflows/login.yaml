@@ -1,0 +1,47 @@
+name: Test the Terra login sequence
+on:
+  workflow_dispatch: {}
+env:
+  TERRA_URL: sarscov2
+  TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
+  TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
+  TERRA_VERSION: ${{ vars.GALAXY_VERSION }}
+  AUTHENTICATOR_KEY: ${{ secrets.AUTHENTICATOR_KEY }}
+jobs:
+  test:
+    timeout-minutes: 120
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+      - name: Print versions
+        run: |
+          echo "Node      : $(node --version)"
+          echo "NPS       : $(npx --version)"
+          echo "Playwright: $(npx playwright --version)"
+      - name: Create a directory for the reports and screenshots
+        id: directory
+        run: |
+          name="$(date +'%Y-%m-%d-%H-%M')"
+          mkdir -p results/$name
+          echo "name=$name" >> $GITHUB_OUTPUT
+      - name: Try logging in to Terra
+        run: |
+          npx playwright test login
+      - name: Save the login report to the results folder
+        if: always()
+        run: |
+          cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/login.html
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: login-report
+          path: playwright-report/
+          retention-days: 30
+

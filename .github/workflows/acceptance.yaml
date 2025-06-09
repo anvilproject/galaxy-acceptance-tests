@@ -2,7 +2,6 @@ name: Galaxy acceptance tests
 on:
 #  schedule:
 #    - cron: '37 1,13 * * *'
-
   workflow_dispatch:
     inputs:
       workspace: 
@@ -47,7 +46,6 @@ on:
         default: '24.1'
 env:
   TERRA_URL: sarscov2
-#  TERRA_WORKSPACE: integration
   USER_JSON: ${{ secrets.USER_JSON }}
   TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
   TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
@@ -66,15 +64,10 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps chromium
-#    - name: Write the user.json with saved browser context
-#      run: |
-#        mkdir .auth
-#        echo $USER_JSON > .auth/user.json
     - name: Set environmental variables if this is a workflow dispatch
       if: ${{ github.event_name == 'workflow_dispatch' }}
       run: |
         echo "TERRA_URL=${{ github.event.inputs.server }}" >> $GITHUB_ENV
-#        echo "TERRA_WORKSPACE=${{ github.event.inputs.workspace }}" >> $GITHUB_ENV
         env
     - name: Print versions
       run: |

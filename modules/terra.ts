@@ -115,7 +115,7 @@ export class Terra {
   async launch() {
     await expect(this.page.getByRole('button', {name: 'Sign In'})).toHaveCount(0, {timeout: TimeUnits.seconds(30).msec()})
     await this.page.getByRole('button', { name: 'Environment Configuration' }).click({timeout: TimeUnits.minutes(1).msec()});
-    await this.page.getByLabel('GALAXY Environment').click({timeout: TimeUnits.minutes(1).msec()});
+    await this.page.getByLabel('GALAXY EnvironmentRunning').click({timeout: TimeUnits.minutes(1).msec()});
     await this.page.getByRole('button', { name: 'Next' }).click();
     await this.page.getByRole('button', { name: 'Create' }).click();
     console.log('Galaxy launched')

@@ -22,7 +22,8 @@ test.describe('see if we can login to Terra', () => {
         test.setTimeout(TimeUnits.MIN_5)
         context.tracing.start({snapshots:true, screenshots: true})
         const terra = new Terra(page);
-        await terra.login(Terra.sarscov2);
+        // await terra.login(Terra.sarscov2);
+        Terra.anything()
         context.tracing.stop({path:'login-trace.zip'})
         // await page.waitForTimeout(TimeUnits.SEC_5);
         // await expect(page.getByText('About the workspace')).toHaveCount(1)

@@ -39,6 +39,9 @@ export class Terra {
   static aliases:string[] = ['dev', 'test', 'prod', 'production', 'sarscov2' ]
 
   constructor(public readonly page: Page) {
+    console.log('Constructor called')
+    this.page = page
+    console.log('Constructor complete')
   }
 
   static isTerraTest(): boolean {
@@ -47,6 +50,10 @@ export class Terra {
     }
     let url = process.env.TERRA_URL!
     return this.aliases.includes(url)
+  }
+
+  static anything() {
+    console.log('Does anything work')
   }
 
   async login(url?: string | undefined) {

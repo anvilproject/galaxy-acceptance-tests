@@ -3,10 +3,10 @@ on:
   workflow_dispatch: {}
 #env:
 #  TERRA_URL: sarscov2
-#  TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
-#  TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
-#  TERRA_VERSION: ${{ vars.GALAXY_VERSION }}
-#  AUTHENTICATOR_KEY: ${{ secrets.AUTHENTICATOR_KEY }}
+  TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
+  TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
+  TERRA_VERSION: ${{ vars.GALAXY_VERSION }}
+  AUTHENTICATOR_KEY: ${{ secrets.AUTHENTICATOR_KEY }}
 jobs:
   test:
     timeout-minutes: 120

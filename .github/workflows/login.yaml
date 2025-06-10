@@ -37,6 +37,7 @@ jobs:
       - name: Save the login report to the results folder
         if: always()
         run: |
+          ls -hal playwright-report/
           cp playwright-report/index.html results/${{ steps.directory.outputs.name }}/login.html
       - uses: actions/upload-artifact@v4
         if: always()
@@ -44,4 +45,13 @@ jobs:
           name: login-report
           path: playwright-report/
           retention-days: 30
+      - name: Add results to the repo
+        if: always()
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'  
+          git add results/${{ steps.directory.outputs.name }}
+          git add Results.md
+          git commit -m "Results for ${{ steps.directory.outputs.name }}"
+          git push origin ${{ github.ref_name }}
 

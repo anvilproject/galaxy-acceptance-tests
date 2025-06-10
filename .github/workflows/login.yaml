@@ -1,7 +1,7 @@
 name: Test the Terra login sequence
 on:
   workflow_dispatch: {}
-#env:
+env:
 #  TERRA_URL: sarscov2
   TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
   TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}

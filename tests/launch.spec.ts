@@ -27,7 +27,7 @@ test.describe('launch a new Galaxy instance', () => {
         terra = new Terra(page);
         await terra.login();
         context.tracing.stop({path: 'login-trace.zip'})
-        await expect(page.getByText('About the workspace')).toHaveCount(1)
+        await expect(page.getByText('ABOUT THE WORKSPACE')).toHaveCount(1)
     })
 
     test('Launch a Galaxy instance', async ({page, context}, testInfo) => {

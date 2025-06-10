@@ -22,7 +22,7 @@ test.describe('see if we can login to Terra', () => {
         test.setTimeout(TimeUnits.MIN_5)
         const terra = new Terra(page);
         // await terra.login(Terra.sarscov2);
-        terra.anything()
+        // terra.anything()
         // await page.waitForTimeout(TimeUnits.SEC_5);
         // await expect(page.getByText('About the workspace')).toHaveCount(1)
         console.log('ok')

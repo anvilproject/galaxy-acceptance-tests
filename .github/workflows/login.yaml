@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps
       - name: Print versions
         run: |
           echo "Node      : $(node --version)"
@@ -33,7 +33,7 @@ jobs:
           echo "name=$name" >> $GITHUB_OUTPUT
       - name: Try logging in to Terra
         run: |
-          npx playwright test login
+          npx playwright test --debug --trace on login
       - name: Save the login report to the results folder
         if: always()
         run: |

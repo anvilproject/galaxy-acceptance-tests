@@ -50,27 +50,28 @@ export class Terra {
   }
 
   async login(url?: string | undefined) {
-    let workspace = 'acceptance-tests'
-    if ('TERRA_WORKSPACE' in process.env) {
-      workspace = process.env.TERRA_WORKSPACE!
-      if (workspace === 'acceptance') workspace = 'acceptance-tests'
-      else if (workspace === 'integration') workspace = 'integration_tests'
-    }
-    if (typeof(url) === 'undefined') {
-      url = Terra.production + workspace
-    }
-    if ('TERRA_URL' in process.env) {
-      url = process.env.TERRA_URL!
-      if (url === 'test' || url == 'dev') {
-        url = Terra.test + workspace
-      }
-      else if (url === 'production') {
-        url = Terra.production + workspace
-      }
-      else if (url === 'sarscov2') {
-        url = Terra.sarscov2
-      }
-    }
+    // let workspace = 'acceptance-tests'
+    // if ('TERRA_WORKSPACE' in process.env) {
+    //   workspace = process.env.TERRA_WORKSPACE!
+    //   if (workspace === 'acceptance') workspace = 'acceptance-tests'
+    //   else if (workspace === 'integration') workspace = 'integration_tests'
+    // }
+    // if (typeof(url) === 'undefined') {
+    //   url = Terra.production + workspace
+    // }
+    // if ('TERRA_URL' in process.env) {
+    //   url = process.env.TERRA_URL!
+    //   if (url === 'test' || url == 'dev') {
+    //     url = Terra.test + workspace
+    //   }
+    //   else if (url === 'production') {
+    //     url = Terra.production + workspace
+    //   }
+    //   else if (url === 'sarscov2') {
+    //     url = Terra.sarscov2
+    //   }
+    // }
+
     console.log(`Logging in to ${url}`)
     await this.page.goto(url);
     await this.page.getByRole('button', { name: 'Agree' }).click();

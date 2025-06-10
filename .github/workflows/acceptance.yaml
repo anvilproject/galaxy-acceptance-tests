@@ -60,7 +60,7 @@ jobs:
       with:
         node-version: lts/*
     - name: Install dependencies
-      run: npm ci
+      run: npm ci && npm install otplib
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps chromium
     - name: Set environmental variables if this is a workflow dispatch

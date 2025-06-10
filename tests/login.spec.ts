@@ -20,7 +20,7 @@ import {TimeUnits} from "../modules/timeunits";
 test.describe('see if we can login to Terra', () => {
     test('ensure we can connect to Terra', async ({page}) => {
         test.setTimeout(TimeUnits.MIN_5)
-        const terra = new Terra(page);
+        // const terra = new Terra(page);
         // await terra.login();
         // await page.waitForTimeout(TimeUnits.SEC_5);
         // await expect(page.getByText('About the workspace')).toHaveCount(1)

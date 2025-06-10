@@ -37,11 +37,10 @@ export class Terra {
   static readonly sarscov2: string = 'https://anvil.terra.bio/#workspaces/notebooks-canary-project/SARS-CoV-2-Genome%20copy'
 
   static aliases:string[] = ['dev', 'test', 'prod', 'production', 'sarscov2' ]
-  // page : Page
 
   constructor(public readonly page: Page) {
     console.log('Constructor called')
-    this.page = page
+    // this.page = page
     console.log('Constructor complete')
   }
 
@@ -53,7 +52,7 @@ export class Terra {
     return this.aliases.includes(url)
   }
 
-  static anything() {
+  async anything() {
     console.log('Does anything work')
   }
 

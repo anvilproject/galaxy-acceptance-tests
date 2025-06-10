@@ -44,13 +44,13 @@ on:
         description: 'the expected version number'
         type: string
         default: '24.1'
-env:
-  TERRA_URL: sarscov2
-  USER_JSON: ${{ secrets.USER_JSON }}
-  TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
-  TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
-  TERRA_VERSION: ${{ vars.GALAXY_VERSION }}
-  AUTHENTICATOR_KEY: ${{ secrets.AUTHENTICATOR_KEY }}
+#env:
+#  TERRA_URL: sarscov2
+#  USER_JSON: ${{ secrets.USER_JSON }}
+#  TERRA_EMAIL: ${{ secrets.TERRA_EMAIL }}
+#  TERRA_PASSWORD: ${{ secrets.TERRA_PASSWORD }}
+#  TERRA_VERSION: ${{ vars.GALAXY_VERSION }}
+#  AUTHENTICATOR_KEY: ${{ secrets.AUTHENTICATOR_KEY }}
 jobs:
   test:
     timeout-minutes: 120
@@ -59,7 +59,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: lts/*
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers

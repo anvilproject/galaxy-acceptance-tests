@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-          npm install optlib
+          npm install otplib
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Print versions

@@ -103,19 +103,19 @@ export class Terra {
       await page1.click("#passwordNext")
       await page1.getByLabel("Enter code").fill(otp())
       await page1.getByRole("button", {name: "Next"}).click()
-      // await page1.getByLabel("Continue").click()
-      // await this.page.getByRole('button', { name: 'Agree' }).click();
     }
     else {
       console.log("Login not required")
     }
+    // Wait to be returned to the workspace page.
+    await expect(this.page.getByText('ABOUT THE WORKSPACE')).toHaveCount(1)
     console.log("Logged in")
   }
 
   async launch() {
-    await expect(this.page.getByRole('button', {name: 'Sign In'})).toHaveCount(0, {timeout: TimeUnits.seconds(30).msec()})
-    await this.page.getByRole('button', { name: 'Environment Configuration' }).click({timeout: TimeUnits.minutes(1).msec()});
-    await this.page.getByLabel('GALAXY EnvironmentRunning').click({timeout: TimeUnits.minutes(1).msec()});
+    await expect(this.page.getByRole('button', {name: 'Sign In'})).toHaveCount(0, {timeout: TimeUnits.SEC_30})
+    await this.page.getByRole('button', { name: 'Environment Configuration' }).click({timeout: TimeUnits.MIN_1});
+    await this.page.getByLabel('GALAXY Environment', {exact: true}).click({timeout: TimeUnits.minutes(1).msec()});
     await this.page.getByRole('button', { name: 'Next' }).click();
     await this.page.getByRole('button', { name: 'Create' }).click();
     console.log('Galaxy launched')

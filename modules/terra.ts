@@ -108,7 +108,7 @@ export class Terra {
       console.log("Login not required")
     }
     // Wait to be returned to the workspace page.
-    await expect(this.page.getByText('ABOUT THE WORKSPACE')).toHaveCount(1)
+    await expect(this.page.getByText('ABOUT THE WORKSPACE')).toHaveCount(1, {timeout: TimeUnits.SEC_30})
     console.log("Logged in")
   }
 

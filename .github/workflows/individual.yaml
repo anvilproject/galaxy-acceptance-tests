@@ -21,23 +21,23 @@ on:
       paste:
         description: 'run the paste test'
         type: boolean
-        default: true
+        default: false
       fastp:
         description: 'run the fastp tool test'
         type: boolean
-        default: true
+        default: false
       import:
         description: 'run the import data test'
         type: boolean
-        default: true
+        default: false
       export:
         description: 'run the export data test'
         type: boolean
-        default: true
+        default: false
       version:
         description: 'check the version number of the server'
         type: boolean
-        default: true
+        default: false
       expected:
         description: 'the expected version number'
         type: string

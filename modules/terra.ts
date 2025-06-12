@@ -125,12 +125,16 @@ export class Terra {
     // await this.page.getByLabel('Galaxy EnvironmentRunning').click();
     const locator = this.page.getByLabel('Galaxy EnvironmentRunning');
     // Check if the label is visible, refresh if not
-    if (!(await locator.isVisible())) {
+    let retries = 3
+    while (!(await locator.isVisible()) && retries > 0) {
+      console.log('Open button not enabled. Reloading the page')
       await this.page.reload();
       await this.page.waitForLoadState('domcontentloaded');
       // Optionally wait for the label to become visible
-      await this.page.waitForSelector('label:has-text("Galaxy EnvironmentRunning")', { timeout: 5000 });
+      // await this.page.waitForSelector('label:has-text("Galaxy EnvironmentRunning")', { timeout: 5000 });
+      retries -= 1
     }
+    expect(retries).toBeGreaterThan(0)
     locator.click()
     const page2Promise = this.page.waitForEvent('popup');
     await this.page.getByLabel('Launch GALAXY').click();

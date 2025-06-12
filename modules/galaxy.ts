@@ -29,7 +29,7 @@ export class Galaxy {
         if (Terra.isTerraTest()) {
             let terra = new Terra(page)
             await terra.login()
-            this.page.waitForTimeout(TimeUnits.SEC_5)
+            page.waitForTimeout(TimeUnits.SEC_5)
             this.page = await terra.openGalaxy()
         }
         else {

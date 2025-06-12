@@ -123,6 +123,7 @@ export class Terra {
 
   async openGalaxy() {
     // await this.page.getByLabel('Galaxy EnvironmentRunning').click();
+    this.page.waitForTimeout(TimeUnits.SEC_5)
     let locator = this.page.getByLabel('Galaxy EnvironmentRunning');
     // Check if the label is visible, refresh if not
     let retries = 3
@@ -130,6 +131,7 @@ export class Terra {
       console.log('Open button not enabled. Reloading the page')
       await this.page.reload();
       await this.page.waitForLoadState('domcontentloaded');
+      this.page.waitForTimeout(TimeUnits.SEC_5)
       // Optionally wait for the label to become visible
       // await this.page.waitForSelector('label:has-text("Galaxy EnvironmentRunning")', { timeout: 5000 });
       retries -= 1

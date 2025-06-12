@@ -122,12 +122,14 @@ export class Terra {
   }
 
   async openGalaxy() {
+    await this.page.waitForTimeout(TimeUnits.SEC_10)
     let locator = this.page.getByLabel('Galaxy EnvironmentRunning');
     // Check if the label is visible, refresh if not
     let retries = 3
     while (!(await locator.isVisible()) && retries > 0) {
       console.log('Open button not enabled. Reloading the page')
       await this.page.reload({waitUntil: 'domcontentloaded'});
+      await this.page.waitForTimeout(TimeUnits.SEC_10)
       retries -= 1
       locator = this.page.getByLabel('Galaxy EnvironmentRunning');
     }

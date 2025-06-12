@@ -123,7 +123,7 @@ export class Terra {
 
   async openGalaxy() {
     // await this.page.getByLabel('Galaxy EnvironmentRunning').click();
-    const locator = this.page.getByLabel('Galaxy EnvironmentRunning');
+    let locator = this.page.getByLabel('Galaxy EnvironmentRunning');
     // Check if the label is visible, refresh if not
     let retries = 3
     while (!(await locator.isVisible()) && retries > 0) {
@@ -133,6 +133,7 @@ export class Terra {
       // Optionally wait for the label to become visible
       // await this.page.waitForSelector('label:has-text("Galaxy EnvironmentRunning")', { timeout: 5000 });
       retries -= 1
+      locator = this.page.getByLabel('Galaxy EnvironmentRunning');
     }
     expect(retries).toBeGreaterThan(0)
     locator.click()

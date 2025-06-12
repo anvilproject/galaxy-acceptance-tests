@@ -71,17 +71,17 @@ export class Galaxy {
         }
         console.log(`Creating history "${name}"`)
         await this.page.getByRole('navigation', { name: 'current history management' }).getByRole('button').first().click();
-        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        // await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('button', { name: 'Edit' }).click();
-        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        // await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('textbox', { name: 'Name' }).click();
-        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        // await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('textbox', { name: 'Name' }).press('ControlOrMeta+a');
-        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        // await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('textbox', { name: 'Name' }).fill(name);
-        await this.page.waitForTimeout(TimeUnits.SEC_1)
+        // await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('button', { name: 'Save' }).click();
-        await this.page.waitForTimeout(TimeUnits.SEC_2)
+        // await this.page.waitForTimeout(TimeUnits.SEC_2)
         console.log('History created')
     }
     /**

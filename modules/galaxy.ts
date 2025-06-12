@@ -74,9 +74,9 @@ export class Galaxy {
         // await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('button', { name: 'Edit' }).click();
         // await this.page.waitForTimeout(TimeUnits.SEC_1)
-        await this.page.getByRole('textbox', { name: 'Name' }).click();
+        // await this.page.getByRole('textbox', { name: 'Name' }).click();
         // await this.page.waitForTimeout(TimeUnits.SEC_1)
-        await this.page.getByRole('textbox', { name: 'Name' }).press('ControlOrMeta+a');
+        // await this.page.getByRole('textbox', { name: 'Name' }).press('ControlOrMeta+a');
         // await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('textbox', { name: 'Name' }).fill(name);
         // await this.page.waitForTimeout(TimeUnits.SEC_1)

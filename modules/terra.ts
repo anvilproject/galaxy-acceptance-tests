@@ -122,7 +122,16 @@ export class Terra {
   }
 
   async openGalaxy() {
-    await this.page.getByLabel('Galaxy EnvironmentRunning').click();
+    // await this.page.getByLabel('Galaxy EnvironmentRunning').click();
+    const locator = this.page.getByLabel('Galaxy EnvironmentRunning');
+    // Check if the label is visible, refresh if not
+    if (!(await locator.isVisible())) {
+      await this.page.reload();
+      await this.page.waitForLoadState('domcontentloaded');
+      // Optionally wait for the label to become visible
+      await this.page.waitForSelector('label:has-text("Galaxy EnvironmentRunning")', { timeout: 5000 });
+    }
+    locator.click()
     const page2Promise = this.page.waitForEvent('popup');
     await this.page.getByLabel('Launch GALAXY').click();
     const page2 = await page2Promise;

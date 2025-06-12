@@ -27,12 +27,14 @@ export class Galaxy {
     async setup(page: Page) {
 
         if (Terra.isTerraTest()) {
+            console.log('This is a Terra test')
             let terra = new Terra(page)
             await terra.login()
             page.waitForTimeout(TimeUnits.SEC_5)
             this.page = await terra.openGalaxy()
         }
         else {
+            console.log('Testing a non-Terra Galaxy instance')
             this.page = page
             // if ( !('TERRA_URL' in process.env) ) {
             //     process.env.TERRA_URL = 'http://35.196.87.134:8000/galaxy/'

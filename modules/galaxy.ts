@@ -36,9 +36,6 @@ export class Galaxy {
         else {
             console.log('Testing a non-Terra Galaxy instance')
             this.page = page
-            // if ( !('TERRA_URL' in process.env) ) {
-            //     process.env.TERRA_URL = 'http://35.196.87.134:8000/galaxy/'
-            // }
             await this.page.goto(process.env.TERRA_URL!)
         }
         return this
@@ -63,8 +60,6 @@ export class Galaxy {
         await this.page.getByPlaceholder('Name').click()
         await this.page.getByPlaceholder('Name').fill(name);
         await this.page.getByRole('button', {name:'save'}).click()
-        // await this.page.getByRole('button', {name: 'Switch to history'}).click()
-        // await this.page.getByRole('cell', {name: new RegExp(name)}).click()    
         console.log('History created.')
     }
 
@@ -74,19 +69,12 @@ export class Galaxy {
         }
         console.log(`Creating history "${name}"`)
         await this.page.getByRole('navigation', { name: 'current history management' }).getByRole('button').first().click();
-        // await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('button', { name: 'Edit' }).click();
-        // await this.page.waitForTimeout(TimeUnits.SEC_1)
-        // await this.page.getByRole('textbox', { name: 'Name' }).click();
-        // await this.page.waitForTimeout(TimeUnits.SEC_1)
-        // await this.page.getByRole('textbox', { name: 'Name' }).press('ControlOrMeta+a');
-        // await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('textbox', { name: 'Name' }).fill(name);
-        // await this.page.waitForTimeout(TimeUnits.SEC_1)
         await this.page.getByRole('button', { name: 'Save' }).click();
-        // await this.page.waitForTimeout(TimeUnits.SEC_2)
         console.log('History created')
     }
+
     /**
      * Deletes the current history.
      */
@@ -117,11 +105,6 @@ export class Galaxy {
         await this.page.getByRole('button', { name: 'Close', exact: true }).click();
         console.log('Upload in progress.')
         await this.waitForJobs()
-        // await expect(async () => {
-        //     const count = await this.page.getByRole("button", { name: "This job is currently running" }).count();
-        //     expect(count).toBeGreaterThan(0);
-        // }).toPass();
-        // await expect(this.page.getByRole("button", { name: "This job is currently running"})).toHaveCount(0, {timeout: TimeUnits.MIN_10})
         console.log('Upload complete.')
     }
 
@@ -139,6 +122,7 @@ export class Galaxy {
         await expect(this.page.getByRole("button", { name: "This job is currently running"})).toHaveCount(0, {timeout: TimeUnits.MIN_10})
         console.log('Jobs complete')
     }
+    
     /** 
      * Take a screenshot of the current state of the UI and attach it to the testInfo
      */

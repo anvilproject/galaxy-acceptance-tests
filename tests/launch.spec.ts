@@ -31,14 +31,12 @@ test.describe('launch a new Galaxy instance', () => {
         // Give Leo lots of time to launch the cluster and install Galaxy
         let timeout: number = TimeUnits.MIN_20
         test.setTimeout(timeout)
-        context.tracing.start({snapshots:true, screenshots: true})
         terra.launch();
         const ok = page.getByRole('link', {name: 'Open Galaxy'}).waitFor().then(() => 'ok')
         const error = page.getByLabel('GALAXY EnvironmentError').waitFor().then(() => 'error')
         const result = await Promise.race([ok, error])
         const screenshot = await page.screenshot({path: 'launch.png'})
         testInfo.attach('screenshot', {body: screenshot, contentType: 'image/png'})
-        context.tracing.stop({ path: 'launch-trace.zip' })
         expect(result).toEqual('ok')
     });
 });

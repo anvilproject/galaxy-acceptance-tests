@@ -122,7 +122,7 @@ export class Galaxy {
         await expect(this.page.getByRole("button", { name: "This job is currently running"})).toHaveCount(0, {timeout: TimeUnits.MIN_10})
         console.log('Jobs complete')
     }
-    
+
     /** 
      * Take a screenshot of the current state of the UI and attach it to the testInfo
      */

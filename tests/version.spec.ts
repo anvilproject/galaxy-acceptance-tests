@@ -15,11 +15,13 @@
  */
 import { test, expect } from '@playwright/test';
 import { Galaxy } from '../modules/galaxy';
+import {TimeUnits} from "../modules/timeunits";
 
 test.describe('Ensure we are running the correct version of Galaxy', () => {
     const EXPECTED_VERSION: string = '24.1'
 
     test('check the Galaxy version', async ({ page }, testInfo) => {
+        test.setTimeout(TimeUnits.MIN_5)
         const galaxy = await new Galaxy().setup(page)
         let version = EXPECTED_VERSION
         if ('TERRA_VERSION' in process.env) {

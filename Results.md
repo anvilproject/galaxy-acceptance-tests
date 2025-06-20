@@ -113,3 +113,10 @@ The most current result is at the end of the table.
 | Thu Jun 19 2025 | 3:16:18 AM | Import datasets from the Other Data section | 00:01:01 | passed | :green_circle: |
 | Thu Jun 19 2025 | 3:17:48 AM | Export a history to the user's workspace | 00:01:27 | passed | :green_circle: |
 | Thu Jun 19 2025 | 3:18:14 AM | Delete the Galaxy instance | 00:00:23 | passed | :green_circle: |
+| Fri Jun 20 2025 | 3:10:13 AM | Launch a Galaxy instance | 00:13:31 | passed | :green_circle: |
+| Fri Jun 20 2025 | 3:10:48 AM | check the Galaxy version | 00:00:33 | passed | :green_circle: |
+| Fri Jun 20 2025 | 3:13:35 AM | run the fastp tool | 00:02:44 | passed | :green_circle: |
+| Fri Jun 20 2025 | 3:14:52 AM | Import datasets from the Tables section | 00:01:14 | passed | :green_circle: |
+| Fri Jun 20 2025 | 3:15:54 AM | Import datasets from the Other Data section | 00:01:01 | passed | :green_circle: |
+| Fri Jun 20 2025 | 3:17:27 AM | Export a history to the user's workspace | 00:01:31 | passed | :green_circle: |
+| Fri Jun 20 2025 | 3:17:52 AM | Delete the Galaxy instance | 00:00:23 | passed | :green_circle: |

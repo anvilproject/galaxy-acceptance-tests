@@ -227,3 +227,7 @@ The most current result is at the end of the table.
 | Sun Jul 06 2025 | 3:27:23 AM | Import datasets from the Other Data section | 00:01:02 | passed | :green_circle: |
 | Sun Jul 06 2025 | 3:28:53 AM | Export a history to the user's workspace | 00:01:27 | passed | :green_circle: |
 | Sun Jul 06 2025 | 3:29:20 AM | Delete the Galaxy instance | 00:00:24 | passed | :green_circle: |
+| Mon Jul 07 2025 | 3:07:15 AM | Launch a Galaxy instance | 00:00:24 | failed | :red_circle: |
+| Mon Jul 07 2025 | 3:07:46 AM | Launch a Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
+| Mon Jul 07 2025 | 3:08:08 AM | Launch a Galaxy instance | 00:00:20 | failed | :red_circle: |
+| Mon Jul 07 2025 | 3:08:33 AM | Delete the Galaxy instance | 00:00:23 | passed | :green_circle: |

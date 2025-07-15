@@ -282,3 +282,10 @@ The most current result is at the end of the table.
 | Mon Jul 14 2025 | 3:32:20 AM | Import datasets from the Other Data section | 00:01:01 | passed | :green_circle: |
 | Mon Jul 14 2025 | 3:33:48 AM | Export a history to the user's workspace | 00:01:26 | passed | :green_circle: |
 | Mon Jul 14 2025 | 3:34:13 AM | Delete the Galaxy instance | 00:00:23 | passed | :green_circle: |
+| Tue Jul 15 2025 | 3:25:33 AM | Launch a Galaxy instance | 00:13:30 | passed | :green_circle: |
+| Tue Jul 15 2025 | 3:26:09 AM | check the Galaxy version | 00:00:32 | passed | :green_circle: |
+| Tue Jul 15 2025 | 3:28:42 AM | run the fastp tool | 00:02:29 | passed | :green_circle: |
+| Tue Jul 15 2025 | 3:29:52 AM | Import datasets from the Tables section | 00:01:07 | passed | :green_circle: |
+| Tue Jul 15 2025 | 3:30:53 AM | Import datasets from the Other Data section | 00:01:01 | passed | :green_circle: |
+| Tue Jul 15 2025 | 3:32:22 AM | Export a history to the user's workspace | 00:01:26 | passed | :green_circle: |
+| Tue Jul 15 2025 | 3:32:46 AM | Delete the Galaxy instance | 00:00:22 | passed | :green_circle: |

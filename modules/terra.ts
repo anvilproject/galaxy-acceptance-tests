@@ -144,7 +144,8 @@ export class Terra {
   async shutdown(deleteDisks: boolean = false) {
     console.log('Deleting Galaxy instance')
     await this.page.getByLabel('GALAXY Environment', { exact: false }).click();
-    await this.page.getByText('Settings').click()
+    // await this.page.getByText('Settings').click()
+    await this.page.getByRole('button', { name: 'GALAXY Environment', exact: true }).click();
     await this.page.getByRole('button', { name: 'Delete Environment' }).click();
     if (deleteDisks) {
       await this.page.getByLabel('Delete everything, including persistent disk').check();

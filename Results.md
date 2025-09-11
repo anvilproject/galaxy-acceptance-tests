@@ -748,3 +748,15 @@ The most current result is at the end of the table.
 | Wed Sep 10 2025 | 3:12:32 AM | Export a history to the user's workspace | 00:02:00 | timedOut | :alarm_clock: |
 | Wed Sep 10 2025 | 3:14:19 AM | Export a history to the user's workspace | 00:01:46 | passed | :green_circle: |
 | Wed Sep 10 2025 | 3:14:45 AM | Delete the Galaxy instance | 00:00:23 | passed | :green_circle: |
+| Thu Sep 11 2025 | 2:54:45 AM | Launch a Galaxy instance | 00:14:04 | passed | :green_circle: |
+| Thu Sep 11 2025 | 2:55:22 AM | check the Galaxy version | 00:00:33 | passed | :green_circle: |
+| Thu Sep 11 2025 | 3:00:25 AM | run the fastp tool | 00:04:59 | timedOut | :alarm_clock: |
+| Thu Sep 11 2025 | 3:05:31 AM | run the fastp tool | 00:04:59 | timedOut | :alarm_clock: |
+| Thu Sep 11 2025 | 3:10:31 AM | run the fastp tool | 00:04:59 | timedOut | :alarm_clock: |
+| Thu Sep 11 2025 | 3:11:47 AM | Import datasets from the Tables section | 00:01:11 | passed | :green_circle: |
+| Thu Sep 11 2025 | 3:13:47 AM | Import datasets from the Other Data section | 00:02:00 | timedOut | :alarm_clock: |
+| Thu Sep 11 2025 | 3:15:48 AM | Import datasets from the Other Data section | 00:02:00 | timedOut | :alarm_clock: |
+| Thu Sep 11 2025 | 3:16:55 AM | Import datasets from the Other Data section | 00:01:05 | passed | :green_circle: |
+| Thu Sep 11 2025 | 3:18:57 AM | Export a history to the user's workspace | 00:01:59 | timedOut | :alarm_clock: |
+| Thu Sep 11 2025 | 3:20:41 AM | Export a history to the user's workspace | 00:01:43 | passed | :green_circle: |
+| Thu Sep 11 2025 | 3:21:08 AM | Delete the Galaxy instance | 00:00:23 | passed | :green_circle: |

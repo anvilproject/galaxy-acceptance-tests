@@ -960,3 +960,13 @@ The most current result is at the end of the table.
 | Thu Oct 09 2025 | 3:21:26 AM | Export a history to the user's workspace | 00:01:59 | timedOut | :alarm_clock: |
 | Thu Oct 09 2025 | 3:23:02 AM | Export a history to the user's workspace | 00:01:35 | passed | :green_circle: |
 | Thu Oct 09 2025 | 3:23:30 AM | Delete the Galaxy instance | 00:00:25 | passed | :green_circle: |
+| Fri Oct 10 2025 | 2:54:37 AM | Launch a Galaxy instance | 00:13:34 | passed | :green_circle: |
+| Fri Oct 10 2025 | 2:55:15 AM | check the Galaxy version | 00:00:35 | passed | :green_circle: |
+| Fri Oct 10 2025 | 3:00:19 AM | run the fastp tool | 00:04:59 | timedOut | :alarm_clock: |
+| Fri Oct 10 2025 | 3:05:24 AM | run the fastp tool | 00:04:59 | timedOut | :alarm_clock: |
+| Fri Oct 10 2025 | 3:10:25 AM | run the fastp tool | 00:04:59 | timedOut | :alarm_clock: |
+| Fri Oct 10 2025 | 3:12:29 AM | Import datasets from the Tables section | 00:01:59 | timedOut | :alarm_clock: |
+| Fri Oct 10 2025 | 3:13:53 AM | Import datasets from the Tables section | 00:01:23 | passed | :green_circle: |
+| Fri Oct 10 2025 | 3:14:57 AM | Import datasets from the Other Data section | 00:01:03 | passed | :green_circle: |
+| Fri Oct 10 2025 | 3:16:30 AM | Export a history to the user's workspace | 00:01:29 | passed | :green_circle: |
+| Fri Oct 10 2025 | 3:16:59 AM | Delete the Galaxy instance | 00:00:26 | passed | :green_circle: |

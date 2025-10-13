@@ -983,3 +983,9 @@ The most current result is at the end of the table.
 | Sun Oct 12 2025 | 2:43:47 AM | Launch a Galaxy instance | 00:00:21 | failed | :red_circle: |
 | Sun Oct 12 2025 | 2:44:18 AM | Launch a Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
 | Sun Oct 12 2025 | 2:44:43 AM | Delete the Galaxy instance | 00:00:23 | passed | :green_circle: |
+| Mon Oct 13 2025 | 3:10:17 AM | Launch a Galaxy instance | 00:19:59 | timedOut | :alarm_clock: |
+| Mon Oct 13 2025 | 3:30:19 AM | Launch a Galaxy instance | 00:19:59 | timedOut | :alarm_clock: |
+| Mon Oct 13 2025 | 3:50:20 AM | Launch a Galaxy instance | 00:19:59 | timedOut | :alarm_clock: |
+| Mon Oct 13 2025 | 3:50:52 AM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
+| Mon Oct 13 2025 | 3:51:24 AM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |
+| Mon Oct 13 2025 | 3:51:54 AM | Delete the Galaxy instance | 00:00:29 | timedOut | :alarm_clock: |

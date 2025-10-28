@@ -16,12 +16,13 @@
 import { test as authenticate, expect } from '@playwright/test';
 import { Terra } from '../modules/terra';
 import { TimeUnits } from '../modules/timeunits';
+import {otp} from "../modules/topt";
 
 const authFile = '.auth/user.json';
 
 authenticate('authenticate', async ({ page }) => {
   // Perform authentication steps. 
-  await page.goto(Terra.test + 'integration_tests');
+  await page.goto(Terra.sarscov2)  // + 'integration_tests');
   await page.getByRole('button', {name: 'Agree'}).click()
   const page1Promise = page.waitForEvent('popup');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -37,10 +38,18 @@ authenticate('authenticate', async ({ page }) => {
   // }
   await page1.getByLabel('Enter your password').fill(process.env.TERRA_PASSWORD!);  
   await page1.click("#passwordNext")
+  await page1.getByLabel("Enter code").fill(otp())
+  await page1.getByRole("button", {name: "Next"}).click()
 
-  // Wait until the page receives the cookies.
+  // Wait until the popup closes - this ensures all cookies are received
   await page1.waitForEvent('close')
 
-  // Save the context for re-uese.
+  // Wait for the main page to be fully authenticated
+  await expect(page.getByText('ABOUT THE WORKSPACE')).toHaveCount(1, {timeout: TimeUnits.SEC_30})
+
+  // Give it an extra moment to ensure all cookies are set
+  await page.waitForTimeout(TimeUnits.SEC_2)
+
+  // Save the context for reuse
   await page.context().storageState({ path: authFile });
 });

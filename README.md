@@ -1,19 +1,23 @@
 # Galaxy Acceptance Tests
 Playwright tests to confirm Galaxy is functioning as expected after deployment.
 
-The `tests` directory contains a number of Playwright test scripts that will eventually (likely) be combined into a single, end-to-end, test that:
+The `tests` directory contains Playwright test scripts that verify Galaxy functionality across two deployment scenarios:
+- **Terra-hosted Galaxy**: Tests that manage the full lifecycle on [Terra](https://app.terra.bio) (launch, test, shutdown)
+- **External Galaxy**: Tests against a standalone Galaxy instance running on a known URL
 
-1. Launches a new Galaxy instance on the [Terra production server](https://app.terra.bio).
-1. Performs several simple tests to confirm Galaxy is operational:
-   1. Create, rename, and delete a history.
-   1. Upload data by pasting text into the upload dialog.
-   1. Uploads two data file and runs the `fastp` tool.
-   1. Uploads two data files, a reference genome, and a variant calling workflow and runs the workflow.
-1. Shuts down the Galaxy instance leaving the disks intact.
-1. Launches a new Galaxy instance and ensure previous data is still present.
-1. Shuts down the Galaxy instance and deleting the existing disks.
+A complete end-to-end Terra test flow includes:
 
-The test files can be grouped into two categories: tests that target the Terra UI (e.g. launch Galaxy), and tests that target Galaxy (e.g. running tools).
+1. Launching a new Galaxy instance on Terra
+2. Running functional tests:
+   - Create, rename, and delete a history
+   - Upload data by pasting text into the upload dialog
+   - Upload datasets and run the `fastp` tool
+   - Upload datasets, a reference genome, and run a variant calling workflow
+3. Pausing the Galaxy instance (preserving disks)
+4. Resuming and verifying data persistence
+5. Shutting down and cleaning up resources
+
+Test files are organized into two categories: **Terra tests** (platform operations) and **Galaxy tests** (application functionality).
 
 ## Terra tests
 
@@ -36,19 +40,75 @@ The test files that target Galaxy functionality:
 
 ## Administrative functions
 
-There are also two "tests", that are used for administrative purposes.
+Administrative test utilities:
 
-1. `auth.setup.ts`<br/>Run this test in _headed_ mode to save the security context to `.auth/user.json`.  Update the GitHub secret `USER_JSON` to enable the test user account to authenticate without triggering two-factor authentication.
-1. `cleanup.spec.ts`<br/>Delete disks that sometimes linger.
+- `auth.setup.ts`<br/>Authenticates to Terra and saves session to `.auth/user.json`. This allows subsequent tests to bypass Google OAuth login and avoid captchas. Run in headed mode: `npx playwright test tests/auth.setup.ts --headed`. For CI/CD, update the GitHub secret `USER_JSON` with the contents of this file.
+- `cleanup.spec.ts`<br/>Cleans up orphaned persistent disks that sometimes linger after test failures.
 
 ## Running the tests locally
 
-To run the tests locally you will need to set the environment variable `TERRA_URL` to point to the Galaxy instance to be tested.  This should be set to the URL of an external Galaxy server or to the string `sarscov2` to test the Terra production instance.  When testing the Terra production instance you will also need to set `TERRA_EMAIL` and `TERRA_PASSWORD` to the email and password of a user than has access to Terra.
+### Setup
 
+1. **Install dependencies:**
+   ```bash
+   npm install
+   npx playwright install
+   ```
+
+2. **Configure environment variables:**
+   Create a `.env.local` file (or set environment variables) with the following:
+
+   **For Terra testing:**
+   ```bash
+   TERRA_URL=test          # Options: 'test'/'dev', 'production', 'sarscov2'
+   TERRA_WORKSPACE=acceptance-tests  # Or 'integration_tests'
+   TERRA_EMAIL=your_email@example.com
+   TERRA_PASSWORD=your_password
+   ```
+
+   **For external Galaxy testing:**
+   ```bash
+   TERRA_URL=http://<IP_ADDRESS>:8000/galaxy/
+   ```
+
+3. **Authentication setup (Terra only):**
+   To avoid Google captchas, run the authentication setup once:
+   ```bash
+   npx playwright test tests/auth.setup.ts --headed
+   ```
+   This saves your authenticated session to `.auth/user.json`, which is automatically reused by all subsequent tests.
+
+### Running tests
+
+**Test an external Galaxy instance:**
 ```bash
-TERRA_URL=http://<IP address>:8000/galaxy/
-npx playwright test history paste fastp
+TERRA_URL=http://35.196.87.134:8000/galaxy/ npx playwright test history paste fastp
 ```
 
-If testing against a Terra production instance you will also need to run the `launch.spec.ts` and `shutdown.spec.ts` tests to launch and shutdown the Galaxy instance.
+**Test against Terra (full lifecycle):**
+```bash
+npx playwright test login launch    # Launch Galaxy on Terra
+npx playwright test history paste fastp  # Run Galaxy functional tests
+npx playwright test shutdown        # Clean up
+```
+
+**Run all tests:**
+```bash
+npx playwright test
+```
+
+**Run specific test file:**
+```bash
+npx playwright test tests/fastp.spec.ts
+```
+
+**Debug tests (headed mode with inspector):**
+```bash
+npx playwright test tests/fastp.spec.ts --debug
+```
+
+**Run with visible browser:**
+```bash
+npx playwright test --headed
+```
 

@@ -39,25 +39,16 @@ test.describe('Run the fastp tool on a small dataset', () => {
         // Select the tool and fill out the run form
         await galaxy.page.getByRole('link', { name: 'fastp fast all-in-one', exact: false }).click();
         await galaxy.page.getByText('Single-end').nth(1).click();
-        await galaxy.page.getByRole('option', { name: 'Paired', exact: true }).locator('div').click();
+        await galaxy.page.getByRole('option', { name: 'Single-end', exact: true }).locator('div').click();
         await galaxy.page.getByText(': ERR3485802.reverse.fastq.gz').first().click();
-        await galaxy.page.locator('[id="single_paired\\|in1"]').getByText(': ERR3485802.forward.fastq.gz').click();
-        await galaxy.page.getByText(': ERR3485802.reverse.fastq.gz').nth(1).click();
-        await galaxy.page.locator('[id="single_paired\\|in2"]').getByText(': ERR3485802.reverse.fastq.gz').click();
         await galaxy.page.getByRole('button', { name: 'Run Tool' }).nth(1).click();
 
         // Wait for the tool to complete.
         await galaxy.waitForJobs()
 
         // Save a screenshot
-        await galaxy.page.getByRole('button', {name: 'fastp on data 2 and data 1: HTML report', exact: false }).click();
+        await galaxy.page.getByRole('button', {name: 'fastp on data 2: HTML report', exact: false }).click();
         await galaxy.screenshot(testInfo, 'fastp.png')
-
-        // Delete the history when done.
-        // await galaxy.deleteHistory()
-
-        // We should always end up back at the default, empty, history.
-        // await expect(galaxy.page.getByText('This history is empty.')).toHaveCount(1)
 
         console.log('Tool complete')
     })

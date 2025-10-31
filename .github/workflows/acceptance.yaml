@@ -94,6 +94,7 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Check the Galaxy version number on the About page
+      id: version-test
       if: ${{ github.event_name == 'schedule' || github.event.inputs.version == 'true' }}
       continue-on-error: true
       run: |
@@ -110,6 +111,7 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Paste text into the upload dialog
+      id: paste-test
       if: ${{ (github.event_name == 'schedule' || github.event.inputs.paste == 'true') && hashFiles('launched') != '' }}
       continue-on-error: true
       run: |
@@ -124,6 +126,7 @@ jobs:
         path: playwright-report/
         retention-days: 30   
     - name: Run the fastp tool
+      id: fastp-test
       if: ${{ github.event_name == 'schedule' || github.event.inputs.fastp == 'true' }}
       continue-on-error: true
       run: |
@@ -138,6 +141,7 @@ jobs:
         path: playwright-report/
         retention-days: 30 
     - name: Test importing data from the workspace
+      id: import-test
       if: ${{ github.event_name == 'schedule' || github.event.inputs.import == 'true' }}
       continue-on-error: true
       run: |
@@ -152,6 +156,7 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Test exporting data to the workspace
+      id: export-test
       if: ${{ github.event_name == 'schedule' || github.event.inputs.export == 'true' }}
       continue-on-error: true
       run: |
@@ -165,6 +170,18 @@ jobs:
         name: export-report
         path: playwright-report/
         retention-days: 30
+    - name: Check for test failures
+      if: always()
+      run: |
+        if [[ "${{ steps.version-test.outcome }}" == "failure" ]] || \
+           [[ "${{ steps.paste-test.outcome }}" == "failure" ]] || \
+           [[ "${{ steps.fastp-test.outcome }}" == "failure" ]] || \
+           [[ "${{ steps.import-test.outcome }}" == "failure" ]] || \
+           [[ "${{ steps.export-test.outcome }}" == "failure" ]]; then
+          echo "One or more tests failed"
+          exit 1
+        fi
+        echo "All tests passed or were skipped"
     - name: Shutdown
       if: always()
       run: |

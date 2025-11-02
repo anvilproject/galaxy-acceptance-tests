@@ -44,9 +44,41 @@ import { readFileSync, writeFileSync, existsSync } from 'fs'
             console.error('Could not find table header in Results.md');
             return;
         }
-        const insertPoint = content.indexOf('\n', headerEnd) + 1;
+        let insertPoint = content.indexOf('\n', headerEnd) + 1;
 
-        // Insert new results at top of table (maintains execution order)
+        // Check if there's already data in the table from today's run
+        // If so, append to it instead of inserting at the very top
+        const lines = content.split('\n');
+        const headerLineIndex = lines.findIndex(line => line.startsWith('|------|'));
+
+        if (headerLineIndex !== -1 && lines.length > headerLineIndex + 1) {
+            // Get the first data row (if it exists)
+            const firstDataRow = lines[headerLineIndex + 1];
+            if (firstDataRow && firstDataRow.trim().length > 0) {
+                // Extract date from first existing row
+                const firstRowDate = firstDataRow.split('|')[1]?.trim();
+                // Extract date from new result
+                const newResultDate = this.results[0].split('|')[1]?.trim();
+
+                // If dates match, we're in the same run - append after the last matching date
+                if (firstRowDate === newResultDate) {
+                    // Find where the current run ends (first row with different date or end of data)
+                    let lastMatchingIndex = headerLineIndex + 1;
+                    for (let i = headerLineIndex + 1; i < lines.length; i++) {
+                        const rowDate = lines[i].split('|')[1]?.trim();
+                        if (rowDate === newResultDate) {
+                            lastMatchingIndex = i;
+                        } else if (rowDate && rowDate !== newResultDate) {
+                            break;
+                        }
+                    }
+                    // Calculate insertion point after the last matching row
+                    insertPoint = lines.slice(0, lastMatchingIndex + 1).join('\n').length + 1;
+                }
+            }
+        }
+
+        // Insert new results at the calculated position
         const newContent =
             content.slice(0, insertPoint) +
             this.results.join('\n') + '\n' +

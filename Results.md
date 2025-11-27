@@ -4,6 +4,14 @@ The most current result is at the top of the table.
 
 | Data | Time | Test | Duration | Status | Icon |
 |------|------|------|----------|--------|------|
+| Thu Nov 27 2025 | 3:04:54 AM | Launch a Galaxy instance | 00:14:00 | passed | :green_circle: |
+| Thu Nov 27 2025 | 3:05:33 AM | check the Galaxy version | 00:00:37 | passed | :green_circle: |
+| Thu Nov 27 2025 | 3:10:36 AM | run the fastp tool | 00:04:59 | timedOut | :alarm_clock: |
+| Thu Nov 27 2025 | 3:13:24 AM | run the fastp tool | 00:02:47 | passed | :green_circle: |
+| Thu Nov 27 2025 | 3:14:38 AM | Import datasets from the Tables section | 00:01:10 | passed | :green_circle: |
+| Thu Nov 27 2025 | 3:15:43 AM | Import datasets from the Other Data section | 00:01:05 | passed | :green_circle: |
+| Thu Nov 27 2025 | 3:17:20 AM | Export a history to the user's workspace | 00:01:35 | passed | :green_circle: |
+| Thu Nov 27 2025 | 3:17:47 AM | Delete the Galaxy instance | 00:00:24 | passed | :green_circle: |
 | Wed Nov 26 2025 | 3:07:39 AM | Launch a Galaxy instance | 00:14:03 | passed | :green_circle: |
 | Wed Nov 26 2025 | 3:08:17 AM | check the Galaxy version | 00:00:36 | passed | :green_circle: |
 | Wed Nov 26 2025 | 3:10:43 AM | run the fastp tool | 00:02:23 | passed | :green_circle: |

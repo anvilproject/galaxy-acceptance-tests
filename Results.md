@@ -4,6 +4,15 @@ The most current result is at the top of the table.
 
 | Data | Time | Test | Duration | Status | Icon |
 |------|------|------|----------|--------|------|
+| Thu Jan 08 2026 | 3:23:31 AM | Launch a Galaxy instance | 00:14:03 | passed | :green_circle: |
+| Thu Jan 08 2026 | 3:24:10 AM | check the Galaxy version | 00:00:36 | passed | :green_circle: |
+| Thu Jan 08 2026 | 3:26:56 AM | run the fastp tool | 00:02:42 | passed | :green_circle: |
+| Thu Jan 08 2026 | 3:28:18 AM | Import datasets from the Tables section | 00:01:19 | passed | :green_circle: |
+| Thu Jan 08 2026 | 3:30:18 AM | Import datasets from the Other Data section | 00:02:00 | timedOut | :alarm_clock: |
+| Thu Jan 08 2026 | 3:31:36 AM | Import datasets from the Other Data section | 00:01:17 | passed | :green_circle: |
+| Thu Jan 08 2026 | 3:33:39 AM | Export a history to the user's workspace | 00:01:59 | timedOut | :alarm_clock: |
+| Thu Jan 08 2026 | 3:35:28 AM | Export a history to the user's workspace | 00:01:48 | passed | :green_circle: |
+| Thu Jan 08 2026 | 3:35:59 AM | Delete the Galaxy instance | 00:00:26 | passed | :green_circle: |
 | Wed Jan 07 2026 | 3:23:30 AM | Launch a Galaxy instance | 00:13:56 | passed | :green_circle: |
 | Wed Jan 07 2026 | 3:24:09 AM | check the Galaxy version | 00:00:36 | passed | :green_circle: |
 | Wed Jan 07 2026 | 3:26:50 AM | run the fastp tool | 00:02:37 | passed | :green_circle: |

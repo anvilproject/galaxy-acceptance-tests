@@ -4,6 +4,10 @@ The most current result is at the top of the table.
 
 | Data | Time | Test | Duration | Status | Icon |
 |------|------|------|----------|--------|------|
+| Sat Jan 10 2026 | 3:01:04 AM | Launch a Galaxy instance | 00:00:26 | failed | :red_circle: |
+| Sat Jan 10 2026 | 3:01:30 AM | Launch a Galaxy instance | 00:00:24 | failed | :red_circle: |
+| Sat Jan 10 2026 | 3:01:54 AM | Launch a Galaxy instance | 00:00:24 | failed | :red_circle: |
+| Sat Jan 10 2026 | 3:02:25 AM | Delete the Galaxy instance | 00:00:27 | passed | :green_circle: |
 | Fri Jan 09 2026 | 3:24:22 AM | Launch a Galaxy instance | 00:13:56 | passed | :green_circle: |
 | Fri Jan 09 2026 | 3:25:00 AM | check the Galaxy version | 00:00:36 | passed | :green_circle: |
 | Fri Jan 09 2026 | 3:27:38 AM | run the fastp tool | 00:02:35 | passed | :green_circle: |

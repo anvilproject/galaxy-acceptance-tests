@@ -4,6 +4,12 @@ The most current result is at the top of the table.
 
 | Data | Time | Test | Duration | Status | Icon |
 |------|------|------|----------|--------|------|
+| Thu Feb 19 2026 | 3:55:30 AM | Launch a Galaxy instance | 00:00:13 | failed | :red_circle: |
+| Thu Feb 19 2026 | 3:55:45 AM | Launch a Galaxy instance | 00:00:13 | failed | :red_circle: |
+| Thu Feb 19 2026 | 3:55:59 AM | Launch a Galaxy instance | 00:00:13 | failed | :red_circle: |
+| Thu Feb 19 2026 | 3:56:15 AM | Delete the Galaxy instance | 00:00:12 | failed | :red_circle: |
+| Thu Feb 19 2026 | 3:56:29 AM | Delete the Galaxy instance | 00:00:13 | failed | :red_circle: |
+| Thu Feb 19 2026 | 3:56:42 AM | Delete the Galaxy instance | 00:00:12 | failed | :red_circle: |
 | Wed Feb 18 2026 | 3:55:35 AM | Launch a Galaxy instance | 00:00:15 | failed | :red_circle: |
 | Wed Feb 18 2026 | 3:55:49 AM | Launch a Galaxy instance | 00:00:13 | failed | :red_circle: |
 | Wed Feb 18 2026 | 3:56:02 AM | Launch a Galaxy instance | 00:00:12 | failed | :red_circle: |
